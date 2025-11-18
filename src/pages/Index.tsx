@@ -1,12 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Introduction from "@/components/sections/Introduction";
+import TemaI from "@/components/sections/TemaI";
+import TemaII from "@/components/sections/TemaII";
+import TemaIII from "@/components/sections/TemaIII";
+import TemaIV from "@/components/sections/TemaIV";
+import Conclusion from "@/components/sections/Conclusion";
+import Glossary from "@/components/sections/Glossary";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="scroll-smooth">
+      <Navbar />
+      <Hero />
+      <Introduction />
+      <TemaI />
+      <TemaII />
+      <TemaIII />
+      <TemaIV />
+      <Conclusion />
+      <Glossary />
+      <Footer />
+      <ScrollToTop />
     </div>
   );
 };
