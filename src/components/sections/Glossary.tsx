@@ -7,66 +7,36 @@ const Glossary = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const terms = [
-    {
-      term: "BIOS",
-      definition: "Basic Input/Output System. Sistema básico de entrada/salida que inicializa el hardware durante el proceso de arranque.",
-    },
-    {
-      term: "Driver",
-      definition: "Controlador de software que permite al sistema operativo comunicarse con dispositivos de hardware.",
-    },
-    {
-      term: "Firmware",
-      definition: "Software permanente grabado en la memoria de solo lectura de un dispositivo hardware.",
-    },
-    {
-      term: "Desfragmentación",
-      definition: "Proceso de reorganizar archivos en un disco duro para mejorar el rendimiento del sistema.",
-    },
-    {
-      term: "Malware",
-      definition: "Software malicioso diseñado para dañar o infiltrarse en un sistema sin el consentimiento del usuario.",
-    },
-    {
-      term: "POST",
-      definition: "Power-On Self-Test. Prueba automática que realiza el sistema al encenderse para verificar componentes hardware.",
-    },
-    {
-      term: "RAM",
-      definition: "Random Access Memory. Memoria de acceso aleatorio utilizada para almacenar datos temporalmente mientras el equipo está encendido.",
-    },
-    {
-      term: "Registro de Windows",
-      definition: "Base de datos jerárquica que almacena configuraciones y opciones del sistema operativo Windows.",
-    },
-    {
-      term: "Sectores defectuosos",
-      definition: "Áreas dañadas en un disco duro que ya no pueden almacenar datos de forma confiable.",
-    },
-    {
-      term: "SSD",
-      definition: "Solid State Drive. Dispositivo de almacenamiento que utiliza memoria flash, más rápido que los discos duros tradicionales.",
-    },
-    {
-      term: "Temperatura térmica",
-      definition: "Medida de calor generado por componentes electrónicos durante su funcionamiento.",
-    },
-    {
-      term: "Actualización",
-      definition: "Proceso de instalar versiones más recientes de software para mejorar funcionalidad, seguridad o rendimiento.",
-    },
-    {
-      term: "Caché",
-      definition: "Memoria de alta velocidad que almacena datos frecuentemente utilizados para acceso rápido.",
-    },
-    {
-      term: "Partición",
-      definition: "División lógica de un disco duro que funciona como unidad independiente.",
-    },
-    {
-      term: "USB",
-      definition: "Universal Serial Bus. Estándar de conexión para periféricos y transferencia de datos.",
-    },
+    { term: "BIOS", definition: "Basic Input/Output System. Sistema básico de entrada/salida que inicializa el hardware durante el proceso de arranque." },
+    { term: "Driver", definition: "Controlador de software que permite al sistema operativo comunicarse con dispositivos de hardware." },
+    { term: "Firmware", definition: "Software permanente grabado en la memoria de solo lectura de un dispositivo hardware." },
+    { term: "Desfragmentación", definition: "Proceso de reorganizar archivos en un disco duro para mejorar el rendimiento del sistema." },
+    { term: "Malware", definition: "Software malicioso diseñado para dañar o infiltrarse en un sistema sin el consentimiento del usuario." },
+    { term: "POST", definition: "Power-On Self-Test. Prueba automática que realiza el sistema al encenderse para verificar componentes hardware." },
+    { term: "RAM", definition: "Random Access Memory. Memoria de acceso aleatorio utilizada para almacenar datos temporalmente mientras el equipo está encendido." },
+    { term: "Registro de Windows", definition: "Base de datos jerárquica que almacena configuraciones y opciones del sistema operativo Windows." },
+    { term: "Sectores defectuosos", definition: "Áreas dañadas en un disco duro que ya no pueden almacenar datos de forma confiable." },
+    { term: "SSD", definition: "Solid State Drive. Dispositivo de almacenamiento que utiliza memoria flash, más rápido que los discos duros tradicionales." },
+    { term: "Temperatura térmica", definition: "Medida de calor generado por componentes electrónicos durante su funcionamiento." },
+    { term: "Actualización", definition: "Proceso de instalar versiones más recientes de software para mejorar funcionalidad, seguridad o rendimiento." },
+    { term: "Caché", definition: "Memoria de alta velocidad que almacena datos frecuentemente utilizados para acceso rápido." },
+    { term: "Partición", definition: "División lógica de un disco duro que funciona como unidad independiente." },
+    { term: "USB", definition: "Universal Serial Bus. Estándar de conexión para periféricos y transferencia de datos." },
+    { term: "CPU", definition: "Central Processing Unit. Unidad central de procesamiento que ejecuta instrucciones y realiza cálculos." },
+    { term: "GPU", definition: "Graphics Processing Unit. Procesador especializado en renderizado de gráficos y video." },
+    { term: "HDD", definition: "Hard Disk Drive. Disco duro tradicional que almacena datos en discos magnéticos giratorios." },
+    { term: "Motherboard", definition: "Placa base que conecta todos los componentes del sistema y permite su comunicación." },
+    { term: "Overclock", definition: "Aumentar la velocidad de funcionamiento de un componente por encima de sus especificaciones de fábrica." },
+    { term: "Backup", definition: "Copia de seguridad de datos importantes para prevenir pérdida de información." },
+    { term: "Firewall", definition: "Sistema de seguridad que controla el tráfico de red entrante y saliente." },
+    { term: "TRIM", definition: "Comando que permite al sistema operativo informar a un SSD qué bloques de datos ya no están en uso." },
+    { term: "Bootloader", definition: "Programa que carga el sistema operativo durante el arranque del equipo." },
+    { term: "UEFI", definition: "Unified Extensible Firmware Interface. Reemplazo moderno del BIOS tradicional." },
+    { term: "Thermal Paste", definition: "Pasta térmica que mejora la transferencia de calor entre CPU y disipador." },
+    { term: "PSU", definition: "Power Supply Unit. Fuente de alimentación que convierte corriente alterna en corriente continua." },
+    { term: "Antivirus", definition: "Software diseñado para detectar, prevenir y eliminar malware del sistema." },
+    { term: "Chipset", definition: "Conjunto de circuitos integrados que gestionan la comunicación entre CPU y otros componentes." },
+    { term: "SATA", definition: "Serial ATA. Interfaz de conexión para dispositivos de almacenamiento." },
   ];
 
   const filteredTerms = terms.filter(

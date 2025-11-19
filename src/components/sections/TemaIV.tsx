@@ -50,23 +50,43 @@ const TemaIV = () => {
   const commonProblems = [
     {
       problem: "El equipo no enciende",
-      causes: ["Fuente de poder desconectada o dañada", "Cable de alimentación defectuoso", "Botón de encendido dañado"],
-      solutions: ["Verificar conexiones eléctricas", "Probar con otra fuente de poder", "Verificar botón de encendido"],
+      causes: ["Fuente de poder desconectada o dañada", "Cable de alimentación defectuoso", "Botón de encendido dañado", "Interruptor de fuente apagado"],
+      solutions: ["Verificar conexiones eléctricas", "Probar con otra fuente de poder", "Verificar botón de encendido", "Revisar interruptor de fuente"],
     },
     {
       problem: "El equipo enciende pero no da video",
-      causes: ["Tarjeta de video mal conectada", "Monitor desconectado", "Cable de video dañado", "RAM mal insertada"],
-      solutions: ["Verificar conexión de tarjeta de video", "Probar con otro cable/monitor", "Reinsertar módulos de RAM"],
+      causes: ["Tarjeta de video mal conectada", "Monitor desconectado", "Cable de video dañado", "RAM mal insertada", "Entrada de video incorrecta"],
+      solutions: ["Verificar conexión de tarjeta de video", "Probar con otro cable/monitor", "Reinsertar módulos de RAM", "Verificar entrada correcta en monitor"],
     },
     {
       problem: "Pantalla azul (BSOD)",
-      causes: ["Drivers incompatibles", "Problemas de RAM", "Disco duro defectuoso", "Sobrecalentamiento"],
-      solutions: ["Actualizar drivers", "Verificar RAM con Memtest", "Verificar disco con CHKDSK", "Revisar temperaturas"],
+      causes: ["Drivers incompatibles", "Problemas de RAM", "Disco duro defectuoso", "Sobrecalentamiento", "Actualizaciones incorrectas"],
+      solutions: ["Actualizar drivers", "Verificar RAM con Memtest", "Verificar disco con CHKDSK", "Revisar temperaturas", "Deshacer actualizaciones recientes"],
     },
     {
       problem: "Sistema lento",
-      causes: ["Poco espacio en disco", "Muchos programas al inicio", "Malware", "Hardware obsoleto"],
-      solutions: ["Liberar espacio en disco", "Desactivar programas de inicio", "Escanear con antivirus", "Actualizar componentes"],
+      causes: ["Poco espacio en disco", "Muchos programas al inicio", "Malware", "Hardware obsoleto", "Fragmentación de disco"],
+      solutions: ["Liberar espacio en disco", "Desactivar programas de inicio", "Escanear con antivirus", "Actualizar componentes", "Desfragmentar disco"],
+    },
+    {
+      problem: "Sobrecalentamiento",
+      causes: ["Ventiladores sucios o dañados", "Pasta térmica seca", "Mala ventilación del gabinete", "Overclocking excesivo"],
+      solutions: ["Limpiar ventiladores", "Renovar pasta térmica", "Mejorar flujo de aire", "Restaurar velocidades de fábrica"],
+    },
+    {
+      problem: "Errores de disco duro",
+      causes: ["Sectores defectuosos", "Cable SATA dañado", "Disco al final de vida útil", "Corrupción del sistema de archivos"],
+      solutions: ["Ejecutar CHKDSK", "Reemplazar cable SATA", "Respaldar datos y reemplazar disco", "Reparar sistema de archivos"],
+    },
+    {
+      problem: "USB no reconocido",
+      causes: ["Puerto USB dañado", "Driver desactualizado", "Dispositivo defectuoso", "Problemas de alimentación USB"],
+      solutions: ["Probar otro puerto USB", "Actualizar drivers de chipset", "Verificar dispositivo en otro equipo", "Verificar configuración de energía USB"],
+    },
+    {
+      problem: "No hay audio",
+      causes: ["Controladores de audio desactualizados", "Dispositivo de audio deshabilitado", "Cable de audio mal conectado", "Configuración incorrecta"],
+      solutions: ["Actualizar drivers de audio", "Habilitar dispositivo en Administrador", "Verificar conexiones físicas", "Configurar dispositivo predeterminado"],
     },
   ];
 

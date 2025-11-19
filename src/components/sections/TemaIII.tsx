@@ -1,6 +1,9 @@
-import { Download, Shield, Trash2, Settings, RefreshCw, Database } from "lucide-react";
+import { Download, Shield, Trash2, Settings, RefreshCw, Database, CheckCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import systemUpdateImg from "@/assets/software/system-update.jpg";
+import optimizationImg from "@/assets/software/optimization.jpg";
+import securityImg from "@/assets/software/security.jpg";
 
 const TemaIII = () => {
   const maintenanceTypes = [
@@ -50,31 +53,82 @@ const TemaIII = () => {
     {
       title: "Análisis del Sistema",
       description: "Verificar estado general y detectar problemas potenciales",
+      image: systemUpdateImg,
       steps: [
-        "Verificar espacio en disco disponible",
-        "Revisar uso de CPU y memoria RAM",
-        "Identificar procesos que consumen recursos",
-        "Verificar temperatura del sistema",
+        {
+          title: "Verificar espacio en disco",
+          details: "Abrir 'Este equipo' y revisar capacidad disponible. Se recomienda mantener al menos 20% libre."
+        },
+        {
+          title: "Revisar uso de recursos",
+          details: "Presionar Ctrl+Shift+Esc para abrir Administrador de Tareas. Verificar uso de CPU, RAM y disco."
+        },
+        {
+          title: "Identificar procesos problemáticos",
+          details: "En Administrador de Tareas, ordenar por uso de CPU/RAM. Investigar procesos que consuman más del 50%."
+        },
+        {
+          title: "Verificar temperatura",
+          details: "Usar HWMonitor o Core Temp. CPU no debe superar 80°C en uso normal."
+        },
+        {
+          title: "Revisar eventos del sistema",
+          details: "Abrir Visor de Eventos (eventvwr.msc) y revisar errores críticos recientes."
+        },
       ],
     },
     {
       title: "Limpieza de Archivos",
       description: "Eliminar datos innecesarios para liberar espacio",
+      image: optimizationImg,
       steps: [
-        "Ejecutar Liberador de espacio en disco",
-        "Eliminar archivos temporales de Windows",
-        "Limpiar descargas antiguas",
-        "Vaciar papelera de reciclaje",
+        {
+          title: "Liberador de espacio en disco",
+          details: "Buscar 'Liberador de espacio' en inicio. Seleccionar unidad C: y marcar todas las casillas."
+        },
+        {
+          title: "Archivos temporales de Windows",
+          details: "Ir a Configuración > Sistema > Almacenamiento > Archivos temporales. Eliminar todos."
+        },
+        {
+          title: "Limpiar carpeta de descargas",
+          details: "Revisar carpeta Descargas y eliminar archivos innecesarios o mover a otra ubicación."
+        },
+        {
+          title: "Vaciar papelera de reciclaje",
+          details: "Clic derecho en Papelera de reciclaje > Vaciar papelera de reciclaje."
+        },
+        {
+          title: "Limpiar caché de navegadores",
+          details: "Chrome: Ctrl+Shift+Del. Firefox: Ctrl+Shift+Del. Seleccionar todo el período."
+        },
       ],
     },
     {
       title: "Mantenimiento de Software",
       description: "Mantener aplicaciones actualizadas y optimizadas",
+      image: securityImg,
       steps: [
-        "Actualizar sistema operativo",
-        "Actualizar aplicaciones instaladas",
-        "Desinstalar programas no utilizados",
-        "Verificar licencias de software",
+        {
+          title: "Actualizar Windows",
+          details: "Ir a Configuración > Windows Update > Buscar actualizaciones. Instalar todas las disponibles."
+        },
+        {
+          title: "Actualizar drivers",
+          details: "Usar Device Manager o software como Driver Booster. Priorizar GPU, chipset y audio."
+        },
+        {
+          title: "Actualizar aplicaciones",
+          details: "Abrir Microsoft Store o verificar actualizaciones en cada programa instalado."
+        },
+        {
+          title: "Desinstalar programas no usados",
+          details: "Configuración > Aplicaciones > Aplicaciones y características. Ordenar por tamaño y fecha."
+        },
+        {
+          title: "Gestionar inicio de Windows",
+          details: "Administrador de Tareas > Inicio. Deshabilitar programas innecesarios para acelerar arranque."
+        },
       ],
     },
   ];
@@ -127,7 +181,7 @@ const TemaIII = () => {
           </Card>
 
           {/* Main Tasks */}
-          <div className="mb-12">
+          <div id="tareas-software" className="mb-12">
             <h3 className="text-2xl font-bold mb-6 text-foreground">
               Principales Tareas de Mantenimiento
             </h3>
@@ -162,7 +216,7 @@ const TemaIII = () => {
           </div>
 
           {/* Procedures Tabs */}
-          <div className="mb-12">
+          <div id="procedimientos-software" className="mb-12">
             <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
               <Settings className="w-7 h-7 text-primary" />
               Procedimientos Detallados
@@ -179,19 +233,34 @@ const TemaIII = () => {
 
               {preventiveProcedures.map((procedure, index) => (
                 <TabsContent key={index} value={index.toString()}>
-                  <Card className="border-border">
+                  <Card className="border-border overflow-hidden">
+                    <div className="aspect-video w-full overflow-hidden">
+                      <img 
+                        src={procedure.image} 
+                        alt={procedure.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                     <CardHeader>
-                      <CardTitle>{procedure.title}</CardTitle>
+                      <CardTitle className="flex items-center gap-2">
+                        <CheckCircle className="w-6 h-6 text-primary" />
+                        {procedure.title}
+                      </CardTitle>
                       <p className="text-sm text-muted-foreground">{procedure.description}</p>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-4">
                         {procedure.steps.map((step, stepIndex) => (
-                          <div key={stepIndex} className="flex items-start gap-3">
-                            <div className="flex-shrink-0 w-8 h-8 rounded-full gradient-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
-                              {stepIndex + 1}
+                          <div key={stepIndex} className="p-4 rounded-lg bg-accent/50 hover:bg-accent transition-colors border border-border">
+                            <div className="flex items-start gap-3">
+                              <div className="flex-shrink-0 w-8 h-8 rounded-full gradient-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
+                                {stepIndex + 1}
+                              </div>
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-foreground mb-1">{step.title}</h4>
+                                <p className="text-sm text-muted-foreground">{step.details}</p>
+                              </div>
                             </div>
-                            <p className="text-muted-foreground pt-1">{step}</p>
                           </div>
                         ))}
                       </div>
@@ -209,23 +278,47 @@ const TemaIII = () => {
                 <Download className="w-6 h-6" />
                 Herramientas Recomendadas
               </h3>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold mb-2 text-foreground">Windows</h4>
-                  <ul className="space-y-1 text-sm text-muted-foreground">
-                    <li>• Liberador de espacio en disco (integrado)</li>
-                    <li>• Desfragmentador de disco (integrado)</li>
-                    <li>• Windows Defender (integrado)</li>
-                    <li>• CCleaner (terceros)</li>
+                  <h4 className="font-semibold mb-3 text-foreground">Windows (Integradas)</h4>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">•</span>
+                      <span><strong>Liberador de espacio:</strong> Limpia archivos temporales</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">•</span>
+                      <span><strong>Desfragmentador:</strong> Optimiza HDD</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">•</span>
+                      <span><strong>Windows Defender:</strong> Antivirus integrado</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">•</span>
+                      <span><strong>Administrador de Tareas:</strong> Monitoreo de recursos</span>
+                    </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-2 text-foreground">Multiplataforma</h4>
-                  <ul className="space-y-1 text-sm text-muted-foreground">
-                    <li>• Malwarebytes (antimalware)</li>
-                    <li>• Revo Uninstaller (desinstalación)</li>
-                    <li>• TreeSize (análisis de espacio)</li>
-                    <li>• HWMonitor (monitoreo)</li>
+                  <h4 className="font-semibold mb-3 text-foreground">Terceros (Recomendadas)</h4>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">•</span>
+                      <span><strong>CCleaner:</strong> Limpieza avanzada de sistema</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">•</span>
+                      <span><strong>Malwarebytes:</strong> Detección de malware</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">•</span>
+                      <span><strong>TreeSize:</strong> Análisis de espacio en disco</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary">•</span>
+                      <span><strong>HWMonitor:</strong> Monitoreo de temperaturas</span>
+                    </li>
                   </ul>
                 </div>
               </div>

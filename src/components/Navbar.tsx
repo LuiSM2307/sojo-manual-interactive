@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import logoInstitucional from "@/assets/logo-institucional.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,11 +47,37 @@ const Navbar = () => {
         { id: "conceptos", label: "Conceptos Básicos" },
       ]
     },
-    { id: "tema-ii", label: "Tema II - Hardware" },
-    { id: "tema-iii", label: "Tema III - Software" },
-    { id: "tema-iv", label: "Tema IV - Diagnóstico" },
+    { 
+      id: "tema-ii", 
+      label: "Tema II", 
+      submenu: [
+        { id: "tema-ii", label: "Hardware - Introducción" },
+        { id: "componentes", label: "Componentes Principales" },
+        { id: "guias-hardware", label: "Guías Paso a Paso" },
+      ]
+    },
+    { 
+      id: "tema-iii", 
+      label: "Tema III", 
+      submenu: [
+        { id: "tema-iii", label: "Software - Introducción" },
+        { id: "tareas-software", label: "Tareas de Mantenimiento" },
+        { id: "procedimientos-software", label: "Procedimientos Detallados" },
+      ]
+    },
+    { 
+      id: "tema-iv", 
+      label: "Tema IV", 
+      submenu: [
+        { id: "tema-iv", label: "Diagnóstico - Introducción" },
+        { id: "codigos-bios", label: "Códigos BIOS" },
+        { id: "diagnostico", label: "Procedimientos de Diagnóstico" },
+        { id: "problemas-frecuentes", label: "Problemas Frecuentes" },
+      ]
+    },
     { id: "conclusion", label: "Conclusión" },
     { id: "glosario", label: "Glosario" },
+    { id: "desarrolladores", label: "Desarrolladores", isLink: true, path: "/desarrolladores" },
   ];
 
   return (
@@ -84,7 +114,7 @@ const Navbar = () => {
                       <ChevronDown className="ml-1 h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-card border-border">
+                  <DropdownMenuContent className="bg-card border-border z-50">
                     {item.submenu.map((subItem) => (
                       <DropdownMenuItem
                         key={subItem.id}
@@ -96,6 +126,15 @@ const Navbar = () => {
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
+              ) : item.isLink ? (
+                <Button
+                  key={item.id}
+                  variant="ghost"
+                  onClick={() => window.location.href = item.path}
+                  className="text-foreground hover:text-primary"
+                >
+                  {item.label}
+                </Button>
               ) : (
                 <Button
                   key={item.id}
@@ -107,22 +146,59 @@ const Navbar = () => {
                 </Button>
               )
             )}
+            
+            {/* Search Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setShowSearch(!showSearch)}
+              className="text-foreground hover:text-primary"
+            >
+              <Search className="h-5 w-5" />
+            </Button>
+            
+            {/* Theme Toggle */}
+            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          <div className="lg:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
+
+        {/* Search Bar */}
+        {showSearch && (
+          <div className="hidden lg:block py-4 animate-fade-in">
+            <Input
+              type="text"
+              placeholder="Buscar en el manual..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="max-w-md mx-auto"
+            />
+          </div>
+        )}
 
         {/* Mobile Menu */}
         {isOpen && (
           <div className="lg:hidden py-4 animate-fade-in bg-background/95 backdrop-blur-md rounded-lg mt-2 shadow-lg">
+            <div className="px-4 pb-3">
+              <Input
+                type="text"
+                placeholder="Buscar..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full"
+              />
+            </div>
             {navItems.map((item) => (
               <div key={item.id}>
                 {item.submenu ? (
@@ -143,6 +219,13 @@ const Navbar = () => {
                       </button>
                     ))}
                   </div>
+                ) : item.isLink ? (
+                  <button
+                    onClick={() => window.location.href = item.path}
+                    className="w-full text-left px-4 py-3 hover:bg-accent transition-colors border-b border-border last:border-0 text-foreground"
+                  >
+                    {item.label}
+                  </button>
                 ) : (
                   <button
                     onClick={() => scrollToSection(item.id)}
