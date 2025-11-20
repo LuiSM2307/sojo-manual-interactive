@@ -1,133 +1,288 @@
-import { Download, Shield, Trash2, Settings, RefreshCw, Database, CheckCircle } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Download, Shield, Trash2, Settings, RefreshCw, Database, CheckCircle, Wrench, AlertTriangle, HardDrive } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import systemUpdateImg from "@/assets/software/system-update.jpg";
-import optimizationImg from "@/assets/software/optimization.jpg";
-import securityImg from "@/assets/software/security.jpg";
+import systemWorkingImg from "@/assets/software/system-working.jpg";
+import toolsImg from "@/assets/software/tools.jpg";
+import cleanupImg from "@/assets/software/cleanup.jpg";
+import updatesImg from "@/assets/software/updates.jpg";
+import antivirusImg from "@/assets/software/antivirus.jpg";
+import diskOptimizationImg from "@/assets/software/disk-optimization.jpg";
+import repairImg from "@/assets/software/repair.jpg";
+import backupImg from "@/assets/software/backup.jpg";
+import registryImg from "@/assets/software/registry.jpg";
 
 const TemaIII = () => {
-  const maintenanceTypes = [
+  const toolsData = [
     {
-      icon: RefreshCw,
-      title: "Actualizaciones",
-      tasks: [
-        "Actualizar sistema operativo regularmente",
-        "Mantener drivers actualizados",
-        "Actualizar software antivirus",
-        "Aplicar parches de seguridad",
+      icon: Wrench,
+      title: "Herramientas de Windows",
+      description: "Utilidades integradas del sistema",
+      tools: [
+        { name: "Liberador de espacio", use: "Elimina archivos temporales y caché" },
+        { name: "Desfragmentador de disco", use: "Optimiza el acceso a datos en HDD" },
+        { name: "Windows Defender", use: "Protección antivirus y antimalware" },
+        { name: "Administrador de tareas", use: "Monitoreo de recursos del sistema" },
+        { name: "Visor de eventos", use: "Registro de errores y advertencias" },
       ],
     },
     {
-      icon: Trash2,
-      title: "Limpieza",
-      tasks: [
-        "Eliminar archivos temporales",
-        "Limpiar caché del navegador",
-        "Desinstalar programas no utilizados",
-        "Vaciar papelera de reciclaje",
-      ],
-    },
-    {
-      icon: Database,
-      title: "Optimización",
-      tasks: [
-        "Desfragmentar disco duro (HDD)",
-        "Optimizar SSD con TRIM",
-        "Limpiar registro de Windows",
-        "Gestionar programas de inicio",
-      ],
-    },
-    {
-      icon: Shield,
-      title: "Seguridad",
-      tasks: [
-        "Escanear con antivirus/antimalware",
-        "Actualizar definiciones de virus",
-        "Revisar configuración de firewall",
-        "Realizar copias de seguridad",
+      icon: Download,
+      title: "Software Recomendado",
+      description: "Herramientas de terceros profesionales",
+      tools: [
+        { name: "CCleaner", use: "Limpieza profunda del sistema" },
+        { name: "Malwarebytes", use: "Detección avanzada de malware" },
+        { name: "TreeSize", use: "Análisis detallado de espacio en disco" },
+        { name: "HWMonitor", use: "Monitoreo de temperaturas" },
+        { name: "Crystal Disk Info", use: "Estado de salud de discos" },
       ],
     },
   ];
 
   const preventiveProcedures = [
     {
-      title: "Análisis del Sistema",
-      description: "Verificar estado general y detectar problemas potenciales",
-      image: systemUpdateImg,
+      title: "Preparación del Entorno",
+      description: "Configurar el espacio de trabajo antes del mantenimiento",
+      image: systemWorkingImg,
       steps: [
         {
-          title: "Verificar espacio en disco",
-          details: "Abrir 'Este equipo' y revisar capacidad disponible. Se recomienda mantener al menos 20% libre."
+          title: "Verificar funcionamiento del equipo",
+          details: "Encender el equipo y verificar que el sistema operativo carga correctamente. Observar si hay mensajes de error o comportamientos anormales."
         },
         {
-          title: "Revisar uso de recursos",
-          details: "Presionar Ctrl+Shift+Esc para abrir Administrador de Tareas. Verificar uso de CPU, RAM y disco."
+          title: "Cerrar todos los programas",
+          details: "Guardar todo el trabajo y cerrar todas las aplicaciones abiertas. Asegurarse de no tener documentos sin guardar."
         },
         {
-          title: "Identificar procesos problemáticos",
-          details: "En Administrador de Tareas, ordenar por uso de CPU/RAM. Investigar procesos que consuman más del 50%."
+          title: "Desconectar dispositivos externos",
+          details: "Quitar USB, discos externos, impresoras y otros periféricos. Dejar solo teclado y mouse conectados."
         },
         {
-          title: "Verificar temperatura",
-          details: "Usar HWMonitor o Core Temp. CPU no debe superar 80°C en uso normal."
+          title: "Crear punto de restauración",
+          details: "Buscar 'Crear punto de restauración' en inicio. Clic en 'Crear' y asignar un nombre descriptivo con fecha."
         },
         {
-          title: "Revisar eventos del sistema",
-          details: "Abrir Visor de Eventos (eventvwr.msc) y revisar errores críticos recientes."
+          title: "Verificar espacio disponible",
+          details: "Abrir 'Este equipo' y verificar que la unidad C: tenga al menos 10GB libres para el proceso de mantenimiento."
         },
       ],
     },
     {
-      title: "Limpieza de Archivos",
-      description: "Eliminar datos innecesarios para liberar espacio",
-      image: optimizationImg,
+      title: "Limpieza de Archivos Temporales",
+      description: "Eliminar datos innecesarios del sistema",
+      image: cleanupImg,
       steps: [
         {
-          title: "Liberador de espacio en disco",
-          details: "Buscar 'Liberador de espacio' en inicio. Seleccionar unidad C: y marcar todas las casillas."
+          title: "Ejecutar liberador de espacio",
+          details: "Buscar 'Liberador de espacio' en inicio. Seleccionar unidad C: y esperar el análisis. Marcar todas las casillas disponibles."
         },
         {
-          title: "Archivos temporales de Windows",
-          details: "Ir a Configuración > Sistema > Almacenamiento > Archivos temporales. Eliminar todos."
-        },
-        {
-          title: "Limpiar carpeta de descargas",
-          details: "Revisar carpeta Descargas y eliminar archivos innecesarios o mover a otra ubicación."
+          title: "Limpiar archivos del sistema",
+          details: "En liberador de espacio, clic en 'Limpiar archivos del sistema'. Marcar 'Actualizaciones de Windows anteriores' y 'Archivos temporales'."
         },
         {
           title: "Vaciar papelera de reciclaje",
-          details: "Clic derecho en Papelera de reciclaje > Vaciar papelera de reciclaje."
+          details: "Clic derecho en Papelera de reciclaje del escritorio > Vaciar papelera. Confirmar la eliminación permanente."
         },
         {
-          title: "Limpiar caché de navegadores",
-          details: "Chrome: Ctrl+Shift+Del. Firefox: Ctrl+Shift+Del. Seleccionar todo el período."
+          title: "Limpiar carpeta de descargas",
+          details: "Abrir carpeta Descargas. Revisar y eliminar archivos innecesarios. Mover archivos importantes a carpetas apropiadas."
+        },
+        {
+          title: "Eliminar archivos temporales manualmente",
+          details: "Presionar Win+R, escribir %temp% y Enter. Seleccionar todo (Ctrl+A) y eliminar. Algunos archivos en uso no se eliminarán."
         },
       ],
     },
     {
-      title: "Mantenimiento de Software",
-      description: "Mantener aplicaciones actualizadas y optimizadas",
-      image: securityImg,
+      title: "Actualización del Sistema",
+      description: "Mantener el sistema y software actualizados",
+      image: updatesImg,
       steps: [
         {
-          title: "Actualizar Windows",
-          details: "Ir a Configuración > Windows Update > Buscar actualizaciones. Instalar todas las disponibles."
+          title: "Verificar actualizaciones de Windows",
+          details: "Ir a Configuración > Windows Update > Buscar actualizaciones. Descargar e instalar todas las actualizaciones disponibles."
         },
         {
-          title: "Actualizar drivers",
-          details: "Usar Device Manager o software como Driver Booster. Priorizar GPU, chipset y audio."
+          title: "Actualizar Microsoft Store",
+          details: "Abrir Microsoft Store > Biblioteca > Obtener actualizaciones. Esperar a que todas las aplicaciones se actualicen."
         },
         {
-          title: "Actualizar aplicaciones",
-          details: "Abrir Microsoft Store o verificar actualizaciones en cada programa instalado."
+          title: "Actualizar drivers del sistema",
+          details: "Abrir Administrador de dispositivos. Clic derecho en dispositivos importantes > Actualizar controlador > Buscar automáticamente."
         },
         {
-          title: "Desinstalar programas no usados",
-          details: "Configuración > Aplicaciones > Aplicaciones y características. Ordenar por tamaño y fecha."
+          title: "Actualizar navegadores web",
+          details: "Abrir cada navegador instalado y verificar actualizaciones en su menú de configuración. Chrome, Firefox, Edge, etc."
         },
         {
-          title: "Gestionar inicio de Windows",
-          details: "Administrador de Tareas > Inicio. Deshabilitar programas innecesarios para acelerar arranque."
+          title: "Reiniciar el sistema",
+          details: "Después de instalar actualizaciones importantes, reiniciar el equipo para aplicar cambios completamente."
+        },
+      ],
+    },
+    {
+      title: "Análisis de Seguridad",
+      description: "Detectar y eliminar amenazas de seguridad",
+      image: antivirusImg,
+      steps: [
+        {
+          title: "Actualizar definiciones de antivirus",
+          details: "Abrir Windows Security > Protección contra virus y amenazas > Buscar actualizaciones de protección."
+        },
+        {
+          title: "Ejecutar análisis rápido",
+          details: "En Windows Security > Protección contra virus y amenazas > Análisis rápido. Esperar a que termine (5-10 minutos)."
+        },
+        {
+          title: "Realizar análisis completo",
+          details: "Opciones de examen > Examen completo > Examinar ahora. Puede tomar 1-2 horas. Ejecutar cuando no se use el equipo."
+        },
+        {
+          title: "Verificar firewall",
+          details: "Windows Security > Firewall y protección de red. Verificar que esté activado para redes públicas y privadas."
+        },
+        {
+          title: "Revisar resultados",
+          details: "Revisar amenazas detectadas. Seguir recomendaciones de cuarentena o eliminación de archivos sospechosos."
+        },
+      ],
+    },
+    {
+      title: "Optimización de Disco",
+      description: "Mejorar el rendimiento del almacenamiento",
+      image: diskOptimizationImg,
+      steps: [
+        {
+          title: "Identificar tipo de disco",
+          details: "Abrir 'Desfragmentar y optimizar unidades'. Verificar si el disco es HDD (requiere desfragmentación) o SSD (requiere TRIM)."
+        },
+        {
+          title: "Desfragmentar HDD",
+          details: "Si es HDD: seleccionar unidad C: > Optimizar. El proceso puede tomar 30 minutos a varias horas según fragmentación."
+        },
+        {
+          title: "Optimizar SSD",
+          details: "Si es SSD: el sistema ejecutará comando TRIM automáticamente. No desfragmentar SSD, reduce su vida útil."
+        },
+        {
+          title: "Configurar optimización automática",
+          details: "En optimizar unidades > Activar 'Optimización programada'. Configurar frecuencia semanal."
+        },
+        {
+          title: "Verificar salud del disco",
+          details: "Usar herramientas como CrystalDiskInfo para verificar estado SMART y temperatura del disco."
+        },
+      ],
+    },
+  ];
+
+  const correctiveProcedures = [
+    {
+      title: "Reparación del Sistema",
+      description: "Solucionar errores y archivos corruptos",
+      image: repairImg,
+      steps: [
+        {
+          title: "Ejecutar SFC (System File Checker)",
+          details: "Abrir CMD como administrador. Ejecutar: sfc /scannow. Esperar a que termine (20-30 minutos). Corrige archivos del sistema dañados."
+        },
+        {
+          title: "Reparar imagen de Windows con DISM",
+          details: "En CMD como administrador ejecutar: DISM /Online /Cleanup-Image /RestoreHealth. Repara componentes de Windows."
+        },
+        {
+          title: "Verificar disco con CHKDSK",
+          details: "Ejecutar: chkdsk C: /f /r. Programará verificación al reiniciar. Corrige errores de disco y sectores defectuosos."
+        },
+        {
+          title: "Usar herramienta de solución de problemas",
+          details: "Ir a Configuración > Sistema > Solucionar problemas > Otros solucionadores. Ejecutar los relevantes al problema."
+        },
+        {
+          title: "Restaurar sistema si persiste",
+          details: "Si los problemas continúan, buscar 'Restaurar sistema'. Elegir punto de restauración anterior al problema."
+        },
+      ],
+    },
+    {
+      title: "Eliminación de Malware",
+      description: "Detectar y remover software malicioso",
+      image: antivirusImg,
+      steps: [
+        {
+          title: "Iniciar en modo seguro",
+          details: "Mantener Shift al hacer clic en Reiniciar. Solución de problemas > Opciones avanzadas > Configuración de inicio > Modo seguro."
+        },
+        {
+          title: "Ejecutar Windows Defender Offline",
+          details: "Windows Security > Protección contra virus > Opciones de examen > Examen sin conexión de Microsoft Defender. Reinicia y escanea antes de cargar Windows."
+        },
+        {
+          title: "Usar Malwarebytes",
+          details: "Descargar e instalar Malwarebytes. Ejecutar análisis completo en modo seguro. Eliminar todas las amenazas detectadas."
+        },
+        {
+          title: "Eliminar programas sospechosos",
+          details: "Panel de control > Programas > Desinstalar. Buscar software desconocido o instalado recientemente sin autorización."
+        },
+        {
+          title: "Restablecer navegadores",
+          details: "En cada navegador: Configuración > Restablecer configuración. Elimina extensiones maliciosas y configuraciones alteradas."
+        },
+      ],
+    },
+    {
+      title: "Recuperación de Datos",
+      description: "Backup y restauración de información",
+      image: backupImg,
+      steps: [
+        {
+          title: "Crear backup completo",
+          details: "Configuración > Actualización y seguridad > Copia de seguridad > Agregar unidad. Seleccionar disco externo."
+        },
+        {
+          title: "Usar historial de archivos",
+          details: "Activar 'Historial de archivos' para backup automático de documentos, imágenes y escritorio en disco externo."
+        },
+        {
+          title: "Crear imagen del sistema",
+          details: "Panel de control > Copias de seguridad > Crear imagen del sistema. Copia completa del disco para restauración total."
+        },
+        {
+          title: "Recuperar archivos eliminados",
+          details: "Usar herramientas como Recuva para recuperar archivos eliminados permanentemente si aún no se sobrescribieron."
+        },
+        {
+          title: "Restaurar desde backup",
+          details: "Configuración > Copia de seguridad > Buscar una copia de seguridad antigua. Seleccionar fecha y archivos a restaurar."
+        },
+      ],
+    },
+    {
+      title: "Optimización del Registro",
+      description: "Limpiar y reparar el registro de Windows",
+      image: registryImg,
+      steps: [
+        {
+          title: "Crear backup del registro",
+          details: "Antes de cualquier cambio: Win+R > regedit > Archivo > Exportar. Guardar backup completo del registro."
+        },
+        {
+          title: "Usar CCleaner para registro",
+          details: "Abrir CCleaner > Registro > Buscar problemas. Revisar problemas encontrados > Reparar seleccionados."
+        },
+        {
+          title: "Limpiar entradas huérfanas",
+          details: "El limpiador de registro elimina referencias a software desinstalado y rutas inválidas que ralentizan el sistema."
+        },
+        {
+          title: "No modificar registro manualmente",
+          details: "Evitar editar registro sin conocimientos avanzados. Cambios incorrectos pueden causar inestabilidad o impedir inicio."
+        },
+        {
+          title: "Verificar mejoras de rendimiento",
+          details: "Después de limpieza, reiniciar y verificar si hay mejoras en velocidad de inicio y respuesta general."
         },
       ],
     },
@@ -154,81 +309,78 @@ const TemaIII = () => {
           <div id="introduccion">
             <Card className="mb-12 border-border">
               <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4 text-foreground flex items-center gap-2">
-                <Download className="w-7 h-7 text-primary" />
-                ¿Qué es el Mantenimiento de Software?
-              </h3>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                El mantenimiento de software comprende todas las actividades relacionadas con la
-                actualización, optimización y limpieza del sistema operativo y las aplicaciones instaladas
-                en un equipo. Su objetivo es garantizar el funcionamiento eficiente, seguro y estable del
-                sistema, previniendo errores, vulnerabilidades y degradación del rendimiento.
-              </p>
-              <div className="grid md:grid-cols-2 gap-4 mt-6">
-                <div className="bg-primary-soft p-4 rounded-lg border border-primary/20">
-                  <h4 className="font-semibold text-primary mb-2">Preventivo</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Actualizaciones, optimización y limpieza programadas regularmente
-                  </p>
+                <h3 className="text-2xl font-bold mb-4 text-foreground flex items-center gap-2">
+                  <Download className="w-7 h-7 text-primary" />
+                  ¿Qué es el Mantenimiento de Software?
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  El mantenimiento de software comprende todas las actividades relacionadas con la
+                  actualización, optimización y limpieza del sistema operativo y las aplicaciones instaladas
+                  en un equipo. Su objetivo es garantizar el funcionamiento eficiente, seguro y estable del
+                  sistema, previniendo errores, vulnerabilidades y degradación del rendimiento.
+                </p>
+                <div className="grid md:grid-cols-2 gap-4 mt-6">
+                  <div className="bg-primary-soft p-4 rounded-lg border border-primary/20">
+                    <h4 className="font-semibold text-primary mb-2">Preventivo</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Actualizaciones, optimización y limpieza programadas regularmente
+                    </p>
+                  </div>
+                  <div className="bg-accent p-4 rounded-lg border border-border">
+                    <h4 className="font-semibold text-primary mb-2">Correctivo</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Resolución de errores, eliminación de malware y reparación del sistema
+                    </p>
+                  </div>
                 </div>
-                <div className="bg-accent p-4 rounded-lg border border-border">
-                  <h4 className="font-semibold text-primary mb-2">Correctivo</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Resolución de errores, eliminación de malware y reparación del sistema
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
           </div>
 
-          {/* Main Tasks */}
-          <div id="tareas" className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-foreground">
-              Principales Tareas de Mantenimiento
+          {/* Tools Section */}
+          <div id="herramientas" className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
+              <Wrench className="w-7 h-7 text-primary" />
+              Herramientas Necesarias
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
-              {maintenanceTypes.map((type, index) => (
-                <Card
-                  key={index}
-                  className="card-hover border-border animate-slide-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
+              {toolsData.map((category, index) => (
+                <Card key={index} className="border-border card-hover">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-primary-soft flex items-center justify-center">
-                        <type.icon className="w-5 h-5 text-primary" />
+                        <category.icon className="w-5 h-5 text-primary" />
                       </div>
-                      {type.title}
+                      {category.title}
                     </CardTitle>
+                    <CardDescription>{category.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2">
-                      {type.tasks.map((task, taskIndex) => (
-                        <li key={taskIndex} className="flex items-start gap-2 text-muted-foreground">
-                          <span className="text-primary mt-1">✓</span>
-                          <span className="text-sm">{task}</span>
-                        </li>
+                    <div className="space-y-3">
+                      {category.tools.map((tool, toolIndex) => (
+                        <div key={toolIndex} className="p-3 rounded-lg bg-accent/50 border border-border">
+                          <div className="font-semibold text-sm text-foreground mb-1">{tool.name}</div>
+                          <div className="text-xs text-muted-foreground">{tool.use}</div>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
 
-          {/* Procedures Tabs */}
-          <div id="procedimientos" className="mb-12">
+          {/* Preventive Maintenance */}
+          <div id="preventivo" className="mb-12">
             <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
-              <Settings className="w-7 h-7 text-primary" />
-              Procedimientos Detallados
+              <Shield className="w-7 h-7 text-primary" />
+              Guías de Mantenimiento Preventivo
             </h3>
-
             <Tabs defaultValue="0" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 bg-muted">
-                {preventiveProcedures.map((_, index) => (
+              <TabsList className="grid w-full grid-cols-5 bg-muted">
+                {preventiveProcedures.map((procedure, index) => (
                   <TabsTrigger key={index} value={index.toString()}>
-                    Paso {index + 1}
+                    {procedure.title.split(' ')[0]}
                   </TabsTrigger>
                 ))}
               </TabsList>
@@ -248,7 +400,7 @@ const TemaIII = () => {
                         <CheckCircle className="w-6 h-6 text-primary" />
                         {procedure.title}
                       </CardTitle>
-                      <p className="text-sm text-muted-foreground">{procedure.description}</p>
+                      <CardDescription>{procedure.description}</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-4">
@@ -273,59 +425,160 @@ const TemaIII = () => {
             </Tabs>
           </div>
 
-          {/* Tools Recommendation */}
-          <Card className="border-primary/20 bg-primary-soft">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-bold mb-4 text-primary flex items-center gap-2">
-                <Download className="w-6 h-6" />
-                Herramientas Recomendadas
-              </h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold mb-3 text-foreground">Windows (Integradas)</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary">•</span>
-                      <span><strong>Liberador de espacio:</strong> Limpia archivos temporales</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary">•</span>
-                      <span><strong>Desfragmentador:</strong> Optimiza HDD</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary">•</span>
-                      <span><strong>Windows Defender:</strong> Antivirus integrado</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary">•</span>
-                      <span><strong>Administrador de Tareas:</strong> Monitoreo de recursos</span>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-3 text-foreground">Terceros (Recomendadas)</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary">•</span>
-                      <span><strong>CCleaner:</strong> Limpieza avanzada de sistema</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary">•</span>
-                      <span><strong>Malwarebytes:</strong> Detección de malware</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary">•</span>
-                      <span><strong>TreeSize:</strong> Análisis de espacio en disco</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary">•</span>
-                      <span><strong>HWMonitor:</strong> Monitoreo de temperaturas</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          {/* Corrective Maintenance */}
+          <div id="correctivo" className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
+              <AlertTriangle className="w-7 h-7 text-primary" />
+              Guías de Mantenimiento Correctivo
+            </h3>
+            <Tabs defaultValue="0" className="w-full">
+              <TabsList className="grid w-full grid-cols-4 bg-muted">
+                {correctiveProcedures.map((procedure, index) => (
+                  <TabsTrigger key={index} value={index.toString()}>
+                    {procedure.title.split(' ')[0]}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+
+              {correctiveProcedures.map((procedure, index) => (
+                <TabsContent key={index} value={index.toString()}>
+                  <Card className="border-border overflow-hidden">
+                    <div className="aspect-video w-full overflow-hidden">
+                      <img 
+                        src={procedure.image} 
+                        alt={procedure.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <AlertTriangle className="w-6 h-6 text-primary" />
+                        {procedure.title}
+                      </CardTitle>
+                      <CardDescription>{procedure.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        {procedure.steps.map((step, stepIndex) => (
+                          <div key={stepIndex} className="p-4 rounded-lg bg-destructive/10 hover:bg-destructive/20 transition-colors border border-destructive/20">
+                            <div className="flex items-start gap-3">
+                              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center text-sm font-bold">
+                                {stepIndex + 1}
+                              </div>
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-foreground mb-1">{step.title}</h4>
+                                <p className="text-sm text-muted-foreground">{step.details}</p>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+              ))}
+            </Tabs>
+          </div>
+
+          {/* Verification Section */}
+          <div id="verificacion" className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-foreground text-center flex items-center justify-center gap-2">
+              <CheckCircle className="w-7 h-7 text-primary" />
+              Verificación Final
+            </h3>
+            <div className="max-w-4xl mx-auto">
+              <Card className="border-primary/20 bg-primary-soft">
+                <CardHeader>
+                  <CardTitle className="text-center">Lista de Verificación Post-Mantenimiento</CardTitle>
+                  <CardDescription className="text-center">Confirme que el sistema funciona correctamente</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="p-4 rounded-lg bg-background border border-border">
+                      <h4 className="font-semibold mb-3 text-foreground flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary" />
+                        Sistema Operativo
+                      </h4>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary">✓</span>
+                          <span>El sistema inicia sin errores</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary">✓</span>
+                          <span>Todas las actualizaciones instaladas</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary">✓</span>
+                          <span>Espacio en disco liberado (mín. 20%)</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="p-4 rounded-lg bg-background border border-border">
+                      <h4 className="font-semibold mb-3 text-foreground flex items-center gap-2">
+                        <Shield className="w-5 h-5 text-primary" />
+                        Seguridad
+                      </h4>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary">✓</span>
+                          <span>Antivirus actualizado y activo</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary">✓</span>
+                          <span>Sin amenazas detectadas</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary">✓</span>
+                          <span>Firewall habilitado</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="p-4 rounded-lg bg-background border border-border">
+                      <h4 className="font-semibold mb-3 text-foreground flex items-center gap-2">
+                        <HardDrive className="w-5 h-5 text-primary" />
+                        Rendimiento
+                      </h4>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary">✓</span>
+                          <span>Sistema responde rápidamente</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary">✓</span>
+                          <span>Programas abren sin demora</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary">✓</span>
+                          <span>Disco optimizado</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="p-4 rounded-lg bg-background border border-border">
+                      <h4 className="font-semibold mb-3 text-foreground flex items-center gap-2">
+                        <Database className="w-5 h-5 text-primary" />
+                        Aplicaciones
+                      </h4>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary">✓</span>
+                          <span>Programas actualizados</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary">✓</span>
+                          <span>Navegadores funcionando correctamente</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary">✓</span>
+                          <span>Software innecesario eliminado</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -92,8 +92,10 @@ const Navbar = () => {
       path: "/tema-iii",
       submenu: [
         { id: "introduccion-sw", label: "Software - Introducción", path: "/tema-iii#introduccion" },
-        { id: "tareas-software", label: "Tareas de Mantenimiento", path: "/tema-iii#tareas" },
-        { id: "procedimientos-software", label: "Procedimientos Detallados", path: "/tema-iii#procedimientos" },
+        { id: "herramientas-sw", label: "Herramientas Necesarias", path: "/tema-iii#herramientas" },
+        { id: "preventivo-sw", label: "Mantenimiento Preventivo", path: "/tema-iii#preventivo" },
+        { id: "correctivo-sw", label: "Mantenimiento Correctivo", path: "/tema-iii#correctivo" },
+        { id: "verificacion-sw", label: "Verificación Final", path: "/tema-iii#verificacion" },
       ]
     },
     { 
