@@ -151,8 +151,9 @@ const TemaIII = () => {
           </div>
 
           {/* Introduction */}
-          <Card className="mb-12 border-border">
-            <CardContent className="p-8">
+          <div id="introduccion">
+            <Card className="mb-12 border-border">
+              <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-4 text-foreground flex items-center gap-2">
                 <Download className="w-7 h-7 text-primary" />
                 ¿Qué es el Mantenimiento de Software?
@@ -179,9 +180,10 @@ const TemaIII = () => {
               </div>
             </CardContent>
           </Card>
+          </div>
 
           {/* Main Tasks */}
-          <div id="tareas-software" className="mb-12">
+          <div id="tareas" className="mb-12">
             <h3 className="text-2xl font-bold mb-6 text-foreground">
               Principales Tareas de Mantenimiento
             </h3>
@@ -216,7 +218,7 @@ const TemaIII = () => {
           </div>
 
           {/* Procedures Tabs */}
-          <div id="procedimientos-software" className="mb-12">
+          <div id="procedimientos" className="mb-12">
             <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
               <Settings className="w-7 h-7 text-primary" />
               Procedimientos Detallados

@@ -160,8 +160,9 @@ const TemaII = () => {
           </div>
 
           {/* Introduction */}
-          <Card className="mb-12 border-primary/20 bg-primary-soft">
-            <CardContent className="p-8">
+          <div id="introduccion">
+            <Card className="mb-12 border-primary/20 bg-primary-soft">
+              <CardContent className="p-8">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center">
@@ -182,6 +183,7 @@ const TemaII = () => {
               </div>
             </CardContent>
           </Card>
+          </div>
 
           {/* Components Grid */}
           <div id="componentes" className="mb-16">
@@ -243,7 +245,7 @@ const TemaII = () => {
           </div>
 
           {/* Procedures */}
-          <div id="guias-hardware" className="mb-12">
+          <div id="guias" className="mb-12">
             <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
               <CheckCircle className="w-7 h-7 text-primary" />
               Guías Prácticas Paso a Paso
