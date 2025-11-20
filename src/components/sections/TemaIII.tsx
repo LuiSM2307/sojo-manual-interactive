@@ -392,14 +392,16 @@ const TemaIII = () => {
               {preventiveProcedures.map((procedure, index) => (
                 <TabsContent key={index} value={index.toString()}>
                   <Card className="border-border overflow-hidden">
-                    <div className="relative group cursor-pointer h-64 w-full overflow-hidden">
+                    <div className="relative group h-64 w-full overflow-hidden">
                       <img 
                         src={procedure.image} 
                         alt={procedure.title}
                         className="w-full h-full object-cover transition-transform group-hover:scale-105"
-                        onClick={() => setSelectedImage(procedure.image)}
                       />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
+                      <div 
+                        className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center cursor-pointer"
+                        onClick={() => setSelectedImage(procedure.image)}
+                      >
                         <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-primary text-primary-foreground p-2 rounded-full">
                           <Maximize2 className="w-6 h-6" />
                         </div>
@@ -453,14 +455,16 @@ const TemaIII = () => {
               {correctiveProcedures.map((procedure, index) => (
                 <TabsContent key={index} value={index.toString()}>
                   <Card className="border-border overflow-hidden">
-                    <div className="relative group cursor-pointer h-64 w-full overflow-hidden">
+                    <div className="relative group h-64 w-full overflow-hidden">
                       <img 
                         src={procedure.image} 
                         alt={procedure.title}
                         className="w-full h-full object-cover transition-transform group-hover:scale-105"
-                        onClick={() => setSelectedImage(procedure.image)}
                       />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
+                      <div 
+                        className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center cursor-pointer"
+                        onClick={() => setSelectedImage(procedure.image)}
+                      >
                         <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-primary text-primary-foreground p-2 rounded-full">
                           <Maximize2 className="w-6 h-6" />
                         </div>
