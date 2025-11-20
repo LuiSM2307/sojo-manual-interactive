@@ -32,33 +32,33 @@ const TemaI = () => {
               Datos de la Institución
             </h3>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {/* Reseña Histórica */}
-              <Card className="card-hover border-border">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <History className="w-6 h-6 text-primary" />
-                    Reseña Histórica
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="mb-4">
-                    <img 
-                      src={fachadaInstitucion} 
-                      alt="Fachada de la Unidad Educativa Nacional Vicente Emilio Sojo" 
-                      className="w-full h-48 object-cover rounded-lg shadow-md"
-                    />
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    La Unidad Educativa Nacional "Vicente Emilio Sojo" fue fundada con el compromiso
-                    de ofrecer educación de calidad a la comunidad. A lo largo de los años, ha sido
-                    referente en formación académica y tecnológica, adaptándose constantemente a las
-                    demandas del mundo moderno y preparando estudiantes para los desafíos del futuro.
-                  </p>
-                </CardContent>
-              </Card>
+            {/* Reseña Histórica - Full Width */}
+            <Card className="card-hover border-border mb-8">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <History className="w-6 h-6 text-primary" />
+                  Reseña Histórica
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-4">
+                  <img 
+                    src={fachadaInstitucion} 
+                    alt="Fachada de la Unidad Educativa Nacional Vicente Emilio Sojo" 
+                    className="w-full h-64 md:h-96 object-cover rounded-lg shadow-md"
+                  />
+                </div>
+                <p className="text-muted-foreground leading-relaxed">
+                  La Unidad Educativa Nacional "Vicente Emilio Sojo" fue fundada con el compromiso
+                  de ofrecer educación de calidad a la comunidad. A lo largo de los años, ha sido
+                  referente en formación académica y tecnológica, adaptándose constantemente a las
+                  demandas del mundo moderno y preparando estudiantes para los desafíos del futuro.
+                </p>
+              </CardContent>
+            </Card>
 
-              {/* Visión y Misión */}
+            {/* Visión y Misión */}
+            <div className="grid md:grid-cols-1 gap-6 mb-8">
               <Card className="card-hover border-border">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
