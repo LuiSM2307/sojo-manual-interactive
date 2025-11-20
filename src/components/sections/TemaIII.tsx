@@ -381,7 +381,7 @@ const TemaIII = () => {
               Guías de Mantenimiento Preventivo
             </h3>
             <Tabs defaultValue="0" className="w-full">
-              <TabsList className="flex w-full overflow-x-auto bg-muted md:grid md:grid-cols-5">
+              <TabsList className="flex w-full overflow-x-auto bg-muted justify-start md:grid md:grid-cols-5 md:justify-center">
                 {preventiveProcedures.map((procedure, index) => (
                   <TabsTrigger key={index} value={index.toString()} className="flex-shrink-0">
                     {procedure.title.split(' ')[0]}
@@ -444,7 +444,7 @@ const TemaIII = () => {
               Guías de Mantenimiento Correctivo
             </h3>
             <Tabs defaultValue="0" className="w-full">
-              <TabsList className="flex w-full overflow-x-auto bg-muted md:grid md:grid-cols-4">
+              <TabsList className="flex w-full overflow-x-auto bg-muted justify-start md:grid md:grid-cols-4 md:justify-center">
                 {correctiveProcedures.map((procedure, index) => (
                   <TabsTrigger key={index} value={index.toString()} className="flex-shrink-0">
                     {procedure.title.split(' ')[0]}
