@@ -1,13 +1,16 @@
-import { Cpu, HardDrive, Monitor, Keyboard, Fan, Shield, CheckCircle, AlertTriangle, Wrench } from "lucide-react";
+import { Cpu, HardDrive, Monitor, Keyboard, Fan, Shield, CheckCircle, AlertTriangle, Wrench, MemoryStick, Disc, Box } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import cpuImg from "@/assets/hardware/cpu.jpg";
-import hardDriveImg from "@/assets/hardware/hard-drive.jpg";
-import monitorImg from "@/assets/hardware/monitor.jpg";
-import keyboardImg from "@/assets/hardware/keyboard.jpg";
-import fanImg from "@/assets/hardware/fan.jpg";
-import powerSupplyImg from "@/assets/hardware/power-supply.jpg";
+import cpuImg from "@/assets/hardware/cpu-real.jpg";
+import hardDriveImg from "@/assets/hardware/hard-drive-real.jpg";
+import monitorImg from "@/assets/hardware/monitor-real.jpg";
+import keyboardImg from "@/assets/hardware/keyboard-real.jpg";
+import fanImg from "@/assets/hardware/fan-real.jpg";
+import powerSupplyImg from "@/assets/hardware/power-supply-real.jpg";
+import ramImg from "@/assets/hardware/ram.jpg";
+import dvdDriveImg from "@/assets/hardware/dvd-drive.jpg";
+import caseImg from "@/assets/hardware/case.jpg";
 
 const TemaII = () => {
   const components = [
@@ -28,15 +31,15 @@ const TemaII = () => {
     { 
       icon: HardDrive, 
       name: "Disco Duro", 
-      desc: "Verificación de sectores y desfragmentación de HDD solamente",
+      desc: "Limpieza externa y verificación de conexiones",
       img: hardDriveImg,
       guide: [
-        "Abrir 'Este equipo' y hacer clic derecho en la unidad",
-        "Seleccionar 'Propiedades' > pestaña 'Herramientas'",
-        "Ejecutar 'Comprobar' para verificar errores",
-        "Para HDD: Ejecutar desfragmentador de disco",
-        "Para SSD: Ejecutar optimización TRIM",
-        "Verificar temperatura con software de monitoreo",
+        "Desconectar cables SATA y de alimentación",
+        "Limpiar la superficie externa con paño suave",
+        "Usar aire comprimido en conectores",
+        "Verificar que no haya golpes o daños físicos",
+        "Reconectar asegurando conexiones firmes",
+        "Verificar detección en BIOS al encender",
       ]
     },
     { 
@@ -55,15 +58,15 @@ const TemaII = () => {
     },
     { 
       icon: Keyboard, 
-      name: "Teclado y Mouse", 
+      name: "Teclado", 
       desc: "Limpieza profunda y verificación de funcionamiento",
       img: keyboardImg,
       guide: [
-        "Desconectar teclado y mouse del equipo",
+        "Desconectar teclado del equipo",
         "Voltear teclado y sacudir suavemente para soltar residuos",
         "Usar aire comprimido entre las teclas",
         "Limpiar superficie con paño húmedo con alcohol",
-        "Para mouse: limpiar sensor óptico con hisopo",
+        "Limpiar conectores con aire comprimido",
         "Verificar funcionamiento de todas las teclas",
       ]
     },
@@ -84,61 +87,142 @@ const TemaII = () => {
     { 
       icon: Shield, 
       name: "Fuente de Poder", 
-      desc: "Limpieza interna y prueba de voltajes sin abrir su interior",
+      desc: "Limpieza externa y verificación de funcionamiento",
       img: powerSupplyImg,
       guide: [
-        "⚠️ ADVERTENCIA: Solo personal capacitado debe abrir la fuente",
+        "⚠️ ADVERTENCIA: No abrir la fuente de poder",
         "Desconectar fuente completamente antes de manipular",
         "Limpiar polvo del ventilador externo con aire comprimido",
         "Verificar que el ventilador gire correctamente",
-        "Comprobar voltajes con multímetro (12V, 5V, 3.3V)",
         "Inspeccionar cables por desgaste o daños",
+        "Verificar voltaje correcto con selector (110V/220V)",
+      ]
+    },
+    { 
+      icon: MemoryStick, 
+      name: "Memoria RAM", 
+      desc: "Limpieza de contactos y verificación de instalación",
+      img: ramImg,
+      guide: [
+        "Abrir clips de seguridad en los slots de RAM",
+        "Extraer módulos con cuidado presionando clips laterales",
+        "Limpiar contactos dorados con goma de borrar suavemente",
+        "Usar aire comprimido en slots de la placa madre",
+        "Reinstalar presionando hasta escuchar 'click' de seguro",
+        "Verificar detección correcta en BIOS",
+      ]
+    },
+    { 
+      icon: Disc, 
+      name: "Unidad Óptica (DVD/CD)", 
+      desc: "Limpieza del lente y mecanismo de bandeja",
+      img: dvdDriveImg,
+      guide: [
+        "Expulsar bandeja de la unidad",
+        "Limpiar superficie de bandeja con paño suave",
+        "Usar aire comprimido para limpiar el lente láser",
+        "Verificar que la bandeja abra y cierre suavemente",
+        "Limpiar rieles laterales de polvo acumulado",
+        "Probar lectura con disco de prueba",
+      ]
+    },
+    { 
+      icon: Box, 
+      name: "Gabinete (Case)", 
+      desc: "Limpieza completa externa e interna del chasis",
+      img: caseImg,
+      guide: [
+        "Retirar paneles laterales del gabinete",
+        "Usar aire comprimido en todas las áreas internas",
+        "Limpiar filtros de polvo (frontales y superiores)",
+        "Lavar filtros con agua y jabón si están muy sucios",
+        "Limpiar superficie externa con paño húmedo",
+        "Verificar que todos los tornillos estén seguros",
       ]
     },
   ];
 
-  const procedures = [
+  const maintenanceGuides = [
     {
+      id: "preparacion",
       title: "Preparación del Área de Trabajo",
-      steps: [
-        "Asegurar un espacio limpio y bien iluminado",
-        "Reunir herramientas necesarias: destornilladores, aire comprimido, paños antiestáticos",
-        "Utilizar pulsera antiestática conectada a tierra",
-        "Desconectar completamente el equipo de la corriente eléctrica",
-        "Tomar fotografías antes de desconectar cables",
-      ],
+      icon: Wrench,
+      color: "bg-blue-500",
+      items: [
+        "Asegurar un espacio limpio, seco y bien iluminado",
+        "Colocar una superficie antiestática o alfombra de goma",
+        "Reunir todas las herramientas necesarias antes de comenzar",
+        "Tener a mano contenedores para organizar tornillos y piezas pequeñas",
+        "Tomar fotografías del equipo antes de desarmar para referencia",
+      ]
     },
     {
-      title: "Limpieza Externa",
-      steps: [
-        "Limpiar carcasa con paño húmedo y productos no abrasivos",
-        "Limpiar teclado y mouse con aire comprimido y alcohol isopropílico",
-        "Limpiar pantalla con productos especializados o agua destilada",
-        "Verificar estado de cables y conectores externos",
-        "Limpiar puertos USB y conectores con aire comprimido",
-      ],
+      id: "herramientas",
+      title: "Herramientas Necesarias",
+      icon: Wrench,
+      color: "bg-purple-500",
+      items: [
+        "Destornilladores: Phillips y plano de varios tamaños",
+        "Aire comprimido: Latas o compresor con regulador de presión",
+        "Pulsera antiestática: Conectada a tierra para evitar descargas",
+        "Paños de microfibra: Limpios y sin pelusa",
+        "Alcohol isopropílico al 90% o superior",
+        "Pasta térmica de calidad (Arctic MX-4, Noctua NT-H1)",
+        "Brocha suave de cerdas naturales",
+        "Linterna o lámpara de trabajo",
+      ]
     },
     {
-      title: "Limpieza Interna",
-      steps: [
-        "Abrir el gabinete siguiendo procedimientos de seguridad",
-        "Eliminar polvo con aire comprimido en ráfagas cortas",
-        "Limpiar ventiladores sosteniendo las aspas",
-        "Limpiar disipadores de CPU y GPU",
-        "Verificar conexiones internas (SATA, alimentación, RAM)",
-        "Renovar pasta térmica del procesador (cada 12 meses)",
-      ],
+      id: "procedimientos",
+      title: "Procedimientos de Limpieza",
+      icon: CheckCircle,
+      color: "bg-green-500",
+      items: [
+        "Siempre desconectar el equipo de la corriente eléctrica primero",
+        "Usar aire comprimido en ráfagas cortas (2-3 segundos)",
+        "Mantener lata de aire en posición vertical para evitar líquido",
+        "Sostener ventiladores antes de soplar aire para evitar dañar rodamientos",
+        "Limpiar de adentro hacia afuera, alejando el polvo del equipo",
+        "No usar aspiradora directamente sobre componentes electrónicos",
+        "Aplicar alcohol con paño, nunca directamente sobre componentes",
+        "Dejar secar completamente antes de energizar",
+      ]
     },
     {
-      title: "Verificaciones Finales",
-      steps: [
-        "Cerrar el gabinete correctamente asegurando todos los tornillos",
-        "Reconectar todos los periféricos en sus puertos correspondientes",
-        "Encender y verificar funcionamiento correcto",
-        "Escuchar ruidos anormales (ventiladores, discos)",
-        "Verificar temperaturas de componentes con software",
-        "Documentar el mantenimiento realizado",
-      ],
+      id: "precauciones",
+      title: "Precauciones y Prohibiciones",
+      icon: AlertTriangle,
+      color: "bg-red-500",
+      items: [
+        "❌ NUNCA trabajar con el equipo conectado a la corriente",
+        "❌ NO tocar componentes sin pulsera antiestática",
+        "❌ NO soplar con la boca (humedad daña componentes)",
+        "❌ NO usar productos de limpieza domésticos o abrasivos",
+        "❌ NO forzar conectores o componentes al instalar",
+        "❌ NO abrir la fuente de poder (contiene capacitores peligrosos)",
+        "❌ NO usar agua directamente sobre componentes electrónicos",
+        "❌ NO realizar mantenimiento en ambientes húmedos",
+        "✅ SIEMPRE verificar compatibilidad antes de reemplazar piezas",
+        "✅ SIEMPRE documentar el proceso con fotos",
+      ]
+    },
+    {
+      id: "verificacion",
+      title: "Verificación Final",
+      icon: CheckCircle,
+      color: "bg-cyan-500",
+      items: [
+        "Verificar que todos los cables estén correctamente conectados",
+        "Asegurar que no queden tornillos sueltos dentro del gabinete",
+        "Confirmar que todos los ventiladores giren libremente",
+        "Cerrar el gabinete asegurando todos los paneles",
+        "Conectar periféricos en sus puertos correspondientes",
+        "Realizar primera prueba de encendido fuera del escritorio",
+        "Escuchar sonidos anormales durante el arranque",
+        "Verificar que POST (Power-On Self Test) se complete exitosamente",
+        "Monitorear temperaturas con software (HWMonitor, Open Hardware Monitor)",
+        "Documentar fecha y tipo de mantenimiento realizado",
+      ]
     },
   ];
 
@@ -161,155 +245,142 @@ const TemaII = () => {
 
           {/* Introduction */}
           <div id="introduccion">
-            <Card className="mb-12 border-primary/20 bg-primary-soft">
+            <Card className="mb-12 border-primary/20 bg-card/50 backdrop-blur">
               <CardContent className="p-8">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center">
-                    <CheckCircle className="w-6 h-6 text-primary-foreground" />
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <CheckCircle className="w-6 h-6 text-primary" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-3 text-foreground">
+                      Mantenimiento Preventivo de Hardware
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      El mantenimiento preventivo de hardware consiste en acciones planificadas que se
+                      realizan periódicamente para evitar fallas en los componentes físicos del equipo.
+                      Estas actividades incluyen limpieza, lubricación, ajustes y verificaciones que
+                      prolongan la vida útil de los equipos y mejoran su rendimiento.
+                    </p>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 text-primary">
-                    Mantenimiento Preventivo de Hardware
-                  </h3>
-                  <p className="text-muted-foreground">
-                    El mantenimiento preventivo de hardware consiste en acciones planificadas que se
-                    realizan periódicamente para evitar fallas en los componentes físicos del equipo.
-                    Estas actividades incluyen limpieza, lubricación, ajustes y verificaciones que
-                    prolongan la vida útil de los equipos y mejoran su rendimiento.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
           </div>
 
-          {/* Components Grid */}
-          <div id="componentes" className="mb-16">
-            <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
-              <Wrench className="w-7 h-7 text-primary" />
-              Componentes Principales y Guías
+          {/* Guías de Mantenimiento - AHORA PRIMERO */}
+          <div id="guias" className="mb-16">
+            <h3 className="text-3xl font-bold mb-8 text-foreground flex items-center gap-3">
+              <Wrench className="w-8 h-8 text-primary" />
+              Guías de Mantenimiento Preventivo
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {components.map((component, index) => (
-                <Card
-                  key={index}
-                  className="card-hover border-border group cursor-pointer animate-slide-up overflow-hidden"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="aspect-video w-full overflow-hidden">
-                    <img 
-                      src={component.img} 
-                      alt={component.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                  <CardContent className="p-6">
-                    <div className="flex flex-col">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-lg bg-primary-soft flex items-center justify-center group-hover:bg-primary transition-colors flex-shrink-0">
-                          <component.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {maintenanceGuides.map((guide) => {
+                const IconComponent = guide.icon;
+                return (
+                  <Card key={guide.id} className="border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3">
+                        <div className={`w-10 h-10 rounded-lg ${guide.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                          <IconComponent className="w-5 h-5 text-white" />
                         </div>
-                        <h4 className="text-lg font-bold text-foreground">
-                          {component.name}
-                        </h4>
+                        <span className="text-lg">{guide.title}</span>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2">
+                        {guide.items.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+
+            {/* Safety Warning */}
+            <Card className="border-destructive/50 bg-destructive/5">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <AlertTriangle className="w-6 h-6 text-destructive flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-bold text-destructive mb-2">
+                      ⚠️ Advertencias de Seguridad Importantes
+                    </h4>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      <li>• Siempre desconectar el equipo de la corriente eléctrica antes de cualquier intervención</li>
+                      <li>• Usar pulsera antiestática conectada a tierra para prevenir daños por electricidad estática</li>
+                      <li>• No abrir la fuente de poder - contiene capacitores que retienen carga peligrosa</li>
+                      <li>• Trabajar en área bien ventilada al usar aire comprimido o productos químicos</li>
+                      <li>• Si no tienes experiencia, buscar asistencia de personal capacitado</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Componentes y Procedimientos Específicos - AHORA SEGUNDO */}
+          <div id="componentes" className="mb-16">
+            <h3 className="text-3xl font-bold mb-8 text-foreground flex items-center gap-3">
+              <Cpu className="w-8 h-8 text-primary" />
+              Componentes y Procedimientos Específicos
+            </h3>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {components.map((component, idx) => {
+                const IconComponent = component.icon;
+                return (
+                  <Card key={idx} className="border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl group overflow-hidden">
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={component.img} 
+                        alt={component.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                      <div className="absolute bottom-3 left-3 right-3">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                            <IconComponent className="w-4 h-4 text-primary-foreground" />
+                          </div>
+                          <h4 className="font-bold text-foreground">{component.name}</h4>
+                        </div>
                       </div>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        {component.desc}
-                      </p>
+                    </div>
+                    <CardContent className="p-4">
+                      <p className="text-sm text-muted-foreground mb-4">{component.desc}</p>
                       <Accordion type="single" collapsible className="w-full">
-                        <AccordionItem value="guide" className="border-border">
-                          <AccordionTrigger className="text-sm font-semibold hover:text-primary py-2">
+                        <AccordionItem value="steps" className="border-border/50">
+                          <AccordionTrigger className="text-sm hover:text-primary">
                             Ver guía paso a paso
                           </AccordionTrigger>
                           <AccordionContent>
                             <ol className="space-y-2 mt-2">
-                              {component.guide.map((step, stepIndex) => (
-                                <li key={stepIndex} className="flex items-start gap-2 text-xs text-muted-foreground">
-                                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary-soft text-primary flex items-center justify-center text-[10px] font-semibold mt-0.5">
-                                    {stepIndex + 1}
+                              {component.guide.map((step, stepIdx) => (
+                                <li key={stepIdx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-medium">
+                                    {stepIdx + 1}
                                   </span>
-                                  <span>{step}</span>
+                                  <span className="flex-1">{step}</span>
                                 </li>
                               ))}
                             </ol>
                           </AccordionContent>
                         </AccordionItem>
                       </Accordion>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Procedures */}
-          <div id="guias" className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
-              <CheckCircle className="w-7 h-7 text-primary" />
-              Guías Prácticas Paso a Paso
-            </h3>
-
-            <Tabs defaultValue="0" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 bg-muted">
-                {procedures.map((_, index) => (
-                  <TabsTrigger key={index} value={index.toString()} className="text-xs lg:text-sm">
-                    {index + 1}. {procedures[index].title.split(' ')[0]}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-
-              {procedures.map((procedure, index) => (
-                <TabsContent key={index} value={index.toString()}>
-                  <Card className="border-border">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <span className="flex-shrink-0 w-8 h-8 rounded-full gradient-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
-                          {index + 1}
-                        </span>
-                        {procedure.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-4">
-                        {procedure.steps.map((step, stepIndex) => (
-                          <div key={stepIndex} className="flex items-start gap-3 p-3 rounded-lg bg-accent/50 hover:bg-accent transition-colors">
-                            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-soft text-primary flex items-center justify-center text-sm font-semibold mt-0.5">
-                              {stepIndex + 1}
-                            </div>
-                            <p className="text-muted-foreground flex-1">{step}</p>
-                          </div>
-                        ))}
-                      </div>
                     </CardContent>
                   </Card>
-                </TabsContent>
-              ))}
-            </Tabs>
+                );
+              })}
+            </div>
           </div>
-
-          {/* Safety Warning */}
-          <Card className="border-yellow-500/50 bg-yellow-50 dark:bg-yellow-950/20">
-            <CardContent className="p-6">
-              <div className="flex items-start gap-4">
-                <AlertTriangle className="w-6 h-6 text-yellow-600 dark:text-yellow-500 flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-bold text-lg mb-2 text-yellow-700 dark:text-yellow-500">
-                    Precauciones de Seguridad
-                  </h4>
-                  <ul className="space-y-2 text-sm text-yellow-700 dark:text-yellow-600">
-                    <li>• Siempre desconectar el equipo antes de realizar mantenimiento</li>
-                    <li>• Utilizar pulsera antiestática para evitar daños por electricidad estática</li>
-                    <li>• No utilizar líquidos directamente sobre componentes electrónicos</li>
-                    <li>• Trabajar en un área ventilada al usar aire comprimido</li>
-                    <li>• Documentar el proceso y tomar fotografías antes de desensamblar</li>
-                    <li>• No abrir la fuente de poder sin conocimientos técnicos especializados</li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>
