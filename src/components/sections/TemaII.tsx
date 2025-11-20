@@ -415,10 +415,10 @@ const TemaII = () => {
             </h3>
             
             <Tabs defaultValue="perifericos" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-8">
-                <TabsTrigger value="perifericos">Periféricos</TabsTrigger>
-                <TabsTrigger value="componentes_internos">Componentes Internos</TabsTrigger>
-                <TabsTrigger value="almacenamiento_estructura">Almacenamiento y Estructura</TabsTrigger>
+              <TabsList className="flex w-full overflow-x-auto mb-8 md:grid md:grid-cols-3">
+                <TabsTrigger value="perifericos" className="flex-shrink-0">Periféricos</TabsTrigger>
+                <TabsTrigger value="componentes_internos" className="flex-shrink-0">Componentes Internos</TabsTrigger>
+                <TabsTrigger value="almacenamiento_estructura" className="flex-shrink-0">Almacenamiento y Estructura</TabsTrigger>
               </TabsList>
 
               <TabsContent value="perifericos">
