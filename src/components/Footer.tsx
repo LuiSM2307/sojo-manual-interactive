@@ -26,15 +26,15 @@ const Footer = () => {
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-primary-light" />
-                <span>[Dirección de la institución]</span>
+                <span>Urb. La Mora Av. 01 cruce con Av. 02. Municipio José Félix Ribas, La Victoria, Aragua</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-primary-light" />
-                <span>[Teléfono de contacto]</span>
+                <span>0412-0464320 - 0244-3228699</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-primary-light" />
-                <span>[email@institucion.edu]</span>
+                <span>vicenteemiliosojo2015@gmail.com</span>
               </div>
             </div>
           </div>
@@ -71,6 +71,10 @@ const Footer = () => {
                 <p className="font-semibold text-sm">[Nombre del Desarrollador 2]</p>
                 <p className="text-xs text-secondary-foreground/70">Estudiante / Técnico</p>
               </div>
+              <div className="bg-secondary-foreground/5 p-3 rounded-lg">
+                <p className="font-semibold text-sm">[Nombre del Desarrollador 3]</p>
+                <p className="text-xs text-secondary-foreground/70">Estudiante / Técnico</p>
+              </div>
             </div>
           </div>
         </div>
@@ -83,21 +87,16 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://github.com/LuiSM2307/sojo-manual-interactive/tree/main"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-secondary-foreground/10 hover:bg-primary-light transition-colors flex items-center justify-center"
                 aria-label="Github"
               >
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-secondary-foreground/10 hover:bg-primary-light transition-colors flex items-center justify-center"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
+                href="mailto:vicenteemiliosojo2015@gmail.com"
                 className="w-10 h-10 rounded-full bg-secondary-foreground/10 hover:bg-primary-light transition-colors flex items-center justify-center"
                 aria-label="Email"
               >
@@ -111,10 +110,12 @@ const Footer = () => {
         <div className="mt-8 pt-8 border-t border-secondary-foreground/20">
           <h4 className="font-semibold mb-3 text-sm">Referencias Bibliográficas</h4>
           <div className="text-xs text-secondary-foreground/70 space-y-1">
-            <p>• Manual de Mantenimiento de Computadoras - [Autor/Fuente]</p>
-            <p>• Guía Técnica de Hardware - [Autor/Fuente]</p>
-            <p>• Documentación Oficial BIOS - AMI, Award, Phoenix</p>
-            <p>• Mejores Prácticas en Mantenimiento de Sistemas - [Autor/Fuente]</p>
+            <p>• Benchimol, D. (2010). <em>Técnico Hardware desde cero</em>. RedUSERS.</p>
+            <p>• Carbaillero, G. (2010). <em>Técnico Profesional de PC</em>. RedUSERS.</p>
+            <p>• Cekit. (2001). <em>Curso práctico de mantenimiento, reparación, actualización e instalación de computadoras</em>. Editorial Cekit.</p>
+            <p>• Gómez Valero, J. R. (2009). <em>Manual de Mantenimiento Preventivo y Correctivo para Computadores</em>. Recuperado de <a href="https://masterkarmona.files.wordpress.com/2014/08/manual-preventivo.pdf" target="_blank" rel="noopener noreferrer" className="text-primary-light hover:underline">https://masterkarmona.files.wordpress.com/2014/08/manual-preventivo.pdf</a></p>
+            <p>• IONOS. (s. f.). <em>Pitidos de la BIOS: qué significan los tonos de señal</em>. IONOS Digital Guide. Recuperado de <a href="https://www.ionos.com/es-us/digitalguide/servidores/know-how/pitidos-de-la-bios/" target="_blank" rel="noopener noreferrer" className="text-primary-light hover:underline">https://www.ionos.com/es-us/digitalguide/servidores/know-how/pitidos-de-la-bios/</a></p>
+            <p>• Sosa Cruz J. M. (s.f.). <em>Mantenimiento de Equipo de Cómputo Básico</em>. Yo aprendo Informáticos Unidos.</p>
           </div>
         </div>
       </div>
