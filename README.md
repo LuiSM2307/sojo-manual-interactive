@@ -2,7 +2,7 @@
 
 ## Información del proyecto
 
-**URL**: https://lovable.dev/projects/ef9085c4-825f-4b62-84cc-e5e9d794d727
+**URL**: https://sojo-manual-interactive.lovable.app
 
 **Use your preferred IDE**
 
