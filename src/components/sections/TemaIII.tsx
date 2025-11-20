@@ -604,12 +604,12 @@ const TemaIII = () => {
 
       {/* Image Lightbox Dialog */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="w-screen h-screen md:max-w-[92vw] md:max-h-[90vh] md:w-auto md:h-auto p-0 md:p-6 overflow-hidden bg-black/95 border-0">
+        <DialogContent className="w-[100vw] h-[100vh] md:max-w-[92vw] md:max-h-[90vh] md:w-auto md:h-auto p-2 md:p-6 overflow-hidden bg-black/95 border-0">
           <div className="relative w-full h-full flex items-center justify-center">
             <img 
               src={selectedImage || ""} 
               alt="Vista ampliada"
-              className="w-full h-full md:w-auto md:h-auto md:max-w-full md:max-h-[80vh] object-cover md:object-contain"
+              className="max-w-[95vw] max-h-[95vh] md:max-w-full md:max-h-[80vh] object-contain"
             />
           </div>
         </DialogContent>
