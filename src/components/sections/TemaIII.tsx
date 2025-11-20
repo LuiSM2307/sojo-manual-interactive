@@ -1,6 +1,8 @@
-import { Download, Shield, Trash2, Settings, RefreshCw, Database, CheckCircle, Wrench, AlertTriangle, HardDrive } from "lucide-react";
+import { Download, Shield, Trash2, Settings, RefreshCw, Database, CheckCircle, Wrench, AlertTriangle, HardDrive, Maximize2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { useState } from "react";
 import systemWorkingImg from "@/assets/software/system-working.jpg";
 import toolsImg from "@/assets/software/tools.jpg";
 import cleanupImg from "@/assets/software/cleanup.jpg";
@@ -12,6 +14,8 @@ import backupImg from "@/assets/software/backup.jpg";
 import registryImg from "@/assets/software/registry.jpg";
 
 const TemaIII = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const toolsData = [
     {
       icon: Wrench,
@@ -388,12 +392,18 @@ const TemaIII = () => {
               {preventiveProcedures.map((procedure, index) => (
                 <TabsContent key={index} value={index.toString()}>
                   <Card className="border-border overflow-hidden">
-                    <div className="aspect-video w-full overflow-hidden">
+                    <div className="relative group cursor-pointer h-64 w-full overflow-hidden">
                       <img 
                         src={procedure.image} 
                         alt={procedure.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                        onClick={() => setSelectedImage(procedure.image)}
                       />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-primary text-primary-foreground p-2 rounded-full">
+                          <Maximize2 className="w-6 h-6" />
+                        </div>
+                      </div>
                     </div>
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
@@ -443,12 +453,18 @@ const TemaIII = () => {
               {correctiveProcedures.map((procedure, index) => (
                 <TabsContent key={index} value={index.toString()}>
                   <Card className="border-border overflow-hidden">
-                    <div className="aspect-video w-full overflow-hidden">
+                    <div className="relative group cursor-pointer h-64 w-full overflow-hidden">
                       <img 
                         src={procedure.image} 
                         alt={procedure.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                        onClick={() => setSelectedImage(procedure.image)}
                       />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-primary text-primary-foreground p-2 rounded-full">
+                          <Maximize2 className="w-6 h-6" />
+                        </div>
+                      </div>
                     </div>
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
@@ -581,6 +597,19 @@ const TemaIII = () => {
           </div>
         </div>
       </div>
+
+      {/* Image Lightbox Dialog */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-5xl w-full p-2">
+          <div className="relative w-full">
+            <img 
+              src={selectedImage || ""} 
+              alt="Vista ampliada"
+              className="w-full h-auto max-h-[85vh] object-contain rounded-lg"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
