@@ -2,15 +2,13 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const ScrollToTopOnMount = () => {
-  const { pathname, hash } = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    // Siempre hacer scroll al inicio cuando cambias de página
-    // Si hay un hash, el Navbar se encargará de posicionar después
-    if (!hash) {
-      window.scrollTo(0, 0);
-    }
-  }, [pathname, hash]);
+    // SIEMPRE hacer scroll al inicio cuando cambias de página
+    // El sistema de anclas del Navbar se encarga de posicionar después
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return null;
 };
