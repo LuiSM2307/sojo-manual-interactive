@@ -82,8 +82,8 @@ const Navbar = () => {
       path: "/tema-ii",
       submenu: [
         { id: "introduccion-hw", label: "Hardware - Introducción", path: "/tema-ii#introduccion" },
+        { id: "guias-hardware", label: "Guías de Mantenimiento", path: "/tema-ii#guias" },
         { id: "componentes", label: "Componentes Principales", path: "/tema-ii#componentes" },
-        { id: "guias-hardware", label: "Guías Paso a Paso", path: "/tema-ii#guias" },
       ]
     },
     { 
