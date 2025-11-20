@@ -1,38 +1,44 @@
-import { User, Mail, Github, Linkedin, ArrowLeft } from "lucide-react";
+import { Mail, Github, Linkedin, ArrowLeft } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import luisMendoza from "@/assets/developers/luis-mendoza.png";
+import jaredMejias from "@/assets/developers/jared-mejias.png";
+import ignacioPrieto from "@/assets/developers/ignacio-prieto.png";
 
 const Desarrolladores = () => {
   const navigate = useNavigate();
   
   const developers = [
     {
-      name: "Desarrollador 1",
-      role: "Full Stack Developer",
-      email: "dev1@example.com",
-      github: "github.com/dev1",
-      linkedin: "linkedin.com/in/dev1",
-      bio: "Especialista en desarrollo de aplicaciones web educativas y manuales técnicos interactivos.",
+      name: "Luis Antonio Mendoza Pérez",
+      role: "Líder de Proyecto & Desarrollador Principal",
+      email: "blueluis2007@gmail.com",
+      github: "https://github.com/LuiSM2307",
+      linkedin: "https://www.linkedin.com/in/luis-mendoza-47332b39a",
+      photo: luisMendoza,
+      bio: "Estudiante del PNF de Informática en la UPTAFBF. Profesional metódico con fortaleza en programación y capacidad para adaptarse rápidamente a nuevos lenguajes. Experiencia en mantenimiento integral de computadoras y diagnóstico de problemas. Combina habilidades técnicas con liderazgo efectivo para coordinar equipos.",
     },
     {
-      name: "Desarrollador 2",
-      role: "Frontend Developer",
-      email: "dev2@example.com",
-      github: "github.com/dev2",
-      linkedin: "linkedin.com/in/dev2",
-      bio: "Experto en diseño de interfaces modernas y experiencia de usuario para plataformas educativas.",
+      name: "Jared Jesús Mejías Cordovez",
+      role: "Especialista en Mantenimiento",
+      email: "jaredcordovez64@gmail.com",
+      github: null,
+      linkedin: null,
+      photo: jaredMejias,
+      bio: "Estudiante del PNF de Informática en la UPTAFBF. Especializado en mantenimiento de hardware y software, con habilidad proactiva en la resolución de problemas y optimización de equipos. Comprometido con la excelencia técnica y el trabajo en equipo.",
     },
     {
-      name: "Desarrollador 3",
-      role: "Technical Writer",
-      email: "dev3@example.com",
-      github: "github.com/dev3",
-      linkedin: "linkedin.com/in/dev3",
-      bio: "Especialista en documentación técnica y creación de contenido educativo de calidad.",
+      name: "Ignacio José Prieto Espinoza",
+      role: "Técnico de Mantenimiento",
+      email: "ignacioprieto.simp@gmail.com",
+      github: null,
+      linkedin: null,
+      photo: ignacioPrieto,
+      bio: "Estudiante del PNF de Informática en la UPTAFBF. Especialista en limpieza y mantenimiento integral de computadoras, con experiencia en optimización de sistemas, eliminación de software innecesario y configuración de rendimiento para garantizar funcionamiento estable.",
     },
   ];
 
@@ -80,8 +86,12 @@ const Desarrolladores = () => {
                   >
                     <CardContent className="p-6">
                       <div className="flex flex-col items-center text-center">
-                        <div className="w-24 h-24 rounded-full bg-primary-soft flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
-                          <User className="w-12 h-12 text-primary group-hover:text-primary-foreground transition-colors" />
+                        <div className="w-32 h-32 rounded-full overflow-hidden mb-4 ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all">
+                          <img 
+                            src={dev.photo} 
+                            alt={dev.name}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
                         <h3 className="text-xl font-bold mb-1 text-foreground">
                           {dev.name}
@@ -89,35 +99,39 @@ const Desarrolladores = () => {
                         <p className="text-sm text-primary font-medium mb-3">
                           {dev.role}
                         </p>
-                        <p className="text-sm text-muted-foreground mb-4">
+                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                           {dev.bio}
                         </p>
-                        <div className="flex flex-col gap-2 w-full">
+                        <div className="flex flex-col gap-2 w-full border-t border-border pt-4">
                           <a
                             href={`mailto:${dev.email}`}
                             className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                           >
                             <Mail className="w-4 h-4" />
-                            {dev.email}
+                            <span className="truncate">{dev.email}</span>
                           </a>
-                          <a
-                            href={`https://${dev.github}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                          >
-                            <Github className="w-4 h-4" />
-                            GitHub
-                          </a>
-                          <a
-                            href={`https://${dev.linkedin}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                          >
-                            <Linkedin className="w-4 h-4" />
-                            LinkedIn
-                          </a>
+                          {dev.github && (
+                            <a
+                              href={dev.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                            >
+                              <Github className="w-4 h-4" />
+                              GitHub
+                            </a>
+                          )}
+                          {dev.linkedin && (
+                            <a
+                              href={dev.linkedin}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                            >
+                              <Linkedin className="w-4 h-4" />
+                              LinkedIn
+                            </a>
+                          )}
                         </div>
                       </div>
                     </CardContent>

@@ -63,17 +63,17 @@ const Footer = () => {
               Este manual fue desarrollado por estudiantes y personal técnico de la institución.
             </p>
             <div className="space-y-3">
-              <div className="bg-secondary-foreground/5 p-3 rounded-lg">
-                <p className="font-semibold text-sm">[Nombre del Desarrollador 1]</p>
-                <p className="text-xs text-secondary-foreground/70">Estudiante / Técnico</p>
+              <div className="bg-secondary-foreground/5 p-3 rounded-lg hover:bg-secondary-foreground/10 transition-colors">
+                <p className="font-semibold text-sm">Luis Antonio Mendoza Pérez</p>
+                <p className="text-xs text-secondary-foreground/70">Líder de Proyecto & Desarrollador Principal</p>
               </div>
-              <div className="bg-secondary-foreground/5 p-3 rounded-lg">
-                <p className="font-semibold text-sm">[Nombre del Desarrollador 2]</p>
-                <p className="text-xs text-secondary-foreground/70">Estudiante / Técnico</p>
+              <div className="bg-secondary-foreground/5 p-3 rounded-lg hover:bg-secondary-foreground/10 transition-colors">
+                <p className="font-semibold text-sm">Jared Jesús Mejías Cordovez</p>
+                <p className="text-xs text-secondary-foreground/70">Especialista en Mantenimiento</p>
               </div>
-              <div className="bg-secondary-foreground/5 p-3 rounded-lg">
-                <p className="font-semibold text-sm">[Nombre del Desarrollador 3]</p>
-                <p className="text-xs text-secondary-foreground/70">Estudiante / Técnico</p>
+              <div className="bg-secondary-foreground/5 p-3 rounded-lg hover:bg-secondary-foreground/10 transition-colors">
+                <p className="font-semibold text-sm">Ignacio José Prieto Espinoza</p>
+                <p className="text-xs text-secondary-foreground/70">Técnico de Mantenimiento</p>
               </div>
             </div>
           </div>
