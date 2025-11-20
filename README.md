@@ -1,18 +1,8 @@
-# Welcome to your Lovable project
+# Proyecto realizado con Lovable.AI
 
-## Project info
+## Información del proyecto
 
 **URL**: https://lovable.dev/projects/ef9085c4-825f-4b62-84cc-e5e9d794d727
-
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/ef9085c4-825f-4b62-84cc-e5e9d794d727) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
@@ -35,24 +25,9 @@ npm i
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
+## Tecnologías que esta usando este proyecto?
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
+Estre proyecto fue construido con:
 
 - Vite
 - TypeScript
@@ -60,14 +35,10 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Opinión sobre este proyecto
 
-Simply open [Lovable](https://lovable.dev/projects/ef9085c4-825f-4b62-84cc-e5e9d794d727) and click on Share -> Publish.
+Tengo ambos manuales con la misma información solo que hechos de forma distinta, esta página esta hecha con solo Inteligencia Artificial y uno que otro cambio por mí.
 
-## Can I connect a custom domain to my Lovable project?
+Son proyectos universitarios y la razón por la cual tengo dos es debido a que no me dió tiempo para terminar el otro y como en un principio la universidad sugería usar la IA, pues tuve que hacerlo.
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Quizás me sirva de experiencia en algún punto, pero en parte siendo yo un novato total, no lo veo como factible ya que no estoy aprendiendo nada, pero quien sabe...
