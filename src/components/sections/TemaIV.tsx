@@ -1,7 +1,9 @@
-import { AlertCircle, Volume2, HelpCircle, Cpu } from "lucide-react";
+import { AlertCircle, Volume2, HelpCircle, Cpu, Wrench, CheckCircle2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import biosImage from "@/assets/diagnostics/bios-diagnostic.jpg";
+import troubleshootImage from "@/assets/diagnostics/troubleshooting.jpg";
 
 const TemaIV = () => {
   const biosTypes = [
@@ -107,37 +109,49 @@ const TemaIV = () => {
             </p>
           </div>
 
-          {/* Introduction */}
-          <div id="introduccion">
-            <Card className="mb-12 border-border">
-              <CardContent className="p-8">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-lg bg-primary-soft flex items-center justify-center">
-                    <Volume2 className="w-6 h-6 text-primary" />
+          {/* Introduction with Image */}
+          <div id="introduccion" className="mb-12 animate-fade-in">
+            <Card className="border-border overflow-hidden group hover:shadow-lg transition-all duration-300">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="relative h-64 md:h-auto overflow-hidden">
+                  <img 
+                    src={biosImage} 
+                    alt="BIOS Diagnostic" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent md:hidden"></div>
+                </div>
+                <CardContent className="p-8 flex items-center">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center shadow-lg">
+                        <Volume2 className="w-6 h-6 text-primary-foreground" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-3 text-foreground">
+                        Códigos de Pitidos POST (Power-On Self-Test)
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Cuando una computadora se enciende, la BIOS realiza un autodiagnóstico llamado POST.
+                        Si detecta algún problema durante este proceso, emite una serie de pitidos que
+                        indican la naturaleza del error. Estos códigos varían según el fabricante del BIOS
+                        (AMI, Award, Phoenix), por lo que es importante identificar el tipo de BIOS para
+                        interpretar correctamente los pitidos.
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-3 text-foreground">
-                    Códigos de Pitidos POST (Power-On Self-Test)
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Cuando una computadora se enciende, la BIOS realiza un autodiagnóstico llamado POST.
-                    Si detecta algún problema durante este proceso, emite una serie de pitidos que
-                    indican la naturaleza del error. Estos códigos varían según el fabricante del BIOS
-                    (AMI, Award, Phoenix), por lo que es importante identificar el tipo de BIOS para
-                    interpretar correctamente los pitidos.
-                  </p>
-                </div>
+                </CardContent>
               </div>
-            </CardContent>
-          </Card>
+            </Card>
           </div>
 
           {/* BIOS Codes */}
-          <div id="codigos" className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
-              <Cpu className="w-7 h-7 text-primary" />
+          <div id="codigos" className="mb-12 animate-fade-in">
+            <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
+                <Cpu className="w-6 h-6 text-primary-foreground" />
+              </div>
               Códigos por Tipo de BIOS
             </h3>
 
@@ -164,14 +178,15 @@ const TemaIV = () => {
                         {bios.codes.map((code, codeIndex) => (
                           <div
                             key={codeIndex}
-                            className="flex items-start gap-4 p-4 rounded-lg bg-muted hover:bg-accent transition-colors"
+                            className="flex items-start gap-4 p-4 rounded-lg bg-muted hover:bg-accent hover:shadow-md transition-all duration-200 border border-transparent hover:border-primary/20 group"
                           >
                             <div className="flex-shrink-0 w-32">
-                              <span className="inline-block px-3 py-1 bg-primary text-primary-foreground rounded-full text-sm font-semibold">
+                              <span className="inline-flex items-center gap-2 px-3 py-1 gradient-primary text-primary-foreground rounded-full text-sm font-semibold shadow-sm group-hover:shadow-md transition-shadow">
+                                <Volume2 className="w-3 h-3" />
                                 {code.beeps}
                               </span>
                             </div>
-                            <p className="text-muted-foreground flex-1">{code.meaning}</p>
+                            <p className="text-muted-foreground flex-1 group-hover:text-foreground transition-colors">{code.meaning}</p>
                           </div>
                         ))}
                       </div>
@@ -183,68 +198,101 @@ const TemaIV = () => {
           </div>
 
           {/* Diagnostic Flowchart */}
-          <div id="diagnostico" className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
-              <AlertCircle className="w-7 h-7 text-primary" />
+          <div id="diagnostico" className="mb-12 animate-fade-in">
+            <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
+                <Wrench className="w-6 h-6 text-primary-foreground" />
+              </div>
               Procedimiento de Diagnóstico
             </h3>
 
-            <Card className="border-border">
-              <CardContent className="p-8">
-                <div className="space-y-6">
-                  {[
-                    {
-                      step: 1,
-                      title: "Identificar el problema",
-                      desc: "Anotar síntomas, códigos de error o pitidos. Determinar cuándo ocurre el problema.",
-                    },
-                    {
-                      step: 2,
-                      title: "Consultar códigos BIOS",
-                      desc: "Si hay pitidos, identificar tipo de BIOS y consultar tabla correspondiente.",
-                    },
-                    {
-                      step: 3,
-                      title: "Verificar conexiones básicas",
-                      desc: "Revisar cables de alimentación, periféricos y conexiones internas.",
-                    },
-                    {
-                      step: 4,
-                      title: "Aislar el componente",
-                      desc: "Probar componentes individualmente para identificar el defectuoso.",
-                    },
-                    {
-                      step: 5,
-                      title: "Aplicar solución",
-                      desc: "Reemplazar, reparar o reconfigurar el componente problemático.",
-                    },
-                    {
-                      step: 6,
-                      title: "Verificar funcionamiento",
-                      desc: "Probar el sistema completamente para confirmar que el problema está resuelto.",
-                    },
-                  ].map((item) => (
-                    <div key={item.step} className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full gradient-primary text-primary-foreground flex items-center justify-center text-xl font-bold">
-                        {item.step}
-                      </div>
-                      <div className="flex-1 pt-1">
-                        <h4 className="text-lg font-semibold text-foreground mb-1">
-                          {item.title}
-                        </h4>
-                        <p className="text-muted-foreground">{item.desc}</p>
-                      </div>
+            <div className="grid md:grid-cols-5 gap-8">
+              <div className="md:col-span-3">
+                <Card className="border-border shadow-lg">
+                  <CardContent className="p-8">
+                    <div className="space-y-8 relative">
+                      {/* Línea conectora vertical */}
+                      <div className="absolute left-6 top-12 bottom-12 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary hidden md:block"></div>
+                      
+                      {[
+                        {
+                          step: 1,
+                          title: "Identificar el problema",
+                          desc: "Anotar síntomas, códigos de error o pitidos. Determinar cuándo ocurre el problema.",
+                          icon: AlertCircle,
+                        },
+                        {
+                          step: 2,
+                          title: "Consultar códigos BIOS",
+                          desc: "Si hay pitidos, identificar tipo de BIOS y consultar tabla correspondiente.",
+                          icon: Volume2,
+                        },
+                        {
+                          step: 3,
+                          title: "Verificar conexiones básicas",
+                          desc: "Revisar cables de alimentación, periféricos y conexiones internas.",
+                          icon: Cpu,
+                        },
+                        {
+                          step: 4,
+                          title: "Aislar el componente",
+                          desc: "Probar componentes individualmente para identificar el defectuoso.",
+                          icon: HelpCircle,
+                        },
+                        {
+                          step: 5,
+                          title: "Aplicar solución",
+                          desc: "Reemplazar, reparar o reconfigurar el componente problemático.",
+                          icon: Wrench,
+                        },
+                        {
+                          step: 6,
+                          title: "Verificar funcionamiento",
+                          desc: "Probar el sistema completamente para confirmar que el problema está resuelto.",
+                          icon: CheckCircle2,
+                        },
+                      ].map((item) => {
+                        const Icon = item.icon;
+                        return (
+                          <div key={item.step} className="flex items-start gap-4 relative group">
+                            <div className="flex-shrink-0 w-12 h-12 rounded-full gradient-primary text-primary-foreground flex items-center justify-center text-xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-200 relative z-10">
+                              {item.step}
+                            </div>
+                            <div className="flex-1 pt-1 bg-muted/50 p-4 rounded-lg group-hover:bg-accent transition-colors duration-200">
+                              <div className="flex items-center gap-2 mb-1">
+                                <Icon className="w-5 h-5 text-primary" />
+                                <h4 className="text-lg font-semibold text-foreground">
+                                  {item.title}
+                                </h4>
+                              </div>
+                              <p className="text-muted-foreground text-sm">{item.desc}</p>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  </CardContent>
+                </Card>
+              </div>
+              
+              <div className="md:col-span-2">
+                <Card className="border-border overflow-hidden h-full">
+                  <img 
+                    src={troubleshootImage} 
+                    alt="Troubleshooting Process" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </Card>
+              </div>
+            </div>
           </div>
 
           {/* Common Problems */}
-          <div id="problemas">
-            <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
-              <HelpCircle className="w-7 h-7 text-primary" />
+          <div id="problemas" className="animate-fade-in">
+            <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
+                <HelpCircle className="w-6 h-6 text-primary-foreground" />
+              </div>
               Problemas Frecuentes y Soluciones
             </h3>
 
@@ -253,10 +301,15 @@ const TemaIV = () => {
                 <AccordionItem
                   key={index}
                   value={`problem-${index}`}
-                  className="bg-card border-border rounded-lg px-6 shadow-sm"
+                  className="bg-card border-border rounded-lg px-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-200"
                 >
-                  <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                    {item.problem}
+                  <AccordionTrigger className="text-lg font-semibold hover:text-primary transition-colors">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center text-primary-foreground text-sm font-bold">
+                        {index + 1}
+                      </div>
+                      {item.problem}
+                    </div>
                   </AccordionTrigger>
                   <AccordionContent className="pt-4">
                     <div className="grid md:grid-cols-2 gap-6">
