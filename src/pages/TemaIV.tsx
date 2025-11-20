@@ -1,19 +1,19 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Introduction from "@/components/sections/Introduction";
 import Footer from "@/components/Footer";
+import TemaIV from "@/components/sections/TemaIV";
 import ScrollToTop from "@/components/ScrollToTop";
 
-const Index = () => {
+const TemaIVPage = () => {
   return (
     <div className="scroll-smooth">
       <Navbar />
-      <Hero />
-      <Introduction />
+      <div className="pt-20">
+        <TemaIV />
+      </div>
       <Footer />
       <ScrollToTop />
     </div>
   );
 };
 
-export default Index;
+export default TemaIVPage;

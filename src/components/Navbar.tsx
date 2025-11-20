@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, Search } from "lucide-react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -16,6 +17,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,59 +28,62 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/glosario?search=${encodeURIComponent(searchQuery)}`);
+      setSearchQuery("");
+      setShowSearch(false);
       setIsOpen(false);
     }
   };
 
   const navItems = [
-    { id: "introduccion", label: "Introducción" },
+    { id: "introduccion", label: "Introducción", path: "/" },
     { 
       id: "tema-i", 
       label: "Tema I", 
+      path: "/tema-i",
       submenu: [
-        { id: "datos-institucion", label: "Datos de la Institución" },
-        { id: "sobre-manual", label: "Sobre el Manual" },
-        { id: "conceptos", label: "Conceptos Básicos" },
+        { id: "datos-institucion", label: "Datos de la Institución", path: "/tema-i#datos-institucion" },
+        { id: "sobre-manual", label: "Sobre el Manual", path: "/tema-i#sobre-manual" },
+        { id: "conceptos", label: "Conceptos Básicos", path: "/tema-i#conceptos" },
       ]
     },
     { 
       id: "tema-ii", 
       label: "Tema II", 
+      path: "/tema-ii",
       submenu: [
-        { id: "tema-ii", label: "Hardware - Introducción" },
-        { id: "componentes", label: "Componentes Principales" },
-        { id: "guias-hardware", label: "Guías Paso a Paso" },
+        { id: "introduccion-hw", label: "Hardware - Introducción", path: "/tema-ii#introduccion" },
+        { id: "componentes", label: "Componentes Principales", path: "/tema-ii#componentes" },
+        { id: "guias-hardware", label: "Guías Paso a Paso", path: "/tema-ii#guias" },
       ]
     },
     { 
       id: "tema-iii", 
       label: "Tema III", 
+      path: "/tema-iii",
       submenu: [
-        { id: "tema-iii", label: "Software - Introducción" },
-        { id: "tareas-software", label: "Tareas de Mantenimiento" },
-        { id: "procedimientos-software", label: "Procedimientos Detallados" },
+        { id: "introduccion-sw", label: "Software - Introducción", path: "/tema-iii#introduccion" },
+        { id: "tareas-software", label: "Tareas de Mantenimiento", path: "/tema-iii#tareas" },
+        { id: "procedimientos-software", label: "Procedimientos Detallados", path: "/tema-iii#procedimientos" },
       ]
     },
     { 
       id: "tema-iv", 
       label: "Tema IV", 
+      path: "/tema-iv",
       submenu: [
-        { id: "tema-iv", label: "Diagnóstico - Introducción" },
-        { id: "codigos-bios", label: "Códigos BIOS" },
-        { id: "diagnostico", label: "Procedimientos de Diagnóstico" },
-        { id: "problemas-frecuentes", label: "Problemas Frecuentes" },
+        { id: "introduccion-diag", label: "Diagnóstico - Introducción", path: "/tema-iv#introduccion" },
+        { id: "codigos-bios", label: "Códigos BIOS", path: "/tema-iv#codigos" },
+        { id: "diagnostico", label: "Procedimientos de Diagnóstico", path: "/tema-iv#diagnostico" },
+        { id: "problemas-frecuentes", label: "Problemas Frecuentes", path: "/tema-iv#problemas" },
       ]
     },
-    { id: "conclusion", label: "Conclusión" },
-    { id: "glosario", label: "Glosario" },
-    { id: "desarrolladores", label: "Desarrolladores", isLink: true, path: "/desarrolladores" },
+    { id: "conclusion", label: "Conclusión", path: "/conclusion" },
+    { id: "glosario", label: "Glosario", path: "/glosario" },
+    { id: "desarrolladores", label: "Desarrolladores", path: "/desarrolladores" },
   ];
 
   return (
@@ -91,7 +97,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3">
             <img 
               src={logoInstitucional} 
               alt="Logo U.E.N. Vicente Emilio Sojo" 
@@ -101,7 +107,7 @@ const Navbar = () => {
               <h1 className="text-lg font-bold text-foreground">U.E.N. Vicente Emilio Sojo</h1>
               <p className="text-xs text-muted-foreground">Manual Técnico Interactivo</p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-1">
@@ -109,7 +115,10 @@ const Navbar = () => {
               item.submenu ? (
                 <DropdownMenu key={item.id}>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-foreground hover:text-primary">
+                    <Button 
+                      variant="ghost" 
+                      className={`text-foreground hover:text-primary ${location.pathname === item.path ? 'text-primary' : ''}`}
+                    >
                       {item.label}
                       <ChevronDown className="ml-1 h-4 w-4" />
                     </Button>
@@ -118,7 +127,7 @@ const Navbar = () => {
                     {item.submenu.map((subItem) => (
                       <DropdownMenuItem
                         key={subItem.id}
-                        onClick={() => scrollToSection(subItem.id)}
+                        onClick={() => navigate(subItem.path)}
                         className="cursor-pointer hover:bg-accent"
                       >
                         {subItem.label}
@@ -126,21 +135,12 @@ const Navbar = () => {
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
-              ) : item.isLink ? (
-                <Button
-                  key={item.id}
-                  variant="ghost"
-                  onClick={() => window.location.href = item.path}
-                  className="text-foreground hover:text-primary"
-                >
-                  {item.label}
-                </Button>
               ) : (
                 <Button
                   key={item.id}
                   variant="ghost"
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-foreground hover:text-primary"
+                  onClick={() => navigate(item.path)}
+                  className={`text-foreground hover:text-primary ${location.pathname === item.path ? 'text-primary' : ''}`}
                 >
                   {item.label}
                 </Button>
@@ -176,7 +176,7 @@ const Navbar = () => {
 
         {/* Search Bar */}
         {showSearch && (
-          <div className="hidden lg:block py-4 animate-fade-in">
+          <form onSubmit={handleSearch} className="hidden lg:block py-4 animate-fade-in">
             <Input
               type="text"
               placeholder="Buscar en el manual..."
@@ -184,13 +184,13 @@ const Navbar = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="max-w-md mx-auto"
             />
-          </div>
+          </form>
         )}
 
         {/* Mobile Menu */}
         {isOpen && (
           <div className="lg:hidden py-4 animate-fade-in bg-background/95 backdrop-blur-md rounded-lg mt-2 shadow-lg">
-            <div className="px-4 pb-3">
+            <form onSubmit={handleSearch} className="px-4 pb-3">
               <Input
                 type="text"
                 placeholder="Buscar..."
@@ -198,13 +198,16 @@ const Navbar = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full"
               />
-            </div>
+            </form>
             {navItems.map((item) => (
               <div key={item.id}>
                 {item.submenu ? (
                   <div className="border-b border-border last:border-0">
                     <button
-                      onClick={() => scrollToSection(item.id)}
+                      onClick={() => {
+                        navigate(item.path);
+                        setIsOpen(false);
+                      }}
                       className="w-full text-left px-4 py-3 hover:bg-accent transition-colors text-foreground font-medium"
                     >
                       {item.label}
@@ -212,23 +215,22 @@ const Navbar = () => {
                     {item.submenu.map((subItem) => (
                       <button
                         key={subItem.id}
-                        onClick={() => scrollToSection(subItem.id)}
+                        onClick={() => {
+                          navigate(subItem.path);
+                          setIsOpen(false);
+                        }}
                         className="w-full text-left px-8 py-2 hover:bg-accent transition-colors text-muted-foreground text-sm"
                       >
                         {subItem.label}
                       </button>
                     ))}
                   </div>
-                ) : item.isLink ? (
-                  <button
-                    onClick={() => window.location.href = item.path}
-                    className="w-full text-left px-4 py-3 hover:bg-accent transition-colors border-b border-border last:border-0 text-foreground"
-                  >
-                    {item.label}
-                  </button>
                 ) : (
                   <button
-                    onClick={() => scrollToSection(item.id)}
+                    onClick={() => {
+                      navigate(item.path);
+                      setIsOpen(false);
+                    }}
                     className="w-full text-left px-4 py-3 hover:bg-accent transition-colors border-b border-border last:border-0 text-foreground"
                   >
                     {item.label}

@@ -47,7 +47,7 @@ const Hero = () => {
           </p>
 
           {/* Institution */}
-          <div className="inline-flex items-center gap-4 bg-card border border-border rounded-lg px-6 py-4 mb-12 shadow-md">
+          <div className="inline-flex items-center gap-4 bg-card border border-border rounded-lg px-6 py-4 mb-8 shadow-md">
             <img 
               src={logoInstitucional} 
               alt="Logo Institucional" 
@@ -60,14 +60,16 @@ const Hero = () => {
           </div>
 
           {/* CTA Button */}
-          <Button
-            size="lg"
-            onClick={scrollToIntroduction}
-            className="gradient-primary text-primary-foreground hover:opacity-90 transition-all transform hover:scale-105 shadow-lg text-lg px-8 py-6 rounded-full"
-          >
-            Explorar Manual
-            <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
-          </Button>
+          <div className="flex justify-center mb-12">
+            <Button
+              size="lg"
+              onClick={scrollToIntroduction}
+              className="gradient-primary text-primary-foreground hover:opacity-90 transition-all transform hover:scale-105 shadow-lg text-lg px-8 py-6 rounded-full"
+            >
+              Explorar Manual
+              <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
+            </Button>
+          </div>
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-3xl mx-auto">

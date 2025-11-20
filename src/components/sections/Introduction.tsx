@@ -37,28 +37,26 @@ const Introduction = () => {
           </div>
 
           {/* Content Cards */}
-          <div className="grid md:grid-cols-1 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {sections.map((section, index) => (
               <Card
                 key={index}
-                className="card-hover border-border shadow-md animate-slide-up"
+                className="card-hover border-border shadow-lg animate-slide-up bg-gradient-to-br from-card to-card/80"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-14 h-14 rounded-lg gradient-primary flex items-center justify-center">
-                        <section.icon className="w-7 h-7 text-primary-foreground" />
+                <CardContent className="p-6">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="mb-4">
+                      <div className="w-16 h-16 rounded-full gradient-primary flex items-center justify-center shadow-lg">
+                        <section.icon className="w-8 h-8 text-primary-foreground" />
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold mb-3 text-foreground">
-                        {section.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {section.content}
-                      </p>
-                    </div>
+                    <h3 className="text-xl font-bold mb-4 text-foreground">
+                      {section.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      {section.content}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
