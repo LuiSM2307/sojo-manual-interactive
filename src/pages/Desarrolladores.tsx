@@ -1,9 +1,13 @@
-import { User, Mail, Github, Linkedin } from "lucide-react";
+import { User, Mail, Github, Linkedin, ArrowLeft } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const Desarrolladores = () => {
+  const navigate = useNavigate();
+  
   const developers = [
     {
       name: "Desarrollador 1",
@@ -39,6 +43,18 @@ const Desarrolladores = () => {
         <section className="py-20 bg-gradient-to-b from-primary/5 to-background">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
+              {/* Back Button */}
+              <div className="mb-8">
+                <Button
+                  variant="ghost"
+                  onClick={() => navigate("/")}
+                  className="text-foreground hover:text-primary"
+                >
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Volver al Manual
+                </Button>
+              </div>
+
               {/* Header */}
               <div className="text-center mb-16 animate-fade-in">
                 <div className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium mb-4">

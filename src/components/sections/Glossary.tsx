@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BookOpen, Search } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
-const Glossary = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+interface GlossaryProps {
+  initialSearch?: string;
+}
+
+const Glossary = ({ initialSearch = "" }: GlossaryProps) => {
+  const [searchTerm, setSearchTerm] = useState(initialSearch);
+
+  useEffect(() => {
+    if (initialSearch) {
+      setSearchTerm(initialSearch);
+    }
+  }, [initialSearch]);
 
   const terms = [
     { term: "BIOS", definition: "Basic Input/Output System. Sistema básico de entrada/salida que inicializa el hardware durante el proceso de arranque." },
@@ -48,71 +58,60 @@ const Glossary = () => {
   return (
     <section id="glosario" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12 animate-fade-in">
-            <div className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium mb-4">
-              Glosario
+            <div className="inline-flex items-center gap-2 bg-primary-soft text-primary px-4 py-2 rounded-full mb-4">
+              <BookOpen className="w-4 h-4" />
+              <span className="text-sm font-medium">Terminología Técnica</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
               Glosario de Términos
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Definiciones de términos técnicos utilizados en este manual
+              Encuentra definiciones claras de los términos técnicos utilizados en este manual
             </p>
           </div>
 
-          {/* Search */}
-          <div className="mb-8">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
+          {/* Search Bar */}
+          <div className="mb-8 animate-fade-in">
+            <div className="relative max-w-md mx-auto">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
               <Input
                 type="text"
                 placeholder="Buscar término..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-12 h-12 text-base border-border"
+                className="pl-10"
               />
             </div>
           </div>
 
-          {/* Terms List */}
-          <div className="space-y-4">
+          {/* Terms Grid */}
+          <div className="grid md:grid-cols-2 gap-4">
             {filteredTerms.length > 0 ? (
               filteredTerms.map((item, index) => (
                 <Card
                   key={index}
-                  className="card-hover border-border animate-fade-in"
+                  className="card-hover border-border animate-slide-up"
                   style={{ animationDelay: `${index * 0.05}s` }}
                 >
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-lg bg-primary-soft flex items-center justify-center">
-                          <BookOpen className="w-5 h-5 text-primary" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold mb-2 text-primary">
-                          {item.term}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {item.definition}
-                        </p>
-                      </div>
-                    </div>
+                  <CardContent className="p-5">
+                    <h3 className="text-lg font-bold text-primary mb-2">
+                      {item.term}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.definition}
+                    </p>
                   </CardContent>
                 </Card>
               ))
             ) : (
-              <Card className="border-border">
-                <CardContent className="p-12 text-center">
-                  <BookOpen className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground">
-                    No se encontraron términos que coincidan con tu búsqueda.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="col-span-2 text-center py-12">
+                <p className="text-muted-foreground">
+                  No se encontraron términos que coincidan con tu búsqueda
+                </p>
+              </div>
             )}
           </div>
         </div>

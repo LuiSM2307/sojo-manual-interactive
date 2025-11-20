@@ -7,6 +7,12 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Desarrolladores from "./pages/Desarrolladores";
+import TemaIPage from "./pages/TemaI";
+import TemaIIPage from "./pages/TemaII";
+import TemaIIIPage from "./pages/TemaIII";
+import TemaIVPage from "./pages/TemaIV";
+import ConclusionPage from "./pages/ConclusionPage";
+import GlosarioPage from "./pages/GlosarioPage";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +25,12 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/tema-i" element={<TemaIPage />} />
+            <Route path="/tema-ii" element={<TemaIIPage />} />
+            <Route path="/tema-iii" element={<TemaIIIPage />} />
+            <Route path="/tema-iv" element={<TemaIVPage />} />
+            <Route path="/conclusion" element={<ConclusionPage />} />
+            <Route path="/glosario" element={<GlosarioPage />} />
             <Route path="/desarrolladores" element={<Desarrolladores />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
