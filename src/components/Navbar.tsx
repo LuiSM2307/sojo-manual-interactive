@@ -57,7 +57,7 @@ const Navbar = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      navigate(`/glosario?search=${encodeURIComponent(searchQuery)}`);
+      navigate(`/busqueda?q=${encodeURIComponent(searchQuery)}`);
       setSearchQuery("");
       setShowSearch(false);
       setIsOpen(false);
@@ -230,7 +230,7 @@ const Navbar = () => {
           <form onSubmit={handleSearch} className="hidden lg:block py-4 animate-fade-in">
             <Input
               type="text"
-              placeholder="Buscar en el manual..."
+              placeholder="Buscar en todo el manual..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="max-w-md mx-auto"
@@ -244,7 +244,7 @@ const Navbar = () => {
             <form onSubmit={handleSearch} className="px-4 pb-3">
               <Input
                 type="text"
-                placeholder="Buscar..."
+                placeholder="Buscar en todo el manual..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full"
