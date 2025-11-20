@@ -2,6 +2,10 @@ import { Building, History, Eye, MapPin, FileText, Target, Lightbulb, Wrench } f
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import fachadaInstitucion from "@/assets/fachada-institucion.jpg";
+import mantenimientoImg from "@/assets/concepts/mantenimiento.jpg";
+import sistemasInformaticosImg from "@/assets/concepts/sistemas-informaticos.jpg";
+import tiposMantenimientoImg from "@/assets/concepts/tipos-mantenimiento.jpg";
 
 const TemaI = () => {
   return (
@@ -38,6 +42,13 @@ const TemaI = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
+                  <div className="mb-4">
+                    <img 
+                      src={fachadaInstitucion} 
+                      alt="Fachada de la Unidad Educativa Nacional Vicente Emilio Sojo" 
+                      className="w-full h-48 object-cover rounded-lg shadow-md"
+                    />
+                  </div>
                   <p className="text-muted-foreground leading-relaxed">
                     La Unidad Educativa Nacional "Vicente Emilio Sojo" fue fundada con el compromiso
                     de ofrecer educación de calidad a la comunidad. A lo largo de los años, ha sido
@@ -89,10 +100,21 @@ const TemaI = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2 text-muted-foreground">
-                    <p><strong className="text-foreground">Dirección:</strong> [Dirección de la institución]</p>
-                    <p><strong className="text-foreground">Ciudad:</strong> [Ciudad]</p>
-                    <p><strong className="text-foreground">Estado:</strong> [Estado]</p>
-                    <p><strong className="text-foreground">Teléfono:</strong> [Teléfono]</p>
+                    <p>
+                      <strong className="text-foreground">Dirección:</strong>{" "}
+                      <a 
+                        href="https://maps.app.goo.gl/JZHjUqg9KCTx54Et5" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline"
+                      >
+                        Urb. La Mora Av. 01 cruce con Av. 02. Municipio José Félix Ribas
+                      </a>
+                    </p>
+                    <p><strong className="text-foreground">Ciudad:</strong> La Victoria</p>
+                    <p><strong className="text-foreground">Estado:</strong> Aragua</p>
+                    <p><strong className="text-foreground">Teléfono:</strong> 0412-0464320 - 0244-3228699</p>
+                    <p><strong className="text-foreground">Dpto. de Evaluación:</strong> 0244-9958021</p>
                   </div>
                 </CardContent>
               </Card>
@@ -107,8 +129,13 @@ const TemaI = () => {
                 <CardContent>
                   <div className="space-y-2 text-muted-foreground">
                     <p><strong className="text-foreground">Tipo:</strong> Pública</p>
-                    <p><strong className="text-foreground">Niveles:</strong> Primaria y Bachillerato</p>
+                    <p><strong className="text-foreground">Niveles:</strong> Bachillerato</p>
                     <p><strong className="text-foreground">Dependencia:</strong> Ministerio del Poder Popular para la Educación</p>
+                    <p><strong className="text-foreground">RIF:</strong> G-20006016-6</p>
+                    <p><strong className="text-foreground">Email:</strong> vicenteemiliosojo2015@gmail.com</p>
+                    <p><strong className="text-foreground">Código Estadístico:</strong> 1-50923</p>
+                    <p><strong className="text-foreground">Código DEA:</strong> S3485DO5O5</p>
+                    <p><strong className="text-foreground">Código:</strong> 007913768</p>
                   </div>
                 </CardContent>
               </Card>
@@ -176,10 +203,19 @@ const TemaI = () => {
                   ¿Qué es mantenimiento?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pt-4">
-                  El mantenimiento es el conjunto de acciones técnicas y administrativas destinadas a
-                  conservar o restablecer un sistema o equipo a un estado en el cual pueda cumplir con
-                  su función requerida. Incluye actividades de inspección, limpieza, lubricación,
-                  ajuste, calibración y reparación.
+                  <div className="mb-4">
+                    <img 
+                      src={mantenimientoImg} 
+                      alt="Concepto de mantenimiento" 
+                      className="w-full h-40 object-cover rounded-lg shadow-md"
+                    />
+                  </div>
+                  <p>
+                    El mantenimiento es el conjunto de acciones técnicas y administrativas destinadas a
+                    conservar o restablecer un sistema o equipo a un estado en el cual pueda cumplir con
+                    su función requerida. Incluye actividades de inspección, limpieza, lubricación,
+                    ajuste, calibración y reparación.
+                  </p>
                 </AccordionContent>
               </AccordionItem>
 
@@ -188,10 +224,19 @@ const TemaI = () => {
                   ¿Qué es mantenimiento de un sistema informático?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pt-4">
-                  Es el conjunto de procedimientos técnicos aplicados tanto al hardware como al software
-                  de un equipo de computación, con el objetivo de garantizar su correcto funcionamiento,
-                  prevenir fallas, optimizar su rendimiento y prolongar su vida útil. Abarca desde la
-                  limpieza física de componentes hasta la actualización de sistemas operativos y aplicaciones.
+                  <div className="mb-4">
+                    <img 
+                      src={sistemasInformaticosImg} 
+                      alt="Mantenimiento de sistemas informáticos" 
+                      className="w-full h-40 object-cover rounded-lg shadow-md"
+                    />
+                  </div>
+                  <p>
+                    Es el conjunto de procedimientos técnicos aplicados tanto al hardware como al software
+                    de un equipo de computación, con el objetivo de garantizar su correcto funcionamiento,
+                    prevenir fallas, optimizar su rendimiento y prolongar su vida útil. Abarca desde la
+                    limpieza física de componentes hasta la actualización de sistemas operativos y aplicaciones.
+                  </p>
                 </AccordionContent>
               </AccordionItem>
 
@@ -200,6 +245,13 @@ const TemaI = () => {
                   Tipos de mantenimiento
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
+                  <div className="mb-4">
+                    <img 
+                      src={tiposMantenimientoImg} 
+                      alt="Tipos de mantenimiento" 
+                      className="w-full h-40 object-cover rounded-lg shadow-md"
+                    />
+                  </div>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-primary-soft p-4 rounded-lg border border-primary/20">
                       <div className="flex items-center gap-2 mb-2">
