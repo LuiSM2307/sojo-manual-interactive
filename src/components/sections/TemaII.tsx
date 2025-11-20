@@ -1,4 +1,4 @@
-import { Cpu, HardDrive, Monitor, Keyboard, Fan, Shield, CheckCircle, AlertTriangle, Wrench, MemoryStick, Disc, Box } from "lucide-react";
+import { Cpu, HardDrive, Monitor, Keyboard, Fan, Shield, CheckCircle, AlertTriangle, Wrench, MemoryStick, Disc, Box, Mouse, Wifi, CircuitBoard } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -11,136 +11,187 @@ import powerSupplyImg from "@/assets/hardware/power-supply-real.jpg";
 import ramImg from "@/assets/hardware/ram.jpg";
 import dvdDriveImg from "@/assets/hardware/dvd-drive.jpg";
 import caseImg from "@/assets/hardware/case.jpg";
+import mouseImg from "@/assets/hardware/mouse-real.jpg";
+import networkCardImg from "@/assets/hardware/network-card-real.jpg";
+import motherboardImg from "@/assets/hardware/motherboard-real.jpg";
 
 const TemaII = () => {
-  const components = [
-    { 
-      icon: Cpu, 
-      name: "Procesador (CPU)", 
-      desc: "Limpieza del disipador y renovación de pasta térmica",
-      img: cpuImg,
-      guide: [
-        "Apagar el equipo y desconectar de la corriente",
-        "Liberar el disipador del procesador con cuidado",
-        "Limpiar el disipador con aire comprimido",
-        "Remover la pasta térmica antigua con alcohol isopropílico",
-        "Aplicar nueva pasta térmica (tamaño de un grano de arroz)",
-        "Reinstalar el disipador asegurando buena presión",
-      ]
-    },
-    { 
-      icon: HardDrive, 
-      name: "Disco Duro", 
-      desc: "Limpieza externa y verificación de conexiones",
-      img: hardDriveImg,
-      guide: [
-        "Desconectar cables SATA y de alimentación",
-        "Limpiar la superficie externa con paño suave",
-        "Usar aire comprimido en conectores",
-        "Verificar que no haya golpes o daños físicos",
-        "Reconectar asegurando conexiones firmes",
-        "Verificar detección en BIOS al encender",
-      ]
-    },
-    { 
-      icon: Monitor, 
-      name: "Monitor", 
-      desc: "Limpieza de pantalla y verificación de conexiones",
-      img: monitorImg,
-      guide: [
-        "Apagar el monitor y desconectar de la corriente",
-        "Usar paño de microfibra seco para polvo",
-        "Para manchas: humedecer ligeramente con agua destilada",
-        "Limpiar en movimientos circulares suaves",
-        "Verificar cables de video (HDMI, DisplayPort, VGA)",
-        "Comprobar botones y menú OSD del monitor",
-      ]
-    },
-    { 
-      icon: Keyboard, 
-      name: "Teclado", 
-      desc: "Limpieza profunda y verificación de funcionamiento",
-      img: keyboardImg,
-      guide: [
-        "Desconectar teclado del equipo",
-        "Voltear teclado y sacudir suavemente para soltar residuos",
-        "Usar aire comprimido entre las teclas",
-        "Limpiar superficie con paño húmedo con alcohol",
-        "Limpiar conectores con aire comprimido",
-        "Verificar funcionamiento de todas las teclas",
-      ]
-    },
-    { 
-      icon: Fan, 
-      name: "Ventiladores", 
-      desc: "Limpieza de aspas y verificación de rodamientos",
-      img: fanImg,
-      guide: [
-        "Identificar todos los ventiladores (gabinete, CPU, GPU)",
-        "Sostener las aspas antes de usar aire comprimido",
-        "Limpiar polvo acumulado en aspas y rejillas",
-        "Verificar que giren libremente sin ruidos",
-        "Aplicar una gota de aceite en rodamiento si es necesario",
-        "Asegurar que cables no obstruyan el movimiento",
-      ]
-    },
-    { 
-      icon: Shield, 
-      name: "Fuente de Poder", 
-      desc: "Limpieza externa y verificación de funcionamiento",
-      img: powerSupplyImg,
-      guide: [
-        "⚠️ ADVERTENCIA: No abrir la fuente de poder",
-        "Desconectar fuente completamente antes de manipular",
-        "Limpiar polvo del ventilador externo con aire comprimido",
-        "Verificar que el ventilador gire correctamente",
-        "Inspeccionar cables por desgaste o daños",
-        "Verificar voltaje correcto con selector (110V/220V)",
-      ]
-    },
-    { 
-      icon: MemoryStick, 
-      name: "Memoria RAM", 
-      desc: "Limpieza de contactos y verificación de instalación",
-      img: ramImg,
-      guide: [
-        "Abrir clips de seguridad en los slots de RAM",
-        "Extraer módulos con cuidado presionando clips laterales",
-        "Limpiar contactos dorados con goma de borrar suavemente",
-        "Usar aire comprimido en slots de la placa madre",
-        "Reinstalar presionando hasta escuchar 'click' de seguro",
-        "Verificar detección correcta en BIOS",
-      ]
-    },
-    { 
-      icon: Disc, 
-      name: "Unidad Óptica (DVD/CD)", 
-      desc: "Limpieza del lente y mecanismo de bandeja",
-      img: dvdDriveImg,
-      guide: [
-        "Expulsar bandeja de la unidad",
-        "Limpiar superficie de bandeja con paño suave",
-        "Usar aire comprimido para limpiar el lente láser",
-        "Verificar que la bandeja abra y cierre suavemente",
-        "Limpiar rieles laterales de polvo acumulado",
-        "Probar lectura con disco de prueba",
-      ]
-    },
-    { 
-      icon: Box, 
-      name: "Gabinete (Case)", 
-      desc: "Limpieza completa externa e interna del chasis",
-      img: caseImg,
-      guide: [
-        "Retirar paneles laterales del gabinete",
-        "Usar aire comprimido en todas las áreas internas",
-        "Limpiar filtros de polvo (frontales y superiores)",
-        "Lavar filtros con agua y jabón si están muy sucios",
-        "Limpiar superficie externa con paño húmedo",
-        "Verificar que todos los tornillos estén seguros",
-      ]
-    },
-  ];
+  const componentsByCategory = {
+    perifericos: [
+      { 
+        icon: Monitor, 
+        name: "Monitor", 
+        desc: "Limpieza de pantalla y verificación de conexiones",
+        img: monitorImg,
+        guide: [
+          "Apagar el monitor y desconectar de la corriente",
+          "Usar paño de microfibra seco para polvo",
+          "Para manchas: humedecer ligeramente con agua destilada",
+          "Limpiar en movimientos circulares suaves",
+          "Verificar cables de video (HDMI, DisplayPort, VGA)",
+          "Comprobar botones y menú OSD del monitor",
+        ]
+      },
+      { 
+        icon: Keyboard, 
+        name: "Teclado", 
+        desc: "Limpieza profunda y verificación de funcionamiento",
+        img: keyboardImg,
+        guide: [
+          "Desconectar teclado del equipo",
+          "Voltear teclado y sacudir suavemente para soltar residuos",
+          "Usar aire comprimido entre las teclas",
+          "Limpiar superficie con paño húmedo con alcohol",
+          "Limpiar conectores con aire comprimido",
+          "Verificar funcionamiento de todas las teclas",
+        ]
+      },
+      { 
+        icon: Mouse, 
+        name: "Mouse (Ratón)", 
+        desc: "Limpieza externa, sensor y verificación de botones",
+        img: mouseImg,
+        guide: [
+          "Desconectar mouse del equipo",
+          "Limpiar superficie externa con paño húmedo con alcohol",
+          "Limpiar sensor óptico con hisopo de algodón seco",
+          "Para mouse con bola: abrir compartimento y limpiar rodillos",
+          "Limpiar patines deslizantes en la base",
+          "Verificar funcionamiento de todos los botones y rueda",
+        ]
+      },
+    ],
+    componentes_internos: [
+      { 
+        icon: Cpu, 
+        name: "Procesador (CPU)", 
+        desc: "Limpieza del disipador y renovación de pasta térmica",
+        img: cpuImg,
+        guide: [
+          "Apagar el equipo y desconectar de la corriente",
+          "Liberar el disipador del procesador con cuidado",
+          "Limpiar el disipador con aire comprimido",
+          "Remover la pasta térmica antigua con alcohol isopropílico",
+          "Aplicar nueva pasta térmica (tamaño de un grano de arroz)",
+          "Reinstalar el disipador asegurando buena presión",
+        ]
+      },
+      { 
+        icon: HardDrive, 
+        name: "Disco Duro", 
+        desc: "Limpieza externa y verificación de conexiones",
+        img: hardDriveImg,
+        guide: [
+          "Desconectar cables SATA y de alimentación",
+          "Limpiar la superficie externa con paño suave",
+          "Usar aire comprimido en conectores",
+          "Verificar que no haya golpes o daños físicos",
+          "Reconectar asegurando conexiones firmes",
+          "Verificar detección en BIOS al encender",
+        ]
+      },
+      { 
+        icon: MemoryStick, 
+        name: "Memoria RAM", 
+        desc: "Limpieza de contactos y verificación de instalación",
+        img: ramImg,
+        guide: [
+          "Abrir clips de seguridad en los slots de RAM",
+          "Extraer módulos con cuidado presionando clips laterales",
+          "Limpiar contactos dorados con goma de borrar suavemente",
+          "Usar aire comprimido en slots de la placa madre",
+          "Reinstalar presionando hasta escuchar 'click' de seguro",
+          "Verificar detección correcta en BIOS",
+        ]
+      },
+      { 
+        icon: Fan, 
+        name: "Ventiladores", 
+        desc: "Limpieza de aspas y verificación de rodamientos",
+        img: fanImg,
+        guide: [
+          "Identificar todos los ventiladores (gabinete, CPU, GPU)",
+          "Sostener las aspas antes de usar aire comprimido",
+          "Limpiar polvo acumulado en aspas y rejillas",
+          "Verificar que giren libremente sin ruidos",
+          "Aplicar una gota de aceite en rodamiento si es necesario",
+          "Asegurar que cables no obstruyan el movimiento",
+        ]
+      },
+      { 
+        icon: Shield, 
+        name: "Fuente de Poder", 
+        desc: "Limpieza externa y verificación de funcionamiento",
+        img: powerSupplyImg,
+        guide: [
+          "⚠️ ADVERTENCIA: No abrir la fuente de poder",
+          "Desconectar fuente completamente antes de manipular",
+          "Limpiar polvo del ventilador externo con aire comprimido",
+          "Verificar que el ventilador gire correctamente",
+          "Inspeccionar cables por desgaste o daños",
+          "Verificar voltaje correcto con selector (110V/220V)",
+        ]
+      },
+      { 
+        icon: Wifi, 
+        name: "Tarjeta de Red", 
+        desc: "Limpieza de contactos y verificación de conectividad",
+        img: networkCardImg,
+        guide: [
+          "Desconectar cable de red si está conectado",
+          "Liberar tornillo de sujeción de la tarjeta",
+          "Extraer tarjeta del slot PCI con cuidado",
+          "Limpiar contactos dorados con goma de borrar",
+          "Usar aire comprimido en el slot PCI",
+          "Reinstalar asegurando conexión firme en el slot",
+        ]
+      },
+      { 
+        icon: CircuitBoard, 
+        name: "Placa Madre (Motherboard)", 
+        desc: "Limpieza general y verificación de componentes",
+        img: motherboardImg,
+        guide: [
+          "Desconectar TODOS los cables y componentes",
+          "Usar aire comprimido en toda la superficie",
+          "Limpiar slots (RAM, PCI, PCIe) con aire comprimido",
+          "Verificar que no haya capacitores hinchados",
+          "Limpiar conectores de alimentación con cuidado",
+          "Inspeccionar por polvo acumulado en disipadores del chipset",
+        ]
+      },
+    ],
+    almacenamiento_estructura: [
+      { 
+        icon: Disc, 
+        name: "Unidad Óptica (DVD/CD)", 
+        desc: "Limpieza del lente y mecanismo de bandeja",
+        img: dvdDriveImg,
+        guide: [
+          "Expulsar bandeja de la unidad",
+          "Limpiar superficie de bandeja con paño suave",
+          "Usar aire comprimido para limpiar el lente láser",
+          "Verificar que la bandeja abra y cierre suavemente",
+          "Limpiar rieles laterales de polvo acumulado",
+          "Probar lectura con disco de prueba",
+        ]
+      },
+      { 
+        icon: Box, 
+        name: "Gabinete (Case)", 
+        desc: "Limpieza completa externa e interna del chasis",
+        img: caseImg,
+        guide: [
+          "Retirar paneles laterales del gabinete",
+          "Usar aire comprimido en todas las áreas internas",
+          "Limpiar filtros de polvo (frontales y superiores)",
+          "Lavar filtros con agua y jabón si están muy sucios",
+          "Limpiar superficie externa con paño húmedo",
+          "Verificar que todos los tornillos estén seguros",
+        ]
+      },
+    ]
+  };
 
   const maintenanceGuides = [
     {
@@ -277,7 +328,7 @@ const TemaII = () => {
             </h3>
             
             <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {maintenanceGuides.map((guide) => {
+              {maintenanceGuides.slice(0, 4).map((guide) => {
                 const IconComponent = guide.icon;
                 return (
                   <Card key={guide.id} className="border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
@@ -302,6 +353,36 @@ const TemaII = () => {
                   </Card>
                 );
               })}
+            </div>
+
+            {/* Verificación Final - Centrada */}
+            <div className="max-w-2xl mx-auto">
+              {(() => {
+                const guide = maintenanceGuides[4];
+                const IconComponent = guide.icon;
+                return (
+                  <Card className="border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3">
+                        <div className={`w-10 h-10 rounded-lg ${guide.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                          <IconComponent className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="text-lg">{guide.title}</span>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2">
+                        {guide.items.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                );
+              })()}
             </div>
 
             {/* Safety Warning */}
@@ -333,53 +414,163 @@ const TemaII = () => {
               Componentes y Procedimientos Específicos
             </h3>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {components.map((component, idx) => {
-                const IconComponent = component.icon;
-                return (
-                  <Card key={idx} className="border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl group overflow-hidden">
-                    <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src={component.img} 
-                        alt={component.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
-                      <div className="absolute bottom-3 left-3 right-3">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                            <IconComponent className="w-4 h-4 text-primary-foreground" />
+            <Tabs defaultValue="perifericos" className="w-full">
+              <TabsList className="grid w-full grid-cols-3 mb-8">
+                <TabsTrigger value="perifericos">Periféricos</TabsTrigger>
+                <TabsTrigger value="componentes_internos">Componentes Internos</TabsTrigger>
+                <TabsTrigger value="almacenamiento_estructura">Almacenamiento y Estructura</TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="perifericos">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {componentsByCategory.perifericos.map((component, idx) => {
+                    const IconComponent = component.icon;
+                    return (
+                      <Card key={idx} className="border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl group overflow-hidden">
+                        <div className="relative h-48 overflow-hidden">
+                          <img 
+                            src={component.img} 
+                            alt={component.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                          <div className="absolute bottom-3 left-3 right-3">
+                            <div className="flex items-center gap-2 mb-1">
+                              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                                <IconComponent className="w-4 h-4 text-primary-foreground" />
+                              </div>
+                              <h4 className="font-bold text-foreground">{component.name}</h4>
+                            </div>
                           </div>
-                          <h4 className="font-bold text-foreground">{component.name}</h4>
                         </div>
-                      </div>
-                    </div>
-                    <CardContent className="p-4">
-                      <p className="text-sm text-muted-foreground mb-4">{component.desc}</p>
-                      <Accordion type="single" collapsible className="w-full">
-                        <AccordionItem value="steps" className="border-border/50">
-                          <AccordionTrigger className="text-sm hover:text-primary">
-                            Ver guía paso a paso
-                          </AccordionTrigger>
-                          <AccordionContent>
-                            <ol className="space-y-2 mt-2">
-                              {component.guide.map((step, stepIdx) => (
-                                <li key={stepIdx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-medium">
-                                    {stepIdx + 1}
-                                  </span>
-                                  <span className="flex-1">{step}</span>
-                                </li>
-                              ))}
-                            </ol>
-                          </AccordionContent>
-                        </AccordionItem>
-                      </Accordion>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
+                        <CardContent className="p-4">
+                          <p className="text-sm text-muted-foreground mb-4">{component.desc}</p>
+                          <Accordion type="single" collapsible className="w-full">
+                            <AccordionItem value="steps" className="border-border/50">
+                              <AccordionTrigger className="text-sm hover:text-primary">
+                                Ver guía paso a paso
+                              </AccordionTrigger>
+                              <AccordionContent>
+                                <ol className="space-y-2 mt-2">
+                                  {component.guide.map((step, stepIdx) => (
+                                    <li key={stepIdx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-medium">
+                                        {stepIdx + 1}
+                                      </span>
+                                      <span className="flex-1">{step}</span>
+                                    </li>
+                                  ))}
+                                </ol>
+                              </AccordionContent>
+                            </AccordionItem>
+                          </Accordion>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="componentes_internos">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {componentsByCategory.componentes_internos.map((component, idx) => {
+                    const IconComponent = component.icon;
+                    return (
+                      <Card key={idx} className="border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl group overflow-hidden">
+                        <div className="relative h-48 overflow-hidden">
+                          <img 
+                            src={component.img} 
+                            alt={component.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                          <div className="absolute bottom-3 left-3 right-3">
+                            <div className="flex items-center gap-2 mb-1">
+                              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                                <IconComponent className="w-4 h-4 text-primary-foreground" />
+                              </div>
+                              <h4 className="font-bold text-foreground">{component.name}</h4>
+                            </div>
+                          </div>
+                        </div>
+                        <CardContent className="p-4">
+                          <p className="text-sm text-muted-foreground mb-4">{component.desc}</p>
+                          <Accordion type="single" collapsible className="w-full">
+                            <AccordionItem value="steps" className="border-border/50">
+                              <AccordionTrigger className="text-sm hover:text-primary">
+                                Ver guía paso a paso
+                              </AccordionTrigger>
+                              <AccordionContent>
+                                <ol className="space-y-2 mt-2">
+                                  {component.guide.map((step, stepIdx) => (
+                                    <li key={stepIdx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-medium">
+                                        {stepIdx + 1}
+                                      </span>
+                                      <span className="flex-1">{step}</span>
+                                    </li>
+                                  ))}
+                                </ol>
+                              </AccordionContent>
+                            </AccordionItem>
+                          </Accordion>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="almacenamiento_estructura">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {componentsByCategory.almacenamiento_estructura.map((component, idx) => {
+                    const IconComponent = component.icon;
+                    return (
+                      <Card key={idx} className="border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl group overflow-hidden">
+                        <div className="relative h-48 overflow-hidden">
+                          <img 
+                            src={component.img} 
+                            alt={component.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                          <div className="absolute bottom-3 left-3 right-3">
+                            <div className="flex items-center gap-2 mb-1">
+                              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                                <IconComponent className="w-4 h-4 text-primary-foreground" />
+                              </div>
+                              <h4 className="font-bold text-foreground">{component.name}</h4>
+                            </div>
+                          </div>
+                        </div>
+                        <CardContent className="p-4">
+                          <p className="text-sm text-muted-foreground mb-4">{component.desc}</p>
+                          <Accordion type="single" collapsible className="w-full">
+                            <AccordionItem value="steps" className="border-border/50">
+                              <AccordionTrigger className="text-sm hover:text-primary">
+                                Ver guía paso a paso
+                              </AccordionTrigger>
+                              <AccordionContent>
+                                <ol className="space-y-2 mt-2">
+                                  {component.guide.map((step, stepIdx) => (
+                                    <li key={stepIdx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-medium">
+                                        {stepIdx + 1}
+                                      </span>
+                                      <span className="flex-1">{step}</span>
+                                    </li>
+                                  ))}
+                                </ol>
+                              </AccordionContent>
+                            </AccordionItem>
+                          </Accordion>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </TabsContent>
+            </Tabs>
           </div>
         </div>
       </div>
