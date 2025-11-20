@@ -207,7 +207,7 @@ const TemaI = () => {
                     <p>
                       <strong className="text-foreground">Dirección:</strong>{" "}
                       <a 
-                        href="https://maps.app.goo.gl/JZHjUqg9KCTx54Et5" 
+                        href="https://maps.app.goo.gl/qzZGqozNBSDkjh597" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-primary hover:underline"
