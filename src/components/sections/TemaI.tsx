@@ -45,7 +45,7 @@ const TemaI = () => {
                   <img 
                     src={fachadaInstitucion} 
                     alt="Fachada de la Unidad Educativa Nacional Vicente Emilio Sojo" 
-                    className="w-full h-64 md:h-96 object-cover rounded-lg shadow-md"
+                    className="w-full h-auto object-contain rounded-lg shadow-md"
                   />
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
@@ -73,15 +73,22 @@ const TemaI = () => {
                       <TabsTrigger value="mision">Misión</TabsTrigger>
                     </TabsList>
                     <TabsContent value="vision" className="mt-4">
-                      <p className="text-muted-foreground text-sm">
-                        Ser una institución educativa de excelencia, reconocida por su compromiso con
-                        la formación integral de estudiantes capaces de transformar la sociedad.
+                      <p className="text-muted-foreground">
+                        Ser una institución educativa de excelencia, reconocida a nivel regional y nacional 
+                        por su compromiso con la formación integral de estudiantes capaces de transformar 
+                        la sociedad. Aspiramos a consolidarnos como un centro de referencia en innovación 
+                        educativa y desarrollo tecnológico, preparando ciudadanos competentes que contribuyan 
+                        al progreso de Venezuela y enfrenten con éxito los desafíos del siglo XXI.
                       </p>
                     </TabsContent>
                     <TabsContent value="mision" className="mt-4">
-                      <p className="text-muted-foreground text-sm">
-                        Formar ciudadanos íntegros con valores éticos, capacidades académicas y
-                        tecnológicas que les permitan desenvolverse exitosamente.
+                      <p className="text-muted-foreground">
+                        Formar ciudadanos íntegros con sólidos valores éticos, morales y cívicos, dotados 
+                        de capacidades académicas y tecnológicas que les permitan desenvolverse exitosamente 
+                        en la sociedad. Nos comprometemos a brindar una educación de calidad que promueva 
+                        el pensamiento crítico, la creatividad y el desarrollo de competencias necesarias 
+                        para la vida personal y profesional, contribuyendo así al desarrollo sostenible de 
+                        nuestra comunidad y del país.
                       </p>
                     </TabsContent>
                   </Tabs>
@@ -151,11 +158,11 @@ const TemaI = () => {
 
             <Card className="card-hover border-border mb-8">
               <CardContent className="p-8">
-                <h4 className="text-2xl font-bold mb-4 text-foreground flex items-center gap-2">
+                <h4 className="text-2xl font-bold mb-6 text-foreground flex items-center justify-center gap-2">
                   <Target className="w-6 h-6 text-primary" />
                   Objetivos del Manual
                 </h4>
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <h5 className="font-semibold text-lg mb-3 text-primary">Objetivo General</h5>
                     <p className="text-muted-foreground">
