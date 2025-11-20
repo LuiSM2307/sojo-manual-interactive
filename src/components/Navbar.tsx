@@ -242,8 +242,8 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden py-4 animate-fade-in bg-background/95 backdrop-blur-md rounded-lg mt-2 shadow-lg">
-            <form onSubmit={handleSearch} className="px-4 pb-3">
+          <div className="lg:hidden absolute left-4 right-4 top-full mt-2 z-[100] animate-fade-in bg-background border border-border rounded-lg shadow-2xl max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <form onSubmit={handleSearch} className="px-4 py-3 border-b border-border sticky top-0 bg-background z-10">
               <Input
                 type="text"
                 placeholder="Buscar en todo el manual..."
@@ -252,68 +252,68 @@ const Navbar = () => {
                 className="w-full"
               />
             </form>
-            {navItems.map((item) => (
-              <div key={item.id}>
-                {item.submenu ? (
-                  <div className="border-b border-border last:border-0">
+            <div className="py-2">
+              {navItems.map((item) => (
+                <div key={item.id}>
+                  {item.submenu ? (
+                    <div className="border-b border-border last:border-0">
+                      <button
+                        onClick={() => {
+                          navigate(item.path);
+                          setIsOpen(false);
+                        }}
+                        className="w-full text-left px-4 py-3 hover:bg-accent transition-colors text-foreground font-medium"
+                      >
+                        {item.label}
+                      </button>
+                      {item.submenu.map((subItem, index) => (
+                        <button
+                          key={subItem.id}
+                          onClick={() => {
+                            if (index === 0) {
+                              navigate(item.path);
+                              setTimeout(() => window.scrollTo(0, 0), 100);
+                            } else {
+                              if (location.pathname === item.path) {
+                                const hash = subItem.path.split('#')[1];
+                                if (hash) {
+                                  const element = document.querySelector(`#${hash}`);
+                                  if (element) {
+                                    const elementPosition = element.getBoundingClientRect().top;
+                                    const offsetPosition = elementPosition + window.pageYOffset - 100;
+                                    
+                                    window.scrollTo({
+                                      top: offsetPosition,
+                                      behavior: 'smooth'
+                                    });
+                                  }
+                                }
+                              } else {
+                                navigate(subItem.path);
+                              }
+                            }
+                            setIsOpen(false);
+                          }}
+                          className="w-full text-left px-8 py-2 hover:bg-accent transition-colors text-muted-foreground text-sm"
+                        >
+                          {subItem.label}
+                        </button>
+                      ))}
+                    </div>
+                  ) : (
                     <button
                       onClick={() => {
                         navigate(item.path);
                         setIsOpen(false);
                       }}
-                      className="w-full text-left px-4 py-3 hover:bg-accent transition-colors text-foreground font-medium"
+                      className="w-full text-left px-4 py-3 hover:bg-accent transition-colors border-b border-border last:border-0 text-foreground"
                     >
                       {item.label}
                     </button>
-                    {item.submenu.map((subItem, index) => (
-                      <button
-                        key={subItem.id}
-                        onClick={() => {
-                          // Si es la primera opción, ir al inicio de la página
-                          if (index === 0) {
-                            navigate(item.path);
-                            setTimeout(() => window.scrollTo(0, 0), 100);
-                          } else {
-                            // Si ya estamos en la página, forzar la navegación hash
-                            if (location.pathname === item.path) {
-                              const hash = subItem.path.split('#')[1];
-                              if (hash) {
-                                const element = document.querySelector(`#${hash}`);
-                                if (element) {
-                                  const elementPosition = element.getBoundingClientRect().top;
-                                  const offsetPosition = elementPosition + window.pageYOffset - 100;
-                                  
-                                  window.scrollTo({
-                                    top: offsetPosition,
-                                    behavior: 'smooth'
-                                  });
-                                }
-                              }
-                            } else {
-                              navigate(subItem.path);
-                            }
-                          }
-                          setIsOpen(false);
-                        }}
-                        className="w-full text-left px-8 py-2 hover:bg-accent transition-colors text-muted-foreground text-sm"
-                      >
-                        {subItem.label}
-                      </button>
-                    ))}
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => {
-                      navigate(item.path);
-                      setIsOpen(false);
-                    }}
-                    className="w-full text-left px-4 py-3 hover:bg-accent transition-colors border-b border-border last:border-0 text-foreground"
-                  >
-                    {item.label}
-                  </button>
-                )}
-              </div>
-            ))}
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
