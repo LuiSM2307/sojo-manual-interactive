@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Desarrolladores = () => {
   const navigate = useNavigate();
@@ -160,8 +161,9 @@ const Desarrolladores = () => {
           </div>
         </section>
       </main>
-
+      
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

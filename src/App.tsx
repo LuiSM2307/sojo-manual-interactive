@@ -13,6 +13,7 @@ import TemaIIIPage from "./pages/TemaIII";
 import TemaIVPage from "./pages/TemaIV";
 import ConclusionPage from "./pages/ConclusionPage";
 import GlosarioPage from "./pages/GlosarioPage";
+import BusquedaPage from "./pages/BusquedaPage";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/tema-iv" element={<TemaIVPage />} />
             <Route path="/conclusion" element={<ConclusionPage />} />
             <Route path="/glosario" element={<GlosarioPage />} />
+            <Route path="/busqueda" element={<BusquedaPage />} />
             <Route path="/desarrolladores" element={<Desarrolladores />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
