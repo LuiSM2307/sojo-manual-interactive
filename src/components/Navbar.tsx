@@ -28,7 +28,13 @@ const Navbar = () => {
         setTimeout(() => {
           const element = document.querySelector(hash);
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - 100;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
           }
         }, 100);
       }
@@ -38,7 +44,7 @@ const Navbar = () => {
     window.addEventListener('hashchange', handleHashNavigation);
     
     return () => window.removeEventListener('hashchange', handleHashNavigation);
-  }, []);
+  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -144,10 +150,35 @@ const Navbar = () => {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-card border-border z-50">
-                    {item.submenu.map((subItem) => (
+                    {item.submenu.map((subItem, index) => (
                       <DropdownMenuItem
                         key={subItem.id}
-                        onClick={() => navigate(subItem.path)}
+                        onClick={() => {
+                          // Si es la primera opción, ir al inicio de la página
+                          if (index === 0) {
+                            navigate(item.path);
+                            setTimeout(() => window.scrollTo(0, 0), 100);
+                          } else {
+                            // Si ya estamos en la página, forzar la navegación hash
+                            if (location.pathname === item.path) {
+                              const hash = subItem.path.split('#')[1];
+                              if (hash) {
+                                const element = document.querySelector(`#${hash}`);
+                                if (element) {
+                                  const elementPosition = element.getBoundingClientRect().top;
+                                  const offsetPosition = elementPosition + window.pageYOffset - 100;
+                                  
+                                  window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                  });
+                                }
+                              }
+                            } else {
+                              navigate(subItem.path);
+                            }
+                          }
+                        }}
                         className="cursor-pointer hover:bg-accent"
                       >
                         {subItem.label}
@@ -232,11 +263,34 @@ const Navbar = () => {
                     >
                       {item.label}
                     </button>
-                    {item.submenu.map((subItem) => (
+                    {item.submenu.map((subItem, index) => (
                       <button
                         key={subItem.id}
                         onClick={() => {
-                          navigate(subItem.path);
+                          // Si es la primera opción, ir al inicio de la página
+                          if (index === 0) {
+                            navigate(item.path);
+                            setTimeout(() => window.scrollTo(0, 0), 100);
+                          } else {
+                            // Si ya estamos en la página, forzar la navegación hash
+                            if (location.pathname === item.path) {
+                              const hash = subItem.path.split('#')[1];
+                              if (hash) {
+                                const element = document.querySelector(`#${hash}`);
+                                if (element) {
+                                  const elementPosition = element.getBoundingClientRect().top;
+                                  const offsetPosition = elementPosition + window.pageYOffset - 100;
+                                  
+                                  window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                  });
+                                }
+                              }
+                            } else {
+                              navigate(subItem.path);
+                            }
+                          }
                           setIsOpen(false);
                         }}
                         className="w-full text-left px-8 py-2 hover:bg-accent transition-colors text-muted-foreground text-sm"
