@@ -33,22 +33,22 @@ const TemaI = () => {
             </h3>
 
             {/* Reseña Histórica - Full Width */}
-            <Card className="card-hover border-border mb-8">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <History className="w-6 h-6 text-primary" />
+            <Card className="card-hover border-border mb-8 overflow-hidden bg-gradient-to-br from-card to-card/50">
+              <CardHeader className="bg-primary/5">
+                <CardTitle className="flex items-center gap-2 text-2xl">
+                  <History className="w-7 h-7 text-primary" />
                   Reseña Histórica
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="mb-4">
+              <CardContent className="p-6">
+                <div className="mb-6 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                   <img 
                     src={fachadaInstitucion} 
                     alt="Fachada de la Unidad Educativa Nacional Vicente Emilio Sojo" 
-                    className="w-full h-auto object-contain rounded-lg shadow-md"
+                    className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-lg">
                   La Unidad Educativa Nacional "Vicente Emilio Sojo" fue fundada con el compromiso
                   de ofrecer educación de calidad a la comunidad. A lo largo de los años, ha sido
                   referente en formación académica y tecnológica, adaptándose constantemente a las
@@ -156,38 +156,37 @@ const TemaI = () => {
               Sobre el Manual
             </h3>
 
-            <Card className="card-hover border-border mb-8">
+            <Card className="card-hover border-border mb-8 bg-gradient-to-br from-card to-card/50">
               <CardContent className="p-8">
-                <h4 className="text-2xl font-bold mb-6 text-foreground flex items-center justify-center gap-2">
-                  <Target className="w-6 h-6 text-primary" />
-                  Objetivos del Manual
-                </h4>
                 <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h5 className="font-semibold text-lg mb-3 text-primary">Objetivo General</h5>
-                    <p className="text-muted-foreground">
+                  <div className="bg-primary/5 p-6 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors">
+                    <h5 className="font-semibold text-xl mb-4 text-primary flex items-center gap-2">
+                      <Target className="w-5 h-5" />
+                      Objetivo General
+                    </h5>
+                    <p className="text-muted-foreground leading-relaxed">
                       Proporcionar una guía técnica completa, clara y práctica para el mantenimiento
                       preventivo y correctivo de los equipos informáticos de la institución,
                       garantizando su óptimo funcionamiento.
                     </p>
                   </div>
-                  <div>
-                    <h5 className="font-semibold text-lg mb-3 text-primary">Objetivos Específicos</h5>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
+                  <div className="bg-accent/50 p-6 rounded-lg border border-border hover:border-primary/20 transition-colors">
+                    <h5 className="font-semibold text-xl mb-4 text-primary">Objetivos Específicos</h5>
+                    <ul className="space-y-3 text-muted-foreground">
+                      <li className="flex items-start gap-3 group">
+                        <span className="text-primary mt-1 group-hover:scale-110 transition-transform">•</span>
                         <span>Estandarizar procedimientos de mantenimiento</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
+                      <li className="flex items-start gap-3 group">
+                        <span className="text-primary mt-1 group-hover:scale-110 transition-transform">•</span>
                         <span>Capacitar al personal técnico</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
+                      <li className="flex items-start gap-3 group">
+                        <span className="text-primary mt-1 group-hover:scale-110 transition-transform">•</span>
                         <span>Prevenir fallas y extender vida útil de equipos</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
+                      <li className="flex items-start gap-3 group">
+                        <span className="text-primary mt-1 group-hover:scale-110 transition-transform">•</span>
                         <span>Facilitar diagnóstico y resolución de problemas</span>
                       </li>
                     </ul>
@@ -205,19 +204,19 @@ const TemaI = () => {
             </h3>
 
             <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="bg-card border-border rounded-lg px-6 shadow-sm">
-                <AccordionTrigger className="text-lg font-semibold hover:text-primary">
+              <AccordionItem value="item-1" className="bg-gradient-to-br from-card to-card/50 border-border rounded-lg px-6 shadow-sm hover:shadow-md transition-shadow">
+                <AccordionTrigger className="text-lg font-semibold hover:text-primary transition-colors">
                   ¿Qué es mantenimiento?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pt-4">
-                  <div className="mb-4">
+                  <div className="mb-4 overflow-hidden rounded-lg">
                     <img 
                       src={mantenimientoImg} 
                       alt="Concepto de mantenimiento" 
-                      className="w-full h-40 object-cover rounded-lg shadow-md"
+                      className="w-full h-40 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <p>
+                  <p className="leading-relaxed">
                     El mantenimiento es el conjunto de acciones técnicas y administrativas destinadas a
                     conservar o restablecer un sistema o equipo a un estado en el cual pueda cumplir con
                     su función requerida. Incluye actividades de inspección, limpieza, lubricación,
@@ -226,19 +225,19 @@ const TemaI = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-2" className="bg-card border-border rounded-lg px-6 shadow-sm">
-                <AccordionTrigger className="text-lg font-semibold hover:text-primary">
+              <AccordionItem value="item-2" className="bg-gradient-to-br from-card to-card/50 border-border rounded-lg px-6 shadow-sm hover:shadow-md transition-shadow">
+                <AccordionTrigger className="text-lg font-semibold hover:text-primary transition-colors">
                   ¿Qué es mantenimiento de un sistema informático?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pt-4">
-                  <div className="mb-4">
+                  <div className="mb-4 overflow-hidden rounded-lg">
                     <img 
                       src={sistemasInformaticosImg} 
                       alt="Mantenimiento de sistemas informáticos" 
-                      className="w-full h-40 object-cover rounded-lg shadow-md"
+                      className="w-full h-40 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <p>
+                  <p className="leading-relaxed">
                     Es el conjunto de procedimientos técnicos aplicados tanto al hardware como al software
                     de un equipo de computación, con el objetivo de garantizar su correcto funcionamiento,
                     prevenir fallas, optimizar su rendimiento y prolongar su vida útil. Abarca desde la
@@ -247,36 +246,36 @@ const TemaI = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-3" className="bg-card border-border rounded-lg px-6 shadow-sm">
-                <AccordionTrigger className="text-lg font-semibold hover:text-primary">
+              <AccordionItem value="item-3" className="bg-gradient-to-br from-card to-card/50 border-border rounded-lg px-6 shadow-sm hover:shadow-md transition-shadow">
+                <AccordionTrigger className="text-lg font-semibold hover:text-primary transition-colors">
                   Tipos de mantenimiento
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
-                  <div className="mb-4">
+                  <div className="mb-4 overflow-hidden rounded-lg">
                     <img 
                       src={tiposMantenimientoImg} 
                       alt="Tipos de mantenimiento" 
-                      className="w-full h-40 object-cover rounded-lg shadow-md"
+                      className="w-full h-40 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                   <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-primary-soft p-4 rounded-lg border border-primary/20">
-                      <div className="flex items-center gap-2 mb-2">
+                    <div className="bg-primary/5 p-5 rounded-lg border border-primary/20 hover:border-primary/30 hover:shadow-md transition-all">
+                      <div className="flex items-center gap-2 mb-3">
                         <Wrench className="w-5 h-5 text-primary" />
-                        <h5 className="font-semibold text-primary">Preventivo</h5>
+                        <h5 className="font-semibold text-lg text-primary">Preventivo</h5>
                       </div>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         Acciones planificadas y periódicas para prevenir fallas y garantizar el
                         funcionamiento óptimo del sistema. Incluye limpieza, actualización y
                         verificación de componentes.
                       </p>
                     </div>
-                    <div className="bg-accent p-4 rounded-lg border border-border">
-                      <div className="flex items-center gap-2 mb-2">
+                    <div className="bg-accent/50 p-5 rounded-lg border border-border hover:border-primary/30 hover:shadow-md transition-all">
+                      <div className="flex items-center gap-2 mb-3">
                         <Wrench className="w-5 h-5 text-primary" />
-                        <h5 className="font-semibold text-primary">Correctivo</h5>
+                        <h5 className="font-semibold text-lg text-primary">Correctivo</h5>
                       </div>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         Acciones realizadas después de que ocurre una falla, destinadas a restaurar
                         el funcionamiento del sistema. Incluye diagnóstico, reparación y reemplazo
                         de componentes defectuosos.
