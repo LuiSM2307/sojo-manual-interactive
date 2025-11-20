@@ -28,7 +28,7 @@ const TemaII = () => {
     { 
       icon: HardDrive, 
       name: "Disco Duro", 
-      desc: "Verificación de sectores y desfragmentación",
+      desc: "Verificación de sectores y desfragmentación de HDD solamente",
       img: hardDriveImg,
       guide: [
         "Abrir 'Este equipo' y hacer clic derecho en la unidad",
@@ -84,7 +84,7 @@ const TemaII = () => {
     { 
       icon: Shield, 
       name: "Fuente de Poder", 
-      desc: "Limpieza interna y prueba de voltajes",
+      desc: "Limpieza interna y prueba de voltajes sin abrir su interior",
       img: powerSupplyImg,
       guide: [
         "⚠️ ADVERTENCIA: Solo personal capacitado debe abrir la fuente",
