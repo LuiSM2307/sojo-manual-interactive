@@ -108,8 +108,9 @@ const TemaIV = () => {
           </div>
 
           {/* Introduction */}
-          <Card className="mb-12 border-border">
-            <CardContent className="p-8">
+          <div id="introduccion">
+            <Card className="mb-12 border-border">
+              <CardContent className="p-8">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-lg bg-primary-soft flex items-center justify-center">
@@ -131,9 +132,10 @@ const TemaIV = () => {
               </div>
             </CardContent>
           </Card>
+          </div>
 
           {/* BIOS Codes */}
-          <div className="mb-12">
+          <div id="codigos" className="mb-12">
             <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
               <Cpu className="w-7 h-7 text-primary" />
               Códigos por Tipo de BIOS
@@ -181,7 +183,7 @@ const TemaIV = () => {
           </div>
 
           {/* Diagnostic Flowchart */}
-          <div className="mb-12">
+          <div id="diagnostico" className="mb-12">
             <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
               <AlertCircle className="w-7 h-7 text-primary" />
               Procedimiento de Diagnóstico
@@ -240,7 +242,7 @@ const TemaIV = () => {
           </div>
 
           {/* Common Problems */}
-          <div>
+          <div id="problemas">
             <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
               <HelpCircle className="w-7 h-7 text-primary" />
               Problemas Frecuentes y Soluciones

@@ -21,6 +21,26 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Handle hash navigation on page load and hash changes
+    const handleHashNavigation = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(() => {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    };
+
+    handleHashNavigation();
+    window.addEventListener('hashchange', handleHashNavigation);
+    
+    return () => window.removeEventListener('hashchange', handleHashNavigation);
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
