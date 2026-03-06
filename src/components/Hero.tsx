@@ -64,7 +64,7 @@ const Hero = () => {
             <Button
               size="lg"
               onClick={scrollToIntroduction}
-              className="gradient-primary text-primary-foreground hover:opacity-90 transition-all transform hover:scale-105 shadow-lg text-lg px-8 py-6 rounded-full"
+              className="bg-cta text-cta-foreground hover:bg-cta-hover transition-all transform hover:scale-105 shadow-lg text-lg px-8 py-6 rounded-full font-bold"
             >
               Explorar Manual
               <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
