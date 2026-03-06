@@ -139,12 +139,31 @@ const Desarrolladores = () => {
                 ))}
               </div>
 
-              {/* Project Info */}
-              <Card className="border-primary/20 bg-primary-soft">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-4 text-primary">
-                    Sobre el Proyecto
-                  </h3>
+               {/* Special Thanks */}
+               <Card className="border-border mb-12">
+                 <CardContent className="p-8">
+                   <h3 className="text-2xl font-bold mb-8 text-center text-primary">
+                     Agradecimientos Especiales
+                   </h3>
+                   <div className="grid md:grid-cols-2 gap-8">
+                     <div className="text-center">
+                       <h4 className="text-lg font-semibold text-foreground mb-2">Profesora</h4>
+                       <p className="text-muted-foreground">Karlis Zambrano</p>
+                     </div>
+                     <div className="text-center">
+                       <h4 className="text-lg font-semibold text-foreground mb-2">Tutora</h4>
+                       <p className="text-muted-foreground">Dianella Stuch</p>
+                     </div>
+                   </div>
+                 </CardContent>
+               </Card>
+
+               {/* Project Info */}
+               <Card className="border-primary/20 bg-primary-soft">
+                 <CardContent className="p-8">
+                   <h3 className="text-2xl font-bold mb-4 text-primary">
+                     Sobre el Proyecto
+                   </h3>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold mb-2 text-foreground">Institución</h4>
