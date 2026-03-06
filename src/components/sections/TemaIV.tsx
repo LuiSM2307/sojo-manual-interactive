@@ -101,9 +101,9 @@ const TemaIV = () => {
             <div className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium mb-4">
               Tema IV
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
-              Detección de Errores
-            </h2>
+             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
+               Resolución de Problemas
+             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Códigos de pitidos BIOS y diagnóstico de problemas comunes
             </p>
