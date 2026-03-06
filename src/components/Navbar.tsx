@@ -68,7 +68,7 @@ const Navbar = () => {
     { id: "introduccion", label: "Introducción", path: "/" },
     { 
       id: "tema-i", 
-      label: "Comienza Aquí", 
+      label: "Tema I", 
       path: "/tema-i",
       submenu: [
         { id: "datos-institucion", label: "Datos de la Institución", path: "/tema-i#datos-institucion" },
@@ -78,7 +78,7 @@ const Navbar = () => {
     },
     { 
       id: "tema-ii", 
-      label: "Hardware básico", 
+      label: "Tema II", 
       path: "/tema-ii",
       submenu: [
         { id: "introduccion-hw", label: "Hardware - Introducción", path: "/tema-ii#introduccion" },
@@ -88,7 +88,7 @@ const Navbar = () => {
     },
     { 
       id: "tema-iii", 
-      label: "Software y Sistemas", 
+      label: "Tema III", 
       path: "/tema-iii",
       submenu: [
         { id: "introduccion-sw", label: "Software - Introducción", path: "/tema-iii#introduccion" },
@@ -100,7 +100,7 @@ const Navbar = () => {
     },
     { 
       id: "tema-iv", 
-      label: "Resolución de Problemas", 
+      label: "Tema IV", 
       path: "/tema-iv",
       submenu: [
         { id: "introduccion-diag", label: "Diagnóstico - Introducción", path: "/tema-iv#introduccion" },
