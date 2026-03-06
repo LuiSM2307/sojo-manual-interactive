@@ -286,9 +286,9 @@ const TemaII = () => {
             <div className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium mb-4">
               Tema II
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
-              Mantenimiento de Hardware
-            </h2>
+             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
+               Hardware básico
+             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Guías prácticas para el mantenimiento preventivo y correctivo de componentes físicos
             </p>
