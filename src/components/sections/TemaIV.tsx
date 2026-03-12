@@ -1,4 +1,5 @@
-import { AlertCircle, Volume2, HelpCircle, Cpu, Wrench, CheckCircle2 } from "lucide-react";
+import { AlertCircle, Volume2, HelpCircle, Cpu, Wrench, CheckCircle2, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
