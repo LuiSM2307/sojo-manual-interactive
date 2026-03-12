@@ -45,6 +45,8 @@ const TemaI = () => {
                   <img 
                     src={fachadaInstitucion} 
                     alt="Fachada de la Unidad Educativa Nacional Vicente Emilio Sojo" 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500"
                   />
                 </div>
