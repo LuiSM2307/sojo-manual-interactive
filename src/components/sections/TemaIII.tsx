@@ -396,6 +396,8 @@ const TemaIII = () => {
                       <img 
                         src={procedure.image} 
                         alt={procedure.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform group-hover:scale-105"
                       />
                       <div 
