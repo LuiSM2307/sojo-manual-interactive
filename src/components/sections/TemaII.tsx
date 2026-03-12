@@ -1,4 +1,5 @@
-import { Cpu, HardDrive, Monitor, Keyboard, Fan, Shield, CheckCircle, AlertTriangle, Wrench, MemoryStick, Disc, Box, Mouse, Wifi, CircuitBoard } from "lucide-react";
+import { Cpu, HardDrive, Monitor, Keyboard, Fan, Shield, CheckCircle, AlertTriangle, Wrench, MemoryStick, Disc, Box, Mouse, Wifi, CircuitBoard, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -16,6 +17,7 @@ import networkCardImg from "@/assets/hardware/network-card-real.jpg";
 import motherboardImg from "@/assets/hardware/motherboard-real.jpg";
 
 const TemaII = () => {
+  const navigate = useNavigate();
   const componentsByCategory = {
     perifericos: [
       { 
@@ -577,6 +579,17 @@ const TemaII = () => {
                 </div>
               </TabsContent>
             </Tabs>
+          </div>
+
+          {/* Continue Button */}
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => navigate("/tema-iii")}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-lg hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl"
+            >
+              Continúa aquí
+              <ArrowRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </div>

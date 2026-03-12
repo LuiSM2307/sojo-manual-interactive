@@ -1,7 +1,9 @@
-import { Target, Flag, Map } from "lucide-react";
+import { Target, Flag, Map, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Introduction = () => {
+  const navigate = useNavigate();
   const sections = [
     {
       icon: Flag,
@@ -27,10 +29,10 @@ const Introduction = () => {
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
-              Introducción
+              Bienvenido/a
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Bienvenido al Manual Técnico Interactivo de la Unidad Educativa Nacional
+              Este es el Manual Técnico Interactivo de la Unidad Educativa Nacional
               "Vicente Emilio Sojo", una herramienta diseñada para facilitar el
               mantenimiento de los sistemas informáticos de nuestra institución.
             </p>
@@ -82,6 +84,17 @@ const Introduction = () => {
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Continue Button */}
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => navigate("/tema-i")}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-lg hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl"
+            >
+              Continúa aquí
+              <ArrowRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </div>

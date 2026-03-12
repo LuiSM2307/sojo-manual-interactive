@@ -1,4 +1,5 @@
-import { Download, Shield, Trash2, Settings, RefreshCw, Database, CheckCircle, Wrench, AlertTriangle, HardDrive, Maximize2 } from "lucide-react";
+import { Download, Shield, Trash2, Settings, RefreshCw, Database, CheckCircle, Wrench, AlertTriangle, HardDrive, Maximize2, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -14,6 +15,7 @@ import backupImg from "@/assets/software/backup.jpg";
 import registryImg from "@/assets/software/registry.jpg";
 
 const TemaIII = () => {
+  const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const toolsData = [
@@ -618,6 +620,19 @@ const TemaIII = () => {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Continue Button */}
+      <div className="container mx-auto px-4">
+        <div className="mt-12 mb-12 text-center">
+          <button
+            onClick={() => navigate("/tema-iv")}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-lg hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl"
+          >
+            Continúa aquí
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
     </section>
   );
 };
