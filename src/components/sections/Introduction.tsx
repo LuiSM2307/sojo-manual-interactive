@@ -1,4 +1,5 @@
-import { Target, Flag, Map } from "lucide-react";
+import { Target, Flag, Map, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Introduction = () => {
