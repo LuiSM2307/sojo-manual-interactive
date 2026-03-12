@@ -358,6 +358,8 @@ const TemaI = () => {
                     <img 
                       src={tiposMantenimientoImg} 
                       alt="Tipos de mantenimiento" 
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-40 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                   </div>
