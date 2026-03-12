@@ -29,10 +29,10 @@ const Introduction = () => {
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
-              Introducción
+              Bienvenido/a
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Bienvenido al Manual Técnico Interactivo de la Unidad Educativa Nacional
+              Este es el Manual Técnico Interactivo de la Unidad Educativa Nacional
               "Vicente Emilio Sojo", una herramienta diseñada para facilitar el
               mantenimiento de los sistemas informáticos de nuestra institución.
             </p>
