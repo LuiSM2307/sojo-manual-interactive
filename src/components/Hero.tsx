@@ -91,8 +91,8 @@ const Hero = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary-light/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-3xl hidden md:block"></div>
+      <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary-light/10 rounded-full blur-3xl hidden md:block"></div>
     </section>
   );
 };
