@@ -580,6 +580,17 @@ const TemaII = () => {
               </TabsContent>
             </Tabs>
           </div>
+
+          {/* Continue Button */}
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => navigate("/tema-iii")}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-lg hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl"
+            >
+              Continúa aquí
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

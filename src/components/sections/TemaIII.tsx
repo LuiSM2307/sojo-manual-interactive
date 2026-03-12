@@ -620,6 +620,19 @@ const TemaIII = () => {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Continue Button */}
+      <div className="container mx-auto px-4">
+        <div className="mt-12 mb-12 text-center">
+          <button
+            onClick={() => navigate("/tema-iv")}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-lg hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl"
+          >
+            Continúa aquí
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
     </section>
   );
 };
