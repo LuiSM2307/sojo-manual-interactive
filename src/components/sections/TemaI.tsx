@@ -1,4 +1,5 @@
-import { Building, History, Eye, MapPin, FileText, Target, Lightbulb, Wrench, Calendar, Award, GraduationCap, Users } from "lucide-react";
+import { Building, History, Eye, MapPin, FileText, Target, Lightbulb, Wrench, Calendar, Award, GraduationCap, Users, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
