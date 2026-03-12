@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Introduction = () => {
+  const navigate = useNavigate();
   const sections = [
     {
       icon: Flag,
