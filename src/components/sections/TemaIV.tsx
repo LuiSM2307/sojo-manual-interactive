@@ -117,6 +117,8 @@ const TemaIV = () => {
                   <img 
                     src={biosImage} 
                     alt="BIOS Diagnostic" 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent md:hidden"></div>
