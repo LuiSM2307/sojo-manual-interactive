@@ -88,7 +88,7 @@ const Navbar = () => {
     },
     { 
       id: "tema-iii", 
-      label: "Tema III", 
+      label: "Software", 
       path: "/tema-iii",
       submenu: [
         { id: "introduccion-sw", label: "Software - Introducción", path: "/tema-iii#introduccion" },
