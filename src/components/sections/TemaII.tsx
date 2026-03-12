@@ -17,6 +17,7 @@ import networkCardImg from "@/assets/hardware/network-card-real.jpg";
 import motherboardImg from "@/assets/hardware/motherboard-real.jpg";
 
 const TemaII = () => {
+  const navigate = useNavigate();
   const componentsByCategory = {
     perifericos: [
       { 
