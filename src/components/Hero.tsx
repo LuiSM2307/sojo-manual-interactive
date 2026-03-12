@@ -16,7 +16,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-soft">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 hidden md:block">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)`,
           backgroundSize: '48px 48px'
@@ -91,8 +91,8 @@ const Hero = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary-light/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-3xl hidden md:block"></div>
+      <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary-light/10 rounded-full blur-3xl hidden md:block"></div>
     </section>
   );
 };

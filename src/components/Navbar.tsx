@@ -65,10 +65,10 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { id: "introduccion", label: "Introducción", path: "/" },
+    { id: "introduccion", label: "Inicio", path: "/" },
     { 
       id: "tema-i", 
-      label: "Tema I", 
+      label: "Introducción", 
       path: "/tema-i",
       submenu: [
         { id: "datos-institucion", label: "Datos de la Institución", path: "/tema-i#datos-institucion" },
@@ -78,7 +78,7 @@ const Navbar = () => {
     },
     { 
       id: "tema-ii", 
-      label: "Tema II", 
+      label: "Hardware", 
       path: "/tema-ii",
       submenu: [
         { id: "introduccion-hw", label: "Hardware - Introducción", path: "/tema-ii#introduccion" },
@@ -88,7 +88,7 @@ const Navbar = () => {
     },
     { 
       id: "tema-iii", 
-      label: "Tema III", 
+      label: "Software", 
       path: "/tema-iii",
       submenu: [
         { id: "introduccion-sw", label: "Software - Introducción", path: "/tema-iii#introduccion" },
@@ -100,7 +100,7 @@ const Navbar = () => {
     },
     { 
       id: "tema-iv", 
-      label: "Tema IV", 
+      label: "Errores", 
       path: "/tema-iv",
       submenu: [
         { id: "introduccion-diag", label: "Diagnóstico - Introducción", path: "/tema-iv#introduccion" },

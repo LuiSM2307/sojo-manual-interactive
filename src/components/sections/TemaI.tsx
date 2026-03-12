@@ -45,6 +45,8 @@ const TemaI = () => {
                   <img 
                     src={fachadaInstitucion} 
                     alt="Fachada de la Unidad Educativa Nacional Vicente Emilio Sojo" 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -310,6 +312,8 @@ const TemaI = () => {
                     <img 
                       src={mantenimientoImg} 
                       alt="Concepto de mantenimiento" 
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-40 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -331,6 +335,8 @@ const TemaI = () => {
                     <img 
                       src={sistemasInformaticosImg} 
                       alt="Mantenimiento de sistemas informáticos" 
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-40 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -352,6 +358,8 @@ const TemaI = () => {
                     <img 
                       src={tiposMantenimientoImg} 
                       alt="Tipos de mantenimiento" 
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-40 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                   </div>
