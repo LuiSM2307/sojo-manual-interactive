@@ -100,7 +100,7 @@ const Navbar = () => {
     },
     { 
       id: "tema-iv", 
-      label: "Tema IV", 
+      label: "Errores", 
       path: "/tema-iv",
       submenu: [
         { id: "introduccion-diag", label: "Diagnóstico - Introducción", path: "/tema-iv#introduccion" },
