@@ -9,6 +9,7 @@ import sistemasInformaticosImg from "@/assets/concepts/sistemas-informaticos.jpg
 import tiposMantenimientoImg from "@/assets/concepts/tipos-mantenimiento.jpg";
 
 const TemaI = () => {
+  const navigate = useNavigate();
   return (
     <section id="tema-i" className="py-20 gradient-soft">
       <div className="container mx-auto px-4">
