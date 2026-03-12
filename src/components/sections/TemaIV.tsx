@@ -7,6 +7,7 @@ import biosImage from "@/assets/diagnostics/bios-diagnostic.jpg";
 import troubleshootImage from "@/assets/diagnostics/troubleshooting.jpg";
 
 const TemaIV = () => {
+  const navigate = useNavigate();
   const biosTypes = [
     {
       name: "AMI BIOS",
