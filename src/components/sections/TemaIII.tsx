@@ -15,6 +15,7 @@ import backupImg from "@/assets/software/backup.jpg";
 import registryImg from "@/assets/software/registry.jpg";
 
 const TemaIII = () => {
+  const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const toolsData = [
