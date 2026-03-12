@@ -65,10 +65,10 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { id: "introduccion", label: "Introducción", path: "/" },
+    { id: "introduccion", label: "Inicio", path: "/" },
     { 
       id: "tema-i", 
-      label: "Tema I", 
+      label: "Introducción", 
       path: "/tema-i",
       submenu: [
         { id: "datos-institucion", label: "Datos de la Institución", path: "/tema-i#datos-institucion" },
