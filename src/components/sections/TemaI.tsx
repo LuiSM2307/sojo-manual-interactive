@@ -312,6 +312,8 @@ const TemaI = () => {
                     <img 
                       src={mantenimientoImg} 
                       alt="Concepto de mantenimiento" 
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-40 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                   </div>
