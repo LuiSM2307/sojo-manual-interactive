@@ -39,7 +39,7 @@ const TemaIII = () => {
         { name: "Panda USB Vaccine", use: "Protección contra virus provenientes de memorias USB/pendrives" },
         { name: "3DP Chip", use: "Detección e instalación automática de drivers del sistema" },
         { name: "Supermium", use: "Navegador web moderno compatible con Windows XP" },
-        { name: "CCleaner (v5.63)", use: "Limpieza de archivos temporales y optimización del registro" },
+        { name: "WinDirStat", use: "Análisis visual y limpieza profunda del espacio en disco duro" },
       ],
     },
   ];
@@ -94,8 +94,8 @@ const TemaIII = () => {
           details: "Abrir la carpeta Mis documentos y revisar archivos innecesarios. Eliminar instaladores ya utilizados y archivos temporales."
         },
         {
-          title: "Usar CCleaner para limpieza profunda",
-          details: "Abrir CCleaner > Limpiador > Analizar > Ejecutar limpiador. Elimina caché de navegador, archivos temporales y registros obsoletos."
+          title: "Usar WinDirStat para limpieza profunda",
+          details: "Abrir WinDirStat y seleccionar la unidad C:. Analiza visualmente qué archivos y carpetas ocupan más espacio, permitiendo identificar y eliminar archivos innecesarios de forma segura."
         },
       ],
     },
@@ -228,8 +228,8 @@ const TemaIII = () => {
           details: "Ir a Panel de control > Agregar o quitar programas. Buscar software desconocido o instalado recientemente sin autorización y desinstalarlo."
         },
         {
-          title: "Limpiar con CCleaner",
-          details: "Ejecutar CCleaner en modo seguro para eliminar archivos temporales, caché y entradas de registro que el malware pueda haber creado."
+          title: "Limpiar archivos sospechosos con WinDirStat",
+          details: "Ejecutar WinDirStat para visualizar el uso de disco e identificar archivos o carpetas sospechosas creadas por el malware. Eliminar manualmente lo que no pertenezca al sistema."
         },
         {
           title: "Verificar programas de inicio",
@@ -266,7 +266,7 @@ const TemaIII = () => {
     },
     {
       title: "Optimización del Registro",
-      description: "Limpiar y reparar el registro de Windows XP",
+      description: "Limpiar y mantener el registro de Windows XP",
       image: registryImg,
       steps: [
         {
@@ -274,12 +274,12 @@ const TemaIII = () => {
           details: "Antes de cualquier cambio: Win+R > regedit > Archivo > Exportar. Guardar backup completo del registro en un lugar seguro."
         },
         {
-          title: "Usar CCleaner para limpieza de registro",
-          details: "Abrir CCleaner > pestaña Registro > Buscar problemas. Crear respaldo cuando lo solicite, luego reparar los problemas seleccionados."
+          title: "Analizar espacio con WinDirStat",
+          details: "Abrir WinDirStat para identificar archivos residuales de programas desinstalados que ocupan espacio innecesario en el disco."
         },
         {
-          title: "Limpiar entradas huérfanas",
-          details: "CCleaner elimina referencias a software desinstalado, DLLs faltantes y rutas inválidas que acumulan basura en el registro y ralentizan el sistema."
+          title: "Eliminar carpetas de programas desinstalados",
+          details: "Con la información de WinDirStat, eliminar manualmente carpetas huérfanas en Archivos de programa que ya no correspondan a software instalado."
         },
         {
           title: "No modificar registro manualmente",
