@@ -39,7 +39,7 @@ const TemaIII = () => {
         { name: "Panda USB Vaccine", use: "Protección contra virus provenientes de memorias USB/pendrives" },
         { name: "3DP Chip", use: "Detección e instalación automática de drivers del sistema" },
         { name: "Supermium", use: "Navegador web moderno compatible con Windows XP" },
-        { name: "CCleaner (v5.63)", use: "Limpieza de archivos temporales y optimización del registro" },
+        { name: "WinDirStat", use: "Análisis visual y limpieza profunda del espacio en disco duro" },
       ],
     },
   ];
