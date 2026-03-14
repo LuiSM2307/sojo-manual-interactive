@@ -320,9 +320,10 @@ const TemaIII = () => {
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   El mantenimiento de software comprende todas las actividades relacionadas con la
-                  actualización, optimización y limpieza del sistema operativo y las aplicaciones instaladas
-                  en un equipo. Su objetivo es garantizar el funcionamiento eficiente, seguro y estable del
-                  sistema, previniendo errores, vulnerabilidades y degradación del rendimiento.
+                  optimización, limpieza y protección del sistema operativo Windows XP MiniOS y las aplicaciones
+                  instaladas en los equipos del laboratorio. Su objetivo es garantizar el funcionamiento eficiente,
+                  seguro y estable del sistema, previniendo errores, vulnerabilidades y degradación del rendimiento,
+                  considerando las limitaciones de hardware de los equipos.
                 </p>
                 <div className="grid md:grid-cols-2 gap-4 mt-6">
                   <div className="bg-primary-soft p-4 rounded-lg border border-primary/20">
