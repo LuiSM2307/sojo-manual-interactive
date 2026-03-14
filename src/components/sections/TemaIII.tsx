@@ -185,28 +185,28 @@ const TemaIII = () => {
   const correctiveProcedures = [
     {
       title: "Reparación del Sistema",
-      description: "Solucionar errores y archivos corruptos",
+      description: "Solucionar errores y archivos corruptos en Windows XP",
       image: repairImg,
       steps: [
         {
           title: "Ejecutar SFC (System File Checker)",
-          details: "Abrir CMD como administrador. Ejecutar: sfc /scannow. Esperar a que termine (20-30 minutos). Corrige archivos del sistema dañados."
-        },
-        {
-          title: "Reparar imagen de Windows con DISM",
-          details: "En CMD como administrador ejecutar: DISM /Online /Cleanup-Image /RestoreHealth. Repara componentes de Windows."
+          details: "Abrir CMD como administrador (Inicio > Ejecutar > cmd). Escribir: sfc /scannow y presionar Enter. Puede solicitar el CD de Windows XP para restaurar archivos."
         },
         {
           title: "Verificar disco con CHKDSK",
-          details: "Ejecutar: chkdsk C: /f /r. Programará verificación al reiniciar. Corrige errores de disco y sectores defectuosos."
+          details: "En CMD ejecutar: chkdsk C: /f /r. Se programará la verificación al reiniciar. Corrige errores de disco y sectores defectuosos."
         },
         {
-          title: "Usar herramienta de solución de problemas",
-          details: "Ir a Configuración > Sistema > Solucionar problemas > Otros solucionadores. Ejecutar los relevantes al problema."
+          title: "Restaurar sistema a un punto anterior",
+          details: "Ir a Inicio > Accesorios > Herramientas del sistema > Restaurar sistema. Elegir 'Restaurar mi equipo a un estado anterior' y seleccionar una fecha."
         },
         {
-          title: "Restaurar sistema si persiste",
-          details: "Si los problemas continúan, buscar 'Restaurar sistema'. Elegir punto de restauración anterior al problema."
+          title: "Reparar con consola de recuperación",
+          details: "Si el sistema no inicia, arrancar desde el CD de instalación de Windows XP y seleccionar 'Consola de recuperación' para ejecutar comandos de reparación."
+        },
+        {
+          title: "Reinstalar Windows XP MiniOS si persiste",
+          details: "Como último recurso, respaldar datos importantes y reinstalar Windows XP MiniOS desde cero manteniendo la partición de datos."
         },
       ],
     },
@@ -217,77 +217,77 @@ const TemaIII = () => {
       steps: [
         {
           title: "Iniciar en modo seguro",
-          details: "Mantener Shift al hacer clic en Reiniciar. Solución de problemas > Opciones avanzadas > Configuración de inicio > Modo seguro."
+          details: "Reiniciar el equipo y presionar F8 repetidamente antes de que cargue Windows. Seleccionar 'Modo seguro' del menú de opciones avanzadas."
         },
         {
-          title: "Ejecutar Windows Defender Offline",
-          details: "Windows Security > Protección contra virus > Opciones de examen > Examen sin conexión de Microsoft Defender. Reinicia y escanea antes de cargar Windows."
-        },
-        {
-          title: "Usar Malwarebytes",
-          details: "Descargar e instalar Malwarebytes. Ejecutar análisis completo en modo seguro. Eliminar todas las amenazas detectadas."
+          title: "Ejecutar escaneo con Panda USB Vaccine",
+          details: "Verificar que la protección USB siga activa. Revisar que no haya archivos autorun sospechosos en las unidades del sistema."
         },
         {
           title: "Eliminar programas sospechosos",
-          details: "Panel de control > Programas > Desinstalar. Buscar software desconocido o instalado recientemente sin autorización."
+          details: "Ir a Panel de control > Agregar o quitar programas. Buscar software desconocido o instalado recientemente sin autorización y desinstalarlo."
         },
         {
-          title: "Restablecer navegadores",
-          details: "En cada navegador: Configuración > Restablecer configuración. Elimina extensiones maliciosas y configuraciones alteradas."
+          title: "Limpiar con CCleaner",
+          details: "Ejecutar CCleaner en modo seguro para eliminar archivos temporales, caché y entradas de registro que el malware pueda haber creado."
+        },
+        {
+          title: "Verificar programas de inicio",
+          details: "Presionar Win+R > msconfig > pestaña Inicio. Desmarcar programas desconocidos o sospechosos que se ejecutan al iniciar Windows."
         },
       ],
     },
     {
       title: "Recuperación de Datos",
-      description: "Backup y restauración de información",
+      description: "Respaldo y restauración de información importante",
       image: backupImg,
       steps: [
         {
-          title: "Crear backup completo",
-          details: "Configuración > Actualización y seguridad > Copia de seguridad > Agregar unidad. Seleccionar disco externo."
+          title: "Copiar archivos importantes",
+          details: "Copiar manualmente las carpetas de Mis documentos, Escritorio e información importante a un pendrive o disco externo."
         },
         {
-          title: "Usar historial de archivos",
-          details: "Activar 'Historial de archivos' para backup automático de documentos, imágenes y escritorio en disco externo."
+          title: "Usar la utilidad de respaldo de XP",
+          details: "Ir a Inicio > Accesorios > Herramientas del sistema > Copia de seguridad. Seleccionar los archivos y carpetas a respaldar."
         },
         {
-          title: "Crear imagen del sistema",
-          details: "Panel de control > Copias de seguridad > Crear imagen del sistema. Copia completa del disco para restauración total."
+          title: "Respaldar configuraciones del sistema",
+          details: "Exportar favoritos del navegador Supermium. Anotar configuraciones de red y programas instalados para facilitar una reinstalación."
         },
         {
           title: "Recuperar archivos eliminados",
-          details: "Usar herramientas como Recuva para recuperar archivos eliminados permanentemente si aún no se sobrescribieron."
+          details: "Revisar primero la Papelera de reciclaje. Si ya se vació, usar herramientas como Recuva (compatible con XP) para intentar recuperar archivos."
         },
         {
-          title: "Restaurar desde backup",
-          details: "Configuración > Copia de seguridad > Buscar una copia de seguridad antigua. Seleccionar fecha y archivos a restaurar."
+          title: "Restaurar desde respaldo",
+          details: "Si se creó una copia de seguridad previa, usar la utilidad de restauración de XP para recuperar los archivos desde el medio externo."
         },
       ],
     },
     {
       title: "Optimización del Registro",
-      description: "Limpiar y reparar el registro de Windows",
+      description: "Limpiar y reparar el registro de Windows XP",
       image: registryImg,
       steps: [
         {
           title: "Crear backup del registro",
-          details: "Antes de cualquier cambio: Win+R > regedit > Archivo > Exportar. Guardar backup completo del registro."
+          details: "Antes de cualquier cambio: Win+R > regedit > Archivo > Exportar. Guardar backup completo del registro en un lugar seguro."
         },
         {
-          title: "Usar CCleaner para registro",
-          details: "Abrir CCleaner > Registro > Buscar problemas. Revisar problemas encontrados > Reparar seleccionados."
+          title: "Usar CCleaner para limpieza de registro",
+          details: "Abrir CCleaner > pestaña Registro > Buscar problemas. Crear respaldo cuando lo solicite, luego reparar los problemas seleccionados."
         },
         {
           title: "Limpiar entradas huérfanas",
-          details: "El limpiador de registro elimina referencias a software desinstalado y rutas inválidas que ralentizan el sistema."
+          details: "CCleaner elimina referencias a software desinstalado, DLLs faltantes y rutas inválidas que acumulan basura en el registro y ralentizan el sistema."
         },
         {
           title: "No modificar registro manualmente",
-          details: "Evitar editar registro sin conocimientos avanzados. Cambios incorrectos pueden causar inestabilidad o impedir inicio."
+          details: "Evitar editar el registro sin conocimientos avanzados. Cambios incorrectos en Windows XP pueden impedir que el sistema arranque."
         },
         {
           title: "Verificar mejoras de rendimiento",
-          details: "Después de limpieza, reiniciar y verificar si hay mejoras en velocidad de inicio y respuesta general."
+          details: "Después de la limpieza, reiniciar y verificar si hay mejoras en la velocidad de inicio y la respuesta general del sistema."
         },
       ],
     },
