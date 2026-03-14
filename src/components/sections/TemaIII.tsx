@@ -306,7 +306,7 @@ const TemaIII = () => {
                Software y Sistemas
              </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Procedimientos para optimizar el rendimiento y seguridad del sistema operativo y aplicaciones
+              Procedimientos para optimizar el rendimiento y seguridad de Windows XP MiniOS y sus aplicaciones
             </p>
           </div>
 
