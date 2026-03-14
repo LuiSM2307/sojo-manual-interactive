@@ -94,8 +94,8 @@ const TemaIII = () => {
           details: "Abrir la carpeta Mis documentos y revisar archivos innecesarios. Eliminar instaladores ya utilizados y archivos temporales."
         },
         {
-          title: "Usar CCleaner para limpieza profunda",
-          details: "Abrir CCleaner > Limpiador > Analizar > Ejecutar limpiador. Elimina caché de navegador, archivos temporales y registros obsoletos."
+          title: "Usar WinDirStat para limpieza profunda",
+          details: "Abrir WinDirStat y seleccionar la unidad C:. Analiza visualmente qué archivos y carpetas ocupan más espacio, permitiendo identificar y eliminar archivos innecesarios de forma segura."
         },
       ],
     },
