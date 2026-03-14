@@ -1,5 +1,11 @@
-import { CheckCircle, Lightbulb, BookOpen, Sparkles } from "lucide-react";
+import { CheckCircle, Lightbulb, BookOpen, Sparkles, Camera, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import fotoGrupal from "@/assets/gallery/foto-grupal.jpg";
+import antes1 from "@/assets/gallery/antes-1.jpg";
+import antes2 from "@/assets/gallery/antes-2.png";
+import despues1 from "@/assets/gallery/despues-1.png";
+import despues2 from "@/assets/gallery/despues-2.png";
+import manualFuncionando from "@/assets/gallery/manual-funcionando.png";
 
 const Conclusion = () => {
   const recommendations = [
@@ -106,7 +112,7 @@ const Conclusion = () => {
           </div>
 
           {/* Final Note */}
-          <Card className="border-primary/30 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative group animate-fade-in">
+          <Card className="border-primary/30 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative group animate-fade-in mb-16">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
             <CardContent className="p-10 text-center relative z-10">
               <div className="w-20 h-20 rounded-full gradient-primary flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -123,6 +129,127 @@ const Conclusion = () => {
               </p>
             </CardContent>
           </Card>
+
+          {/* ===== GALERÍA ===== */}
+          <div className="animate-fade-in">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium mb-4">
+                <Camera className="w-4 h-4" />
+                Galería
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold text-gradient mb-2">
+                Evidencias del Proyecto
+              </h3>
+              <p className="text-muted-foreground">Registro fotográfico del trabajo realizado en la institución</p>
+            </div>
+
+            {/* Foto grupal */}
+            <Card className="mb-10 overflow-hidden border-border shadow-lg">
+              <div className="relative">
+                <img
+                  src={fotoGrupal}
+                  alt="Equipo desarrollador en la fachada de la U.E.N. Vicente Emilio Sojo"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto max-h-[500px] object-cover"
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                  <h4 className="text-white font-bold text-xl">Nuestro Equipo</h4>
+                  <p className="text-white/80 text-sm">
+                    El grupo desarrollador del manual frente a la fachada de la U.E.N. Vicente Emilio Sojo
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            {/* Antes y Después */}
+            <div className="mb-10">
+              <h4 className="text-2xl font-bold text-foreground mb-2 text-center">Antes y Después del Mantenimiento</h4>
+              <p className="text-muted-foreground text-center mb-8 text-sm">
+                Comparativa del estado de los equipos del laboratorio de informática antes y después de nuestra intervención
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                {/* Antes */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-destructive/10 text-destructive px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">Antes</span>
+                    <span className="text-muted-foreground text-sm">Estado previo al mantenimiento</span>
+                  </div>
+                  <div className="space-y-4">
+                    <Card className="overflow-hidden border-border shadow-md">
+                      <img src={antes1} alt="Laboratorio antes del mantenimiento - vista general" loading="lazy" decoding="async" className="w-full h-56 object-cover" />
+                      <CardContent className="p-3">
+                        <p className="text-xs text-muted-foreground">Equipos del laboratorio sin mantenimiento, con acumulación de polvo y sistemas desactualizados</p>
+                      </CardContent>
+                    </Card>
+                    <Card className="overflow-hidden border-border shadow-md">
+                      <img src={antes2} alt="Laboratorio antes del mantenimiento - equipos apagados" loading="lazy" decoding="async" className="w-full h-56 object-cover" />
+                      <CardContent className="p-3">
+                        <p className="text-xs text-muted-foreground">Computadoras inoperativas y en desuso, sin software funcional ni conexión a internet</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Después */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-green-500/10 text-green-600 dark:text-green-400 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">Después</span>
+                    <span className="text-muted-foreground text-sm">Resultado del mantenimiento</span>
+                  </div>
+                  <div className="space-y-4">
+                    <Card className="overflow-hidden border-border shadow-md">
+                      <img src={despues1} alt="Laboratorio después del mantenimiento - equipos organizados" loading="lazy" decoding="async" className="w-full h-56 object-cover" />
+                      <CardContent className="p-3">
+                        <p className="text-xs text-muted-foreground">Equipos limpios, organizados y con hardware revisado tras el mantenimiento preventivo</p>
+                      </CardContent>
+                    </Card>
+                    <Card className="overflow-hidden border-border shadow-md">
+                      <img src={despues2} alt="Laboratorio después del mantenimiento - equipos funcionando" loading="lazy" decoding="async" className="w-full h-56 object-cover" />
+                      <CardContent className="p-3">
+                        <p className="text-xs text-muted-foreground">Computadoras encendidas y operativas con sistemas renovados, listas para uso estudiantil</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+              </div>
+
+              {/* Flecha decorativa central */}
+              <div className="hidden md:flex justify-center -mt-[340px] mb-[280px] pointer-events-none">
+                <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center shadow-lg">
+                  <ArrowRight className="w-5 h-5 text-primary-foreground" />
+                </div>
+              </div>
+            </div>
+
+            {/* Renovación de software */}
+            <Card className="overflow-hidden border-primary/30 shadow-lg">
+              <div className="md:flex">
+                <div className="md:w-3/5">
+                  <img
+                    src={manualFuncionando}
+                    alt="Manual Técnico Interactivo funcionando en el laboratorio"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full min-h-[280px] object-cover"
+                  />
+                </div>
+                <div className="md:w-2/5 p-6 md:p-8 flex flex-col justify-center bg-gradient-to-br from-primary/5 to-primary/10">
+                  <div className="inline-flex items-center gap-1.5 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-semibold mb-4 w-fit">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Renovación completa
+                  </div>
+                  <h4 className="text-xl font-bold text-foreground mb-3">
+                    Sistemas Operativos y Software Actualizados
+                  </h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Se instaló <strong>Windows XP Mini OS</strong> como sistema operativo ligero y funcional, junto con <strong>Office 2010</strong> para ofimática y el navegador <strong>Supermium</strong>, compatible con tecnologías web modernas, permitiendo que este manual interactivo funcione directamente en los equipos del laboratorio.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
       </div>
     </section>
