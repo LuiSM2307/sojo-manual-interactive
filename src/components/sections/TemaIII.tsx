@@ -52,7 +52,7 @@ const TemaIII = () => {
       steps: [
         {
           title: "Verificar funcionamiento del equipo",
-          details: "Encender el equipo y verificar que el sistema operativo carga correctamente. Observar si hay mensajes de error o comportamientos anormales."
+          details: "Encender el equipo y verificar que Windows XP MiniOS carga correctamente. Observar si hay mensajes de error o comportamientos anormales durante el inicio."
         },
         {
           title: "Cerrar todos los programas",
@@ -60,15 +60,15 @@ const TemaIII = () => {
         },
         {
           title: "Desconectar dispositivos externos",
-          details: "Quitar USB, discos externos, impresoras y otros periféricos. Dejar solo teclado y mouse conectados."
+          details: "Quitar USB, discos externos y otros periféricos. Dejar solo teclado y mouse conectados."
         },
         {
           title: "Crear punto de restauración",
-          details: "Buscar 'Crear punto de restauración' en inicio. Clic en 'Crear' y asignar un nombre descriptivo con fecha."
+          details: "Ir a Inicio > Todos los programas > Accesorios > Herramientas del sistema > Restaurar sistema. Seleccionar 'Crear un punto de restauración' y asignar un nombre descriptivo."
         },
         {
           title: "Verificar espacio disponible",
-          details: "Abrir 'Este equipo' y verificar que la unidad C: tenga al menos 10GB libres para el proceso de mantenimiento."
+          details: "Abrir 'Mi PC' y hacer clic derecho en la unidad C: > Propiedades. Verificar que haya suficiente espacio libre para el mantenimiento."
         },
       ],
     },
@@ -79,104 +79,104 @@ const TemaIII = () => {
       steps: [
         {
           title: "Ejecutar liberador de espacio",
-          details: "Buscar 'Liberador de espacio' en inicio. Seleccionar unidad C: y esperar el análisis. Marcar todas las casillas disponibles."
-        },
-        {
-          title: "Limpiar archivos del sistema",
-          details: "En liberador de espacio, clic en 'Limpiar archivos del sistema'. Marcar 'Actualizaciones de Windows anteriores' y 'Archivos temporales'."
-        },
-        {
-          title: "Vaciar papelera de reciclaje",
-          details: "Clic derecho en Papelera de reciclaje del escritorio > Vaciar papelera. Confirmar la eliminación permanente."
-        },
-        {
-          title: "Limpiar carpeta de descargas",
-          details: "Abrir carpeta Descargas. Revisar y eliminar archivos innecesarios. Mover archivos importantes a carpetas apropiadas."
+          details: "Ir a Inicio > Accesorios > Herramientas del sistema > Liberador de espacio en disco. Seleccionar unidad C: y marcar todas las casillas disponibles."
         },
         {
           title: "Eliminar archivos temporales manualmente",
-          details: "Presionar Win+R, escribir %temp% y Enter. Seleccionar todo (Ctrl+A) y eliminar. Algunos archivos en uso no se eliminarán."
+          details: "Presionar Win+R, escribir %temp% y Enter. Seleccionar todo (Ctrl+A) y eliminar. Algunos archivos en uso no se podrán eliminar."
+        },
+        {
+          title: "Vaciar papelera de reciclaje",
+          details: "Clic derecho en la Papelera de reciclaje del escritorio > Vaciar papelera de reciclaje. Confirmar la eliminación permanente."
+        },
+        {
+          title: "Limpiar carpeta de descargas",
+          details: "Abrir la carpeta Mis documentos y revisar archivos innecesarios. Eliminar instaladores ya utilizados y archivos temporales."
+        },
+        {
+          title: "Usar CCleaner para limpieza profunda",
+          details: "Abrir CCleaner > Limpiador > Analizar > Ejecutar limpiador. Elimina caché de navegador, archivos temporales y registros obsoletos."
         },
       ],
     },
     {
-      title: "Actualización del Sistema",
-      description: "Mantener el sistema y software actualizados",
+      title: "Instalación de Drivers",
+      description: "Mantener los controladores del hardware actualizados",
       image: updatesImg,
       steps: [
         {
-          title: "Verificar actualizaciones de Windows",
-          details: "Ir a Configuración > Windows Update > Buscar actualizaciones. Descargar e instalar todas las actualizaciones disponibles."
+          title: "Ejecutar 3DP Chip",
+          details: "Abrir 3DP Chip para detectar automáticamente el hardware del equipo y los drivers faltantes o desactualizados."
         },
         {
-          title: "Actualizar Microsoft Store",
-          details: "Abrir Microsoft Store > Biblioteca > Obtener actualizaciones. Esperar a que todas las aplicaciones se actualicen."
+          title: "Instalar drivers necesarios",
+          details: "Desde 3DP Chip, descargar e instalar los controladores recomendados para cada componente de hardware detectado."
         },
         {
-          title: "Actualizar drivers del sistema",
-          details: "Abrir Administrador de dispositivos. Clic derecho en dispositivos importantes > Actualizar controlador > Buscar automáticamente."
+          title: "Verificar Administrador de dispositivos",
+          details: "Clic derecho en Mi PC > Propiedades > Hardware > Administrador de dispositivos. Verificar que no haya dispositivos con signos de exclamación amarillos."
         },
         {
-          title: "Actualizar navegadores web",
-          details: "Abrir cada navegador instalado y verificar actualizaciones en su menú de configuración. Chrome, Firefox, Edge, etc."
+          title: "Instalar drivers manualmente si es necesario",
+          details: "Para dispositivos no reconocidos: clic derecho > Actualizar controlador > Instalar desde ubicación específica si se tiene el CD de drivers."
         },
         {
           title: "Reiniciar el sistema",
-          details: "Después de instalar actualizaciones importantes, reiniciar el equipo para aplicar cambios completamente."
+          details: "Después de instalar los controladores, reiniciar el equipo para que los cambios surtan efecto correctamente."
         },
       ],
     },
     {
-      title: "Análisis de Seguridad",
-      description: "Detectar y eliminar amenazas de seguridad",
+      title: "Protección contra Virus USB",
+      description: "Prevenir infecciones desde memorias extraíbles",
       image: antivirusImg,
       steps: [
         {
-          title: "Actualizar definiciones de antivirus",
-          details: "Abrir Windows Security > Protección contra virus y amenazas > Buscar actualizaciones de protección."
+          title: "Instalar Panda USB Vaccine",
+          details: "Descargar e instalar Panda USB Vaccine. Es un programa ligero y gratuito diseñado para proteger contra virus de autorun en pendrives."
         },
         {
-          title: "Ejecutar análisis rápido",
-          details: "En Windows Security > Protección contra virus y amenazas > Análisis rápido. Esperar a que termine (5-10 minutos)."
+          title: "Vacunar el equipo",
+          details: "En Panda USB Vaccine, hacer clic en 'Vacunar equipo' para deshabilitar la función de autorun del sistema, previniendo ejecuciones automáticas maliciosas."
         },
         {
-          title: "Realizar análisis completo",
-          details: "Opciones de examen > Examen completo > Examinar ahora. Puede tomar 1-2 horas. Ejecutar cuando no se use el equipo."
+          title: "Vacunar memorias USB",
+          details: "Insertar cada pendrive y hacer clic en 'Vacunar USB' para crear un archivo AUTORUN.INF protegido que impide la propagación de virus."
         },
         {
-          title: "Verificar firewall",
-          details: "Windows Security > Firewall y protección de red. Verificar que esté activado para redes públicas y privadas."
+          title: "Revisar pendrives antes de abrir archivos",
+          details: "Siempre abrir el pendrive desde Mi PC haciendo doble clic, nunca desde la ventana de autorun. Verificar que no haya archivos ocultos sospechosos."
         },
         {
-          title: "Revisar resultados",
-          details: "Revisar amenazas detectadas. Seguir recomendaciones de cuarentena o eliminación de archivos sospechosos."
+          title: "Mantener la protección activa",
+          details: "Verificar periódicamente que Panda USB Vaccine sigue activo. Es una protección pasiva que no consume recursos del sistema."
         },
       ],
     },
     {
       title: "Optimización de Disco",
-      description: "Mejorar el rendimiento del almacenamiento",
+      description: "Mejorar el rendimiento del almacenamiento HDD",
       image: diskOptimizationImg,
       steps: [
         {
-          title: "Identificar tipo de disco",
-          details: "Abrir 'Desfragmentar y optimizar unidades'. Verificar si el disco es HDD (requiere desfragmentación) o SSD (requiere TRIM)."
+          title: "Abrir Desfragmentador de disco",
+          details: "Ir a Inicio > Accesorios > Herramientas del sistema > Desfragmentador de disco. Seleccionar la unidad C:."
         },
         {
-          title: "Desfragmentar HDD",
-          details: "Si es HDD: seleccionar unidad C: > Optimizar. El proceso puede tomar 30 minutos a varias horas según fragmentación."
+          title: "Analizar el disco",
+          details: "Hacer clic en 'Analizar' para ver el nivel de fragmentación. Si es mayor al 10%, se recomienda desfragmentar."
         },
         {
-          title: "Optimizar SSD",
-          details: "Si es SSD: el sistema ejecutará comando TRIM automáticamente. No desfragmentar SSD, reduce su vida útil."
+          title: "Desfragmentar la unidad",
+          details: "Hacer clic en 'Desfragmentar'. El proceso puede tomar de 30 minutos a varias horas dependiendo del tamaño y fragmentación del disco."
         },
         {
-          title: "Configurar optimización automática",
-          details: "En optimizar unidades > Activar 'Optimización programada'. Configurar frecuencia semanal."
+          title: "Ejecutar comprobación de errores",
+          details: "Clic derecho en la unidad C: > Propiedades > Herramientas > Comprobar ahora. Marcar ambas casillas y programar para el próximo reinicio."
         },
         {
-          title: "Verificar salud del disco",
-          details: "Usar herramientas como CrystalDiskInfo para verificar estado SMART y temperatura del disco."
+          title: "Verificar resultado",
+          details: "Tras la desfragmentación, analizar nuevamente para confirmar que la fragmentación se redujo significativamente."
         },
       ],
     },
