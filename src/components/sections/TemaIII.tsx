@@ -21,26 +21,25 @@ const TemaIII = () => {
   const toolsData = [
     {
       icon: Wrench,
-      title: "Herramientas de Windows",
-      description: "Utilidades integradas del sistema",
+      title: "Herramientas de Windows XP",
+      description: "Utilidades integradas del sistema operativo",
       tools: [
-        { name: "Liberador de espacio", use: "Elimina archivos temporales y caché" },
-        { name: "Desfragmentador de disco", use: "Optimiza el acceso a datos en HDD" },
-        { name: "Windows Defender", use: "Protección antivirus y antimalware" },
-        { name: "Administrador de tareas", use: "Monitoreo de recursos del sistema" },
-        { name: "Visor de eventos", use: "Registro de errores y advertencias" },
+        { name: "Liberador de espacio en disco", use: "Elimina archivos temporales, caché y componentes innecesarios" },
+        { name: "Desfragmentador de disco", use: "Reorganiza los datos en el HDD para un acceso más rápido" },
+        { name: "Administrador de tareas", use: "Monitoreo de procesos y uso de recursos del sistema (Ctrl+Alt+Supr)" },
+        { name: "Restaurar sistema", use: "Permite volver a un estado anterior del sistema en caso de fallos" },
+        { name: "Comprobación de errores (chkdsk)", use: "Verifica y repara errores en el disco duro" },
       ],
     },
     {
       icon: Download,
       title: "Software Recomendado",
-      description: "Herramientas de terceros profesionales",
+      description: "Herramientas compatibles con Windows XP MiniOS",
       tools: [
-        { name: "CCleaner", use: "Limpieza profunda del sistema" },
-        { name: "Malwarebytes", use: "Detección avanzada de malware" },
-        { name: "TreeSize", use: "Análisis detallado de espacio en disco" },
-        { name: "HWMonitor", use: "Monitoreo de temperaturas" },
-        { name: "Crystal Disk Info", use: "Estado de salud de discos" },
+        { name: "Panda USB Vaccine", use: "Protección contra virus provenientes de memorias USB/pendrives" },
+        { name: "3DP Chip", use: "Detección e instalación automática de drivers del sistema" },
+        { name: "Supermium", use: "Navegador web moderno compatible con Windows XP" },
+        { name: "CCleaner (v5.63)", use: "Limpieza de archivos temporales y optimización del registro" },
       ],
     },
   ];
@@ -53,7 +52,7 @@ const TemaIII = () => {
       steps: [
         {
           title: "Verificar funcionamiento del equipo",
-          details: "Encender el equipo y verificar que el sistema operativo carga correctamente. Observar si hay mensajes de error o comportamientos anormales."
+          details: "Encender el equipo y verificar que Windows XP MiniOS carga correctamente. Observar si hay mensajes de error o comportamientos anormales durante el inicio."
         },
         {
           title: "Cerrar todos los programas",
@@ -61,15 +60,15 @@ const TemaIII = () => {
         },
         {
           title: "Desconectar dispositivos externos",
-          details: "Quitar USB, discos externos, impresoras y otros periféricos. Dejar solo teclado y mouse conectados."
+          details: "Quitar USB, discos externos y otros periféricos. Dejar solo teclado y mouse conectados."
         },
         {
           title: "Crear punto de restauración",
-          details: "Buscar 'Crear punto de restauración' en inicio. Clic en 'Crear' y asignar un nombre descriptivo con fecha."
+          details: "Ir a Inicio > Todos los programas > Accesorios > Herramientas del sistema > Restaurar sistema. Seleccionar 'Crear un punto de restauración' y asignar un nombre descriptivo."
         },
         {
           title: "Verificar espacio disponible",
-          details: "Abrir 'Este equipo' y verificar que la unidad C: tenga al menos 10GB libres para el proceso de mantenimiento."
+          details: "Abrir 'Mi PC' y hacer clic derecho en la unidad C: > Propiedades. Verificar que haya suficiente espacio libre para el mantenimiento."
         },
       ],
     },
@@ -80,104 +79,104 @@ const TemaIII = () => {
       steps: [
         {
           title: "Ejecutar liberador de espacio",
-          details: "Buscar 'Liberador de espacio' en inicio. Seleccionar unidad C: y esperar el análisis. Marcar todas las casillas disponibles."
-        },
-        {
-          title: "Limpiar archivos del sistema",
-          details: "En liberador de espacio, clic en 'Limpiar archivos del sistema'. Marcar 'Actualizaciones de Windows anteriores' y 'Archivos temporales'."
-        },
-        {
-          title: "Vaciar papelera de reciclaje",
-          details: "Clic derecho en Papelera de reciclaje del escritorio > Vaciar papelera. Confirmar la eliminación permanente."
-        },
-        {
-          title: "Limpiar carpeta de descargas",
-          details: "Abrir carpeta Descargas. Revisar y eliminar archivos innecesarios. Mover archivos importantes a carpetas apropiadas."
+          details: "Ir a Inicio > Accesorios > Herramientas del sistema > Liberador de espacio en disco. Seleccionar unidad C: y marcar todas las casillas disponibles."
         },
         {
           title: "Eliminar archivos temporales manualmente",
-          details: "Presionar Win+R, escribir %temp% y Enter. Seleccionar todo (Ctrl+A) y eliminar. Algunos archivos en uso no se eliminarán."
+          details: "Presionar Win+R, escribir %temp% y Enter. Seleccionar todo (Ctrl+A) y eliminar. Algunos archivos en uso no se podrán eliminar."
+        },
+        {
+          title: "Vaciar papelera de reciclaje",
+          details: "Clic derecho en la Papelera de reciclaje del escritorio > Vaciar papelera de reciclaje. Confirmar la eliminación permanente."
+        },
+        {
+          title: "Limpiar carpeta de descargas",
+          details: "Abrir la carpeta Mis documentos y revisar archivos innecesarios. Eliminar instaladores ya utilizados y archivos temporales."
+        },
+        {
+          title: "Usar CCleaner para limpieza profunda",
+          details: "Abrir CCleaner > Limpiador > Analizar > Ejecutar limpiador. Elimina caché de navegador, archivos temporales y registros obsoletos."
         },
       ],
     },
     {
-      title: "Actualización del Sistema",
-      description: "Mantener el sistema y software actualizados",
+      title: "Instalación de Drivers",
+      description: "Mantener los controladores del hardware actualizados",
       image: updatesImg,
       steps: [
         {
-          title: "Verificar actualizaciones de Windows",
-          details: "Ir a Configuración > Windows Update > Buscar actualizaciones. Descargar e instalar todas las actualizaciones disponibles."
+          title: "Ejecutar 3DP Chip",
+          details: "Abrir 3DP Chip para detectar automáticamente el hardware del equipo y los drivers faltantes o desactualizados."
         },
         {
-          title: "Actualizar Microsoft Store",
-          details: "Abrir Microsoft Store > Biblioteca > Obtener actualizaciones. Esperar a que todas las aplicaciones se actualicen."
+          title: "Instalar drivers necesarios",
+          details: "Desde 3DP Chip, descargar e instalar los controladores recomendados para cada componente de hardware detectado."
         },
         {
-          title: "Actualizar drivers del sistema",
-          details: "Abrir Administrador de dispositivos. Clic derecho en dispositivos importantes > Actualizar controlador > Buscar automáticamente."
+          title: "Verificar Administrador de dispositivos",
+          details: "Clic derecho en Mi PC > Propiedades > Hardware > Administrador de dispositivos. Verificar que no haya dispositivos con signos de exclamación amarillos."
         },
         {
-          title: "Actualizar navegadores web",
-          details: "Abrir cada navegador instalado y verificar actualizaciones en su menú de configuración. Chrome, Firefox, Edge, etc."
+          title: "Instalar drivers manualmente si es necesario",
+          details: "Para dispositivos no reconocidos: clic derecho > Actualizar controlador > Instalar desde ubicación específica si se tiene el CD de drivers."
         },
         {
           title: "Reiniciar el sistema",
-          details: "Después de instalar actualizaciones importantes, reiniciar el equipo para aplicar cambios completamente."
+          details: "Después de instalar los controladores, reiniciar el equipo para que los cambios surtan efecto correctamente."
         },
       ],
     },
     {
-      title: "Análisis de Seguridad",
-      description: "Detectar y eliminar amenazas de seguridad",
+      title: "Protección contra Virus USB",
+      description: "Prevenir infecciones desde memorias extraíbles",
       image: antivirusImg,
       steps: [
         {
-          title: "Actualizar definiciones de antivirus",
-          details: "Abrir Windows Security > Protección contra virus y amenazas > Buscar actualizaciones de protección."
+          title: "Instalar Panda USB Vaccine",
+          details: "Descargar e instalar Panda USB Vaccine. Es un programa ligero y gratuito diseñado para proteger contra virus de autorun en pendrives."
         },
         {
-          title: "Ejecutar análisis rápido",
-          details: "En Windows Security > Protección contra virus y amenazas > Análisis rápido. Esperar a que termine (5-10 minutos)."
+          title: "Vacunar el equipo",
+          details: "En Panda USB Vaccine, hacer clic en 'Vacunar equipo' para deshabilitar la función de autorun del sistema, previniendo ejecuciones automáticas maliciosas."
         },
         {
-          title: "Realizar análisis completo",
-          details: "Opciones de examen > Examen completo > Examinar ahora. Puede tomar 1-2 horas. Ejecutar cuando no se use el equipo."
+          title: "Vacunar memorias USB",
+          details: "Insertar cada pendrive y hacer clic en 'Vacunar USB' para crear un archivo AUTORUN.INF protegido que impide la propagación de virus."
         },
         {
-          title: "Verificar firewall",
-          details: "Windows Security > Firewall y protección de red. Verificar que esté activado para redes públicas y privadas."
+          title: "Revisar pendrives antes de abrir archivos",
+          details: "Siempre abrir el pendrive desde Mi PC haciendo doble clic, nunca desde la ventana de autorun. Verificar que no haya archivos ocultos sospechosos."
         },
         {
-          title: "Revisar resultados",
-          details: "Revisar amenazas detectadas. Seguir recomendaciones de cuarentena o eliminación de archivos sospechosos."
+          title: "Mantener la protección activa",
+          details: "Verificar periódicamente que Panda USB Vaccine sigue activo. Es una protección pasiva que no consume recursos del sistema."
         },
       ],
     },
     {
       title: "Optimización de Disco",
-      description: "Mejorar el rendimiento del almacenamiento",
+      description: "Mejorar el rendimiento del almacenamiento HDD",
       image: diskOptimizationImg,
       steps: [
         {
-          title: "Identificar tipo de disco",
-          details: "Abrir 'Desfragmentar y optimizar unidades'. Verificar si el disco es HDD (requiere desfragmentación) o SSD (requiere TRIM)."
+          title: "Abrir Desfragmentador de disco",
+          details: "Ir a Inicio > Accesorios > Herramientas del sistema > Desfragmentador de disco. Seleccionar la unidad C:."
         },
         {
-          title: "Desfragmentar HDD",
-          details: "Si es HDD: seleccionar unidad C: > Optimizar. El proceso puede tomar 30 minutos a varias horas según fragmentación."
+          title: "Analizar el disco",
+          details: "Hacer clic en 'Analizar' para ver el nivel de fragmentación. Si es mayor al 10%, se recomienda desfragmentar."
         },
         {
-          title: "Optimizar SSD",
-          details: "Si es SSD: el sistema ejecutará comando TRIM automáticamente. No desfragmentar SSD, reduce su vida útil."
+          title: "Desfragmentar la unidad",
+          details: "Hacer clic en 'Desfragmentar'. El proceso puede tomar de 30 minutos a varias horas dependiendo del tamaño y fragmentación del disco."
         },
         {
-          title: "Configurar optimización automática",
-          details: "En optimizar unidades > Activar 'Optimización programada'. Configurar frecuencia semanal."
+          title: "Ejecutar comprobación de errores",
+          details: "Clic derecho en la unidad C: > Propiedades > Herramientas > Comprobar ahora. Marcar ambas casillas y programar para el próximo reinicio."
         },
         {
-          title: "Verificar salud del disco",
-          details: "Usar herramientas como CrystalDiskInfo para verificar estado SMART y temperatura del disco."
+          title: "Verificar resultado",
+          details: "Tras la desfragmentación, analizar nuevamente para confirmar que la fragmentación se redujo significativamente."
         },
       ],
     },
@@ -186,28 +185,28 @@ const TemaIII = () => {
   const correctiveProcedures = [
     {
       title: "Reparación del Sistema",
-      description: "Solucionar errores y archivos corruptos",
+      description: "Solucionar errores y archivos corruptos en Windows XP",
       image: repairImg,
       steps: [
         {
           title: "Ejecutar SFC (System File Checker)",
-          details: "Abrir CMD como administrador. Ejecutar: sfc /scannow. Esperar a que termine (20-30 minutos). Corrige archivos del sistema dañados."
-        },
-        {
-          title: "Reparar imagen de Windows con DISM",
-          details: "En CMD como administrador ejecutar: DISM /Online /Cleanup-Image /RestoreHealth. Repara componentes de Windows."
+          details: "Abrir CMD como administrador (Inicio > Ejecutar > cmd). Escribir: sfc /scannow y presionar Enter. Puede solicitar el CD de Windows XP para restaurar archivos."
         },
         {
           title: "Verificar disco con CHKDSK",
-          details: "Ejecutar: chkdsk C: /f /r. Programará verificación al reiniciar. Corrige errores de disco y sectores defectuosos."
+          details: "En CMD ejecutar: chkdsk C: /f /r. Se programará la verificación al reiniciar. Corrige errores de disco y sectores defectuosos."
         },
         {
-          title: "Usar herramienta de solución de problemas",
-          details: "Ir a Configuración > Sistema > Solucionar problemas > Otros solucionadores. Ejecutar los relevantes al problema."
+          title: "Restaurar sistema a un punto anterior",
+          details: "Ir a Inicio > Accesorios > Herramientas del sistema > Restaurar sistema. Elegir 'Restaurar mi equipo a un estado anterior' y seleccionar una fecha."
         },
         {
-          title: "Restaurar sistema si persiste",
-          details: "Si los problemas continúan, buscar 'Restaurar sistema'. Elegir punto de restauración anterior al problema."
+          title: "Reparar con consola de recuperación",
+          details: "Si el sistema no inicia, arrancar desde el CD de instalación de Windows XP y seleccionar 'Consola de recuperación' para ejecutar comandos de reparación."
+        },
+        {
+          title: "Reinstalar Windows XP MiniOS si persiste",
+          details: "Como último recurso, respaldar datos importantes y reinstalar Windows XP MiniOS desde cero manteniendo la partición de datos."
         },
       ],
     },
@@ -218,77 +217,77 @@ const TemaIII = () => {
       steps: [
         {
           title: "Iniciar en modo seguro",
-          details: "Mantener Shift al hacer clic en Reiniciar. Solución de problemas > Opciones avanzadas > Configuración de inicio > Modo seguro."
+          details: "Reiniciar el equipo y presionar F8 repetidamente antes de que cargue Windows. Seleccionar 'Modo seguro' del menú de opciones avanzadas."
         },
         {
-          title: "Ejecutar Windows Defender Offline",
-          details: "Windows Security > Protección contra virus > Opciones de examen > Examen sin conexión de Microsoft Defender. Reinicia y escanea antes de cargar Windows."
-        },
-        {
-          title: "Usar Malwarebytes",
-          details: "Descargar e instalar Malwarebytes. Ejecutar análisis completo en modo seguro. Eliminar todas las amenazas detectadas."
+          title: "Ejecutar escaneo con Panda USB Vaccine",
+          details: "Verificar que la protección USB siga activa. Revisar que no haya archivos autorun sospechosos en las unidades del sistema."
         },
         {
           title: "Eliminar programas sospechosos",
-          details: "Panel de control > Programas > Desinstalar. Buscar software desconocido o instalado recientemente sin autorización."
+          details: "Ir a Panel de control > Agregar o quitar programas. Buscar software desconocido o instalado recientemente sin autorización y desinstalarlo."
         },
         {
-          title: "Restablecer navegadores",
-          details: "En cada navegador: Configuración > Restablecer configuración. Elimina extensiones maliciosas y configuraciones alteradas."
+          title: "Limpiar con CCleaner",
+          details: "Ejecutar CCleaner en modo seguro para eliminar archivos temporales, caché y entradas de registro que el malware pueda haber creado."
+        },
+        {
+          title: "Verificar programas de inicio",
+          details: "Presionar Win+R > msconfig > pestaña Inicio. Desmarcar programas desconocidos o sospechosos que se ejecutan al iniciar Windows."
         },
       ],
     },
     {
       title: "Recuperación de Datos",
-      description: "Backup y restauración de información",
+      description: "Respaldo y restauración de información importante",
       image: backupImg,
       steps: [
         {
-          title: "Crear backup completo",
-          details: "Configuración > Actualización y seguridad > Copia de seguridad > Agregar unidad. Seleccionar disco externo."
+          title: "Copiar archivos importantes",
+          details: "Copiar manualmente las carpetas de Mis documentos, Escritorio e información importante a un pendrive o disco externo."
         },
         {
-          title: "Usar historial de archivos",
-          details: "Activar 'Historial de archivos' para backup automático de documentos, imágenes y escritorio en disco externo."
+          title: "Usar la utilidad de respaldo de XP",
+          details: "Ir a Inicio > Accesorios > Herramientas del sistema > Copia de seguridad. Seleccionar los archivos y carpetas a respaldar."
         },
         {
-          title: "Crear imagen del sistema",
-          details: "Panel de control > Copias de seguridad > Crear imagen del sistema. Copia completa del disco para restauración total."
+          title: "Respaldar configuraciones del sistema",
+          details: "Exportar favoritos del navegador Supermium. Anotar configuraciones de red y programas instalados para facilitar una reinstalación."
         },
         {
           title: "Recuperar archivos eliminados",
-          details: "Usar herramientas como Recuva para recuperar archivos eliminados permanentemente si aún no se sobrescribieron."
+          details: "Revisar primero la Papelera de reciclaje. Si ya se vació, usar herramientas como Recuva (compatible con XP) para intentar recuperar archivos."
         },
         {
-          title: "Restaurar desde backup",
-          details: "Configuración > Copia de seguridad > Buscar una copia de seguridad antigua. Seleccionar fecha y archivos a restaurar."
+          title: "Restaurar desde respaldo",
+          details: "Si se creó una copia de seguridad previa, usar la utilidad de restauración de XP para recuperar los archivos desde el medio externo."
         },
       ],
     },
     {
       title: "Optimización del Registro",
-      description: "Limpiar y reparar el registro de Windows",
+      description: "Limpiar y reparar el registro de Windows XP",
       image: registryImg,
       steps: [
         {
           title: "Crear backup del registro",
-          details: "Antes de cualquier cambio: Win+R > regedit > Archivo > Exportar. Guardar backup completo del registro."
+          details: "Antes de cualquier cambio: Win+R > regedit > Archivo > Exportar. Guardar backup completo del registro en un lugar seguro."
         },
         {
-          title: "Usar CCleaner para registro",
-          details: "Abrir CCleaner > Registro > Buscar problemas. Revisar problemas encontrados > Reparar seleccionados."
+          title: "Usar CCleaner para limpieza de registro",
+          details: "Abrir CCleaner > pestaña Registro > Buscar problemas. Crear respaldo cuando lo solicite, luego reparar los problemas seleccionados."
         },
         {
           title: "Limpiar entradas huérfanas",
-          details: "El limpiador de registro elimina referencias a software desinstalado y rutas inválidas que ralentizan el sistema."
+          details: "CCleaner elimina referencias a software desinstalado, DLLs faltantes y rutas inválidas que acumulan basura en el registro y ralentizan el sistema."
         },
         {
           title: "No modificar registro manualmente",
-          details: "Evitar editar registro sin conocimientos avanzados. Cambios incorrectos pueden causar inestabilidad o impedir inicio."
+          details: "Evitar editar el registro sin conocimientos avanzados. Cambios incorrectos en Windows XP pueden impedir que el sistema arranque."
         },
         {
           title: "Verificar mejoras de rendimiento",
-          details: "Después de limpieza, reiniciar y verificar si hay mejoras en velocidad de inicio y respuesta general."
+          details: "Después de la limpieza, reiniciar y verificar si hay mejoras en la velocidad de inicio y la respuesta general del sistema."
         },
       ],
     },
@@ -307,7 +306,7 @@ const TemaIII = () => {
                Software y Sistemas
              </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Procedimientos para optimizar el rendimiento y seguridad del sistema operativo y aplicaciones
+              Procedimientos para optimizar el rendimiento y seguridad de Windows XP MiniOS y sus aplicaciones
             </p>
           </div>
 
@@ -321,9 +320,10 @@ const TemaIII = () => {
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   El mantenimiento de software comprende todas las actividades relacionadas con la
-                  actualización, optimización y limpieza del sistema operativo y las aplicaciones instaladas
-                  en un equipo. Su objetivo es garantizar el funcionamiento eficiente, seguro y estable del
-                  sistema, previniendo errores, vulnerabilidades y degradación del rendimiento.
+                  optimización, limpieza y protección del sistema operativo Windows XP MiniOS y las aplicaciones
+                  instaladas en los equipos del laboratorio. Su objetivo es garantizar el funcionamiento eficiente,
+                  seguro y estable del sistema, previniendo errores, vulnerabilidades y degradación del rendimiento,
+                  considerando las limitaciones de hardware de los equipos.
                 </p>
                 <div className="grid md:grid-cols-2 gap-4 mt-6">
                   <div className="bg-primary-soft p-4 rounded-lg border border-primary/20">
