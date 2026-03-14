@@ -21,26 +21,25 @@ const TemaIII = () => {
   const toolsData = [
     {
       icon: Wrench,
-      title: "Herramientas de Windows",
-      description: "Utilidades integradas del sistema",
+      title: "Herramientas de Windows XP",
+      description: "Utilidades integradas del sistema operativo",
       tools: [
-        { name: "Liberador de espacio", use: "Elimina archivos temporales y caché" },
-        { name: "Desfragmentador de disco", use: "Optimiza el acceso a datos en HDD" },
-        { name: "Windows Defender", use: "Protección antivirus y antimalware" },
-        { name: "Administrador de tareas", use: "Monitoreo de recursos del sistema" },
-        { name: "Visor de eventos", use: "Registro de errores y advertencias" },
+        { name: "Liberador de espacio en disco", use: "Elimina archivos temporales, caché y componentes innecesarios" },
+        { name: "Desfragmentador de disco", use: "Reorganiza los datos en el HDD para un acceso más rápido" },
+        { name: "Administrador de tareas", use: "Monitoreo de procesos y uso de recursos del sistema (Ctrl+Alt+Supr)" },
+        { name: "Restaurar sistema", use: "Permite volver a un estado anterior del sistema en caso de fallos" },
+        { name: "Comprobación de errores (chkdsk)", use: "Verifica y repara errores en el disco duro" },
       ],
     },
     {
       icon: Download,
       title: "Software Recomendado",
-      description: "Herramientas de terceros profesionales",
+      description: "Herramientas compatibles con Windows XP MiniOS",
       tools: [
-        { name: "CCleaner", use: "Limpieza profunda del sistema" },
-        { name: "Malwarebytes", use: "Detección avanzada de malware" },
-        { name: "TreeSize", use: "Análisis detallado de espacio en disco" },
-        { name: "HWMonitor", use: "Monitoreo de temperaturas" },
-        { name: "Crystal Disk Info", use: "Estado de salud de discos" },
+        { name: "Panda USB Vaccine", use: "Protección contra virus provenientes de memorias USB/pendrives" },
+        { name: "3DP Chip", use: "Detección e instalación automática de drivers del sistema" },
+        { name: "Supermium", use: "Navegador web moderno compatible con Windows XP" },
+        { name: "CCleaner (v5.63)", use: "Limpieza de archivos temporales y optimización del registro" },
       ],
     },
   ];
