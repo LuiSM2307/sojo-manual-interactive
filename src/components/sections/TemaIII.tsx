@@ -266,7 +266,7 @@ const TemaIII = () => {
     },
     {
       title: "Optimización del Registro",
-      description: "Limpiar y reparar el registro de Windows XP",
+      description: "Limpiar y mantener el registro de Windows XP",
       image: registryImg,
       steps: [
         {
@@ -274,12 +274,12 @@ const TemaIII = () => {
           details: "Antes de cualquier cambio: Win+R > regedit > Archivo > Exportar. Guardar backup completo del registro en un lugar seguro."
         },
         {
-          title: "Usar CCleaner para limpieza de registro",
-          details: "Abrir CCleaner > pestaña Registro > Buscar problemas. Crear respaldo cuando lo solicite, luego reparar los problemas seleccionados."
+          title: "Analizar espacio con WinDirStat",
+          details: "Abrir WinDirStat para identificar archivos residuales de programas desinstalados que ocupan espacio innecesario en el disco."
         },
         {
-          title: "Limpiar entradas huérfanas",
-          details: "CCleaner elimina referencias a software desinstalado, DLLs faltantes y rutas inválidas que acumulan basura en el registro y ralentizan el sistema."
+          title: "Eliminar carpetas de programas desinstalados",
+          details: "Con la información de WinDirStat, eliminar manualmente carpetas huérfanas en Archivos de programa que ya no correspondan a software instalado."
         },
         {
           title: "No modificar registro manualmente",
