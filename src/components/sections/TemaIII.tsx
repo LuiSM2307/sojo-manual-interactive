@@ -228,8 +228,8 @@ const TemaIII = () => {
           details: "Ir a Panel de control > Agregar o quitar programas. Buscar software desconocido o instalado recientemente sin autorización y desinstalarlo."
         },
         {
-          title: "Limpiar con CCleaner",
-          details: "Ejecutar CCleaner en modo seguro para eliminar archivos temporales, caché y entradas de registro que el malware pueda haber creado."
+          title: "Limpiar archivos sospechosos con WinDirStat",
+          details: "Ejecutar WinDirStat para visualizar el uso de disco e identificar archivos o carpetas sospechosas creadas por el malware. Eliminar manualmente lo que no pertenezca al sistema."
         },
         {
           title: "Verificar programas de inicio",
