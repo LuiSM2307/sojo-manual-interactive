@@ -53,6 +53,8 @@ const TemaII = () => {
         name: "Mouse (Ratón)", 
         desc: "Limpieza externa, sensor y verificación de botones",
         img: mouseImg,
+        video: "https://www.youtube.com/embed/L209s64-w00?modestbranding=1&rel=0",
+        videoTitle: "Video Tutorial: Mantenimiento Preventivo del Mouse",
         guide: [
           "Desconectar mouse del equipo",
           "Limpiar superficie externa con paño húmedo con alcohol",
@@ -429,24 +431,41 @@ const TemaII = () => {
                     const IconComponent = component.icon;
                     return (
                       <Card key={idx} className="border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl group overflow-hidden">
-                        <div className="relative h-48 overflow-hidden">
-                          <img 
-                            src={component.img} 
-                            alt={component.name}
-                            loading="lazy"
-                            decoding="async"
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
-                          <div className="absolute bottom-3 left-3 right-3">
-                            <div className="flex items-center gap-2 mb-1">
-                              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                                <IconComponent className="w-4 h-4 text-primary-foreground" />
-                              </div>
-                              <h4 className="font-bold text-foreground">{component.name}</h4>
+                        {'video' in component && component.video ? (
+                          <div className="p-4 pb-0">
+                            <p className="text-xs font-semibold text-primary mb-2 text-center tracking-wide uppercase">
+                              {component.videoTitle}
+                            </p>
+                            <div className="relative w-full rounded-lg overflow-hidden shadow-md" style={{ aspectRatio: '16/9' }}>
+                              <iframe
+                                src={component.video}
+                                title={component.videoTitle}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="absolute inset-0 w-full h-full rounded-lg"
+                              />
                             </div>
                           </div>
-                        </div>
+                        ) : (
+                          <div className="relative h-48 overflow-hidden">
+                            <img 
+                              src={component.img} 
+                              alt={component.name}
+                              loading="lazy"
+                              decoding="async"
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                            <div className="absolute bottom-3 left-3 right-3">
+                              <div className="flex items-center gap-2 mb-1">
+                                <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                                  <IconComponent className="w-4 h-4 text-primary-foreground" />
+                                </div>
+                                <h4 className="font-bold text-foreground">{component.name}</h4>
+                              </div>
+                            </div>
+                          </div>
+                        )}
                         <CardContent className="p-4">
                           <p className="text-sm text-muted-foreground mb-4">{component.desc}</p>
                           <Accordion type="single" collapsible className="w-full">
