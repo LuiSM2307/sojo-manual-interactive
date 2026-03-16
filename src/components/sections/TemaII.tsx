@@ -53,6 +53,8 @@ const TemaII = () => {
         name: "Mouse (Ratón)", 
         desc: "Limpieza externa, sensor y verificación de botones",
         img: mouseImg,
+        video: "https://www.youtube.com/embed/L209s64-w00?modestbranding=1&rel=0",
+        videoTitle: "Video Tutorial: Mantenimiento Preventivo del Mouse",
         guide: [
           "Desconectar mouse del equipo",
           "Limpiar superficie externa con paño húmedo con alcohol",
